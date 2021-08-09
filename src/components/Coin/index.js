@@ -1,8 +1,8 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import './coin.scss';
 
-const Coin = ({ id, name, image, symbol, current_price, market_cap, total_volume, price_change_percentage_24h, circulating_supply, market_cap_rank }) => (
+const Coin = ({ name, image, symbol, current_price, market_cap, total_volume, price_change_percentage_24h, circulating_supply, market_cap_rank }) => (
   <div className="coin">
     <p className="coin__header">
       #{market_cap_rank}
@@ -22,5 +22,17 @@ const Coin = ({ id, name, image, symbol, current_price, market_cap, total_volume
     <p className="coin__content">Circ supply: {circulating_supply}</p>
   </div>
 );
+
+Coin.propTypes = {
+  name: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
+  current_price: PropTypes.number.isRequired,
+  market_cap: PropTypes.number.isRequired,
+  total_volume: PropTypes.number.isRequired,
+  price_change_percentage_24h: PropTypes.number.isRequired,
+  circulating_supply: PropTypes.number.isRequired,
+  market_cap_rank: PropTypes.number.isRequired,
+}
 
 export default Coin;
