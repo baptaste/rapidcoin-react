@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './coin.scss';
 
 const Coin = ({ name, image, symbol, current_price, market_cap, total_volume, price_change_percentage_24h, circulating_supply, market_cap_rank }) => (
-  <div className="coin">
+  <article className="coin">
     <p className="coin__header">
       #{market_cap_rank}
       <img src={image} className="coin__header-img" />
@@ -20,7 +20,7 @@ const Coin = ({ name, image, symbol, current_price, market_cap, total_volume, pr
       </span>
     </p>
     <p className="coin__content">Circ supply: {circulating_supply}</p>
-  </div>
+  </article>
 );
 
 Coin.propTypes = {

@@ -1,16 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Coin from '../Coin';
 import './coins.scss';
 
-const Coins = ({ coins }) => (
+const Coins = ({ coins, getCoinId }) => (
   <main className="coins">
-    {coins.map((coin) => (
-      <Coin
+    {coins.map((coin) => {
+      const getCurrentCoinId = () => (
+        getCoinId(coin)
+      );
+      return (
+        <Link
         key={coin.id}
-        {...coin}
-      />
-    ))};
+        className="coins__link"
+        onClick={getCurrentCoinId}
+        to={`/coin/${coin.id}`}
+        >
+          <Coin
+            {...coin}
+          />
+      </Link>
+      );
+    })};
   </main>
 );
 

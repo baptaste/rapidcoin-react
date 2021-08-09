@@ -6,7 +6,12 @@ const mapStateToProps = (state) => ({
   coins: state.coins,
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = (dispatch) => ({
+  getCoinId: (coin) => {
+    const coinId = coin.id;
+    dispatch({ type: 'GET_COIN_ID', coinId: coinId });
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coins);
 
