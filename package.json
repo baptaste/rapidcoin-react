@@ -50,6 +50,9 @@
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.1",
+    "redux-devtools-extension": "^2.13.9"
   }
 }
