@@ -1,0 +1,41 @@
+@use 'src/styles/vars.scss';
+
+@media screen and (max-width: 700px) {
+  .coin {
+    height: auto;
+    width: 80%;
+    display: block;
+    margin-bottom: 1rem;
+    padding: 1em 2em;
+    background-color: vars.$secondary;
+    color: vars.$primary;
+    border-radius: 10px;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+
+      &-img {
+        width: 30px;
+        height: 30px;
+        display: block;
+        margin-left: 1em;
+      }
+    }
+
+    &__content {
+      margin-bottom: 1rem;
+
+      &--pos {
+        color: rgb(7, 201, 72);
+        padding-left: .5em;
+      }
+
+      &--neg {
+        color: rgb(226, 60, 19);
+        padding-left: .5em;
+      }
+    }
+  }
+}
