@@ -51,6 +51,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         filteredCoins: action.filteredCoins,
+        searchValue: '',
+      }
+    }
+    case 'RESET_FILTERED_COINS': {
+      return {
+        ...state,
+        filteredCoins: [],
       }
     }
     default:

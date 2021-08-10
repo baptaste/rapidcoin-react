@@ -17,13 +17,12 @@ const CoinPage = ({
   const history = useHistory();
 
   const handleGoBack = () => {
-    // history.push('/');
     history.goBack();
   };
 
   return (
     <section className="coin__page">
-       <button type="button" onClick={handleGoBack}>
+       <button type="button" className="goButton" onClick={handleGoBack}>
         Previous
       </button>
 

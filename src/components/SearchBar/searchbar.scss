@@ -1,0 +1,25 @@
+@use 'src/styles/vars.scss';
+
+.search {
+  position: relative;
+  width: 50%;
+  margin: 2rem auto;
+  background-color: vars.$primary;
+  // box-shadow: vars.$boxShadow;
+  // -webkit-box-shadow: vars.$webkit-boxShadow;
+
+  // input & search icon
+  &__input {
+    width: 100%;
+    padding: .5em 1em;
+    border: 1px solid vars.$secondary;
+    border-radius: 5px;
+  }
+
+  .fas.fa-search {
+    position: absolute;
+    top: 25%;
+    right: 5%;
+  }
+
+}

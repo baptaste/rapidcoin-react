@@ -10,3 +10,18 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
+
+.goButton {
+  background-color: vars.$alt;
+  color: vars.$primary;
+  margin: 1rem 1.3rem;
+  padding: .5em 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out;
+
+  &:hover {
+    background-color: rgba(0, 0, 255, .8);
+  }
+}

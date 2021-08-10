@@ -4,6 +4,7 @@ import Coins from 'src/components/Coins';
 
 const mapStateToProps = (state) => ({
   coins: state.coins,
+  filteredCoins: state.filteredCoins,
 });
 
 const mapDispatchToProps = (dispatch) => ({
