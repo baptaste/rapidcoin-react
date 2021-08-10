@@ -9,6 +9,9 @@ const initialState = {
   marketCap: 1, // number
   currentPrice: 1, // number
   coinId: null,
+  // searchbar
+  searchValue: '',
+  filteredCoins: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -22,10 +25,9 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_ONECOIN_SUCCESS': {
       return {
         ...state,
-        // PBs de undefined, tous des objects
-        coin: action.coin, // ici
-        marketData: action.marketData, // ici
-        image: action.image, // ici
+        coin: action.coin,
+        marketData: action.marketData,
+        image: action.image,
         description: action.description,
         website: action.website,
         volumeInADay: action.volumeInADay,
@@ -38,6 +40,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         coinId: action.coinId,
       };
+    }
+    case 'SET_INPUT_VALUE': {
+      return {
+        ...state,
+        searchValue: action.searchValue,
+      }
+    }
+    case 'GET_FILTERED_COINS_SUCCESS': {
+      return {
+        ...state,
+        filteredCoins: action.filteredCoins,
+      }
     }
     default:
       return state;

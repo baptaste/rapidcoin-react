@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage' // defaults to localStorage for 
 import reducer from './reducer';
 import coinsMiddleware from './middlewares/coinsMiddleware';
 import coinPageMiddleware from './middlewares/coinPageMiddleware';
+import searchMiddleware from './middlewares/searchMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,7 +18,7 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducer);
 
 const enhancers = composeEnhancers(
-  applyMiddleware(coinsMiddleware, coinPageMiddleware),
+  applyMiddleware(coinsMiddleware, coinPageMiddleware, searchMiddleware),
 );
 
 export const store = createStore(persistedReducer, enhancers);

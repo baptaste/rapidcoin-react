@@ -9,8 +9,8 @@ const Coin = ({ name, image, symbol, current_price, market_cap, total_volume, pr
       <img src={image} className="coin__header-img" />
     </p>
     <p className="coin__content">Name: {name}</p>
-    <p className="coin__content">Symbol: {symbol}</p>
-    <p className="coin__content">Price: {current_price} €</p>
+    <p className="coin__content">Symbol: {symbol.toUpperCase()}</p>
+    <p className="coin__content">Current Price: {current_price} €</p>
     <p className="coin__content">Market Cap: {market_cap} €</p>
     <p className="coin__content">Volume 24h: {total_volume} €</p>
     <p className="coin__content">
