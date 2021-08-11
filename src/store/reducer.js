@@ -12,6 +12,7 @@ const initialState = {
   // searchbar
   searchValue: '',
   filteredCoins: [],
+  isLoading: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -20,6 +21,7 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         coins: action.coins,
+        isLoading: false,
       };
     }
     case 'GET_ONECOIN_SUCCESS': {
@@ -33,6 +35,7 @@ const reducer = (state = initialState, action = {}) => {
         volumeInADay: action.volumeInADay,
         marketCap: action.marketCap,
         currentPrice: action.currentPrice,
+        isLoading: false,
       };
     }
     case 'GET_COIN_ID': {
@@ -52,6 +55,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         filteredCoins: action.filteredCoins,
         searchValue: '',
+        isLoading: false,
       }
     }
     case 'RESET_FILTERED_COINS': {

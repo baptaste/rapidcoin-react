@@ -6,7 +6,7 @@ const coinPageMiddleware = (store) => (next) => async (action) => {
         const foundCoin = findCoin(state.coins, state.coinId);
         // console.log('foundCoin in middleware: ', foundCoin);
         const coinId = foundCoin.id;
-
+        state.isLoading = true;
         try {
             const url = `https://api.coingecko.com/api/v3/coins/${coinId}`
             const res = await fetch(url);

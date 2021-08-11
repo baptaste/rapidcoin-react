@@ -7,8 +7,9 @@ import PropTypes from 'prop-types';
 import Coins from 'src/containers/Coins';
 import CoinPage from 'src/containers/CoinPage';
 import Header from 'src/components/Header';
+import Loading from 'src/components/Loading';
 
-const App = ({ getAllCoins, filteredCoins, resetFilteredCoins }) => {
+const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -23,20 +24,34 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins }) => {
     resetFilteredCoins();
   };
 
+  // if (isLoading) {
+  //   return <Loading />;
+  // }
+
   return (
     <div className="app">
       <Header resetFilter={resetFilteredCoins} />
 
       <Route exact path="/">
-        {filteredCoins.length !== 0 &&
-        <button type="button" className="goButton" onClick={handleGoToHome}>
-          Home
-        </button>}
-        <Coins />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+          {filteredCoins.length !== 0 &&
+            <button type="button" className="goButton" onClick={handleGoToHome}>
+              Home
+            </button>}
+            <Coins />
+          </>
+        )}
       </Route>
 
       <Route exact path="/coin/:id">
+      {isLoading ? (
+          <Loading />
+        ) : (
         <CoinPage />
+        )}
       </Route>
 
     </div>

@@ -13,6 +13,7 @@ const mapStateToProps = (state) => {
     volumeInADay: state.volumeInADay,
     marketCap: state.marketCap,
     currentPrice: state.currentPrice,
+    isLoading: state.isLoading,
   };
 };
 

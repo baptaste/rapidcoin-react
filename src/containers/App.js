@@ -3,6 +3,7 @@ import App from 'src/components/App';
 
 const mapStateToProps = (state) => ({
   filteredCoins: state.filteredCoins,
+  isLoading: state.isLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
