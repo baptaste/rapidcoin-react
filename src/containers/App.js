@@ -1,6 +1,10 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
 
+const mapStateToProps = (state) => ({
+  filteredCoins: state.filteredCoins,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   getAllCoins: () => {
     dispatch({ type: 'GET_COINS' });
@@ -10,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

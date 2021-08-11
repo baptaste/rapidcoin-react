@@ -1,25 +1,18 @@
 @use 'src/styles/vars.scss';
 
-.search {
-  position: relative;
-  width: 50%;
-  margin: 2rem auto;
+.form {
+  width: 25%;
   background-color: vars.$primary;
-  // box-shadow: vars.$boxShadow;
-  // -webkit-box-shadow: vars.$webkit-boxShadow;
 
-  // input & search icon
   &__input {
-    width: 100%;
-    padding: .5em 1em;
-    border: 1px solid vars.$secondary;
-    border-radius: 5px;
-  }
+    visibility: hidden;
 
-  .fas.fa-search {
-    position: absolute;
-    top: 25%;
-    right: 5%;
+    &--open {
+      visibility: visible;
+      padding: .5em 1em;
+      font-size: 1rem;
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 7px;
+    }
   }
-
 }

@@ -7,7 +7,7 @@
     display: block;
     margin: 0 auto 1rem auto;
     padding: 1em 2em;
-    background-color: vars.$whitegreen;
+    background-color: vars.$lightgreen;
     color: vars.$secondary;
     border: 1px solid vars.$secondary;
     border-radius: 10px;
@@ -18,10 +18,11 @@
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
+      // background-color: vars.$primary;
 
       &-img {
-        width: 30px;
-        height: 30px;
+        width: 50px;
+        height: 50px;
         display: block;
         margin-left: 1em;
       }

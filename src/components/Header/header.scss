@@ -1,0 +1,15 @@
+@use 'src/styles/vars.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  z-index: 1000;
+  width: 100%;
+  min-height: 70px;
+  padding: 1rem 2rem;
+  background-color: vars.$primary;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}

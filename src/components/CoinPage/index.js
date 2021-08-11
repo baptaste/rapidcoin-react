@@ -54,10 +54,12 @@ const CoinPage = ({
         <a href={website} target="_blank" className="coin__content">Official website: {website}</a>
       </article>
 
+  {cleanDescription ?
   <div className="coin__page__desc">
     <h2 className="coin__page__desc--title">About {coin.name}</h2>
     <p className="coin__page__desc--text">{cleanDescription}</p>
   </div>
+  : <p className="coin__page__desc--text">There is no description about {coin.name}</p> }
 
   </section>
   );

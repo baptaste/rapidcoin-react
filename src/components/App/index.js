@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 // Component
 import Coins from 'src/containers/Coins';
 import CoinPage from 'src/containers/CoinPage';
-import SearchBar from 'src/containers/SearchBar';
+import Header from 'src/components/Header';
 
-const App = ({ getAllCoins, resetFilteredCoins }) => {
+const App = ({ getAllCoins, filteredCoins, resetFilteredCoins }) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -25,13 +25,13 @@ const App = ({ getAllCoins, resetFilteredCoins }) => {
 
   return (
     <div className="app">
-
-      <SearchBar />
+      <Header resetFilter={resetFilteredCoins} />
 
       <Route exact path="/">
+        {filteredCoins.length !== 0 &&
         <button type="button" className="goButton" onClick={handleGoToHome}>
           Home
-        </button>
+        </button>}
         <Coins />
       </Route>
 
@@ -45,6 +45,7 @@ const App = ({ getAllCoins, resetFilteredCoins }) => {
 
 App.propTypes = {
   getAllCoins: PropTypes.func.isRequired,
+  filteredCoins: PropTypes.array.isRequired,
   resetFilteredCoins: PropTypes.func.isRequired,
 }
 
