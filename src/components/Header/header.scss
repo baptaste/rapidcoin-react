@@ -6,10 +6,19 @@
   align-items: center;
   position: sticky;
   top: 0px;
-  z-index: 1000;
+  z-index: 10;
   width: 100%;
   min-height: 70px;
   padding: 1rem 2rem;
   background-color: vars.$primary;
   border-bottom: 1px solid rgba(0,0,0,0.1);
+
+  &__menu-btn {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background: none;
+    appearance: none;
+    color: vars.$darkpurple;
+  }
 }

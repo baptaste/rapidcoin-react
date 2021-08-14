@@ -6,8 +6,6 @@ import './coins.scss';
 
 const Coins = ({ coins, getCoinId, filteredCoins }) => (
     <main className="coins">
-      {/* <h1>Welcome to rapidcoin</h1>
-      <p>Easy and fast way to find your cryptocurrency.</p> */}
       {/* all coins */}
       {filteredCoins.length === 0 &&
       coins.map((coin) => {

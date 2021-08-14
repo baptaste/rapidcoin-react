@@ -13,6 +13,7 @@ const initialState = {
   searchValue: '',
   filteredCoins: [],
   isLoading: false,
+  isMenuOpen: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -62,6 +63,12 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         filteredCoins: [],
+      }
+    }
+    case 'SET_IS_OPEN_MENU': {
+      return {
+        ...state,
+        isMenuOpen: !state.isMenuOpen,
       }
     }
     default:
