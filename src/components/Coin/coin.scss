@@ -45,3 +45,48 @@
     }
   }
 }
+
+@media screen and (min-width: 700px) {
+  .coin {
+    height: 100%;
+    width: 100%;
+    display: block;
+    padding: 1em 2em;
+    font-weight: 400;
+    background-color: vars.$lightgreen;
+    color: vars.$secondary;
+    border: 1px solid vars.$secondary;
+    border-radius: 10px;
+    box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      // background-color: vars.$primary;
+
+      &-img {
+        width: 50px;
+        height: 50px;
+        display: block;
+        margin-left: 1em;
+      }
+    }
+
+    &__content {
+      margin-bottom: 1.4rem;
+
+      &--pos {
+        color: rgb(7, 201, 72);
+        padding-left: .5em;
+      }
+
+      &--neg {
+        color: rgb(226, 60, 19);
+        padding-left: .5em;
+      }
+    }
+  }
+}

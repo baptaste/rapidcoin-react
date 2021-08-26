@@ -1,10 +1,11 @@
 import { findCoin } from 'src/selectors/coins';
 
 const coinPageMiddleware = (store) => (next) => async (action) => {
-  if (action.type === 'GET_ONECOIN') {
+  switch (action.type) {
+       case 'GET_ONECOIN': {
         const state = store.getState();
         const foundCoin = findCoin(state.coins, state.coinId);
-        // console.log('foundCoin in middleware: ', foundCoin);
+        console.log('foundCoin in coinPageMiddleware: ', foundCoin);
         const coinId = foundCoin.id;
         state.isLoading = true;
         try {
@@ -35,12 +36,17 @@ const coinPageMiddleware = (store) => (next) => async (action) => {
             });
 
             next(action);
+            break;
         } catch (err) {
-            console.error(err)
+                console.error(err)
         }
-    } else {
-    next(action);
-  }
+       }
+
+       default:
+        next(action);
+    }
+
 };
+
 
 export default coinPageMiddleware;

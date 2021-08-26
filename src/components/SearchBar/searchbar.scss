@@ -1,18 +1,47 @@
 @use 'src/styles/vars.scss';
 
-.form {
-  width: 40%;
-  background-color: vars.$primary;
+@media screen and (max-width: 700px) {
+  .form__container {
+    display: flex;
+  }
+  .form {
+    width: 75%;
+    background-color: vars.$primary;
 
-  &__input {
-    visibility: hidden;
+    &__input {
+      visibility: hidden;
 
-    &--open {
-      visibility: visible;
-      padding: .5em 1em;
-      font-size: 1rem;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 7px;
+      &--open {
+        visibility: visible;
+        padding: .5em 1em;
+        font-size: 1rem;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 7px;
+      }
     }
   }
 }
+
+@media screen and (min-width: 700px) {
+  .form__container {
+    display: flex;
+  }
+  .form {
+    width: 30%;
+    background-color: vars.$primary;
+
+    &__input {
+      visibility: hidden;
+
+      &--open {
+        visibility: visible;
+        padding: .5em 1em;
+        font-size: 1rem;
+        border: 1px solid rgba(0,0,0,0.1);
+        border-radius: 7px;
+        width: 100%;
+      }
+    }
+  }
+}
+

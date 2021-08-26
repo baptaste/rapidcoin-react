@@ -7,6 +7,43 @@
     align-items: center;
     padding: 1rem;
 
+    &__preview {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-settings {
+        display: flex;
+        width: 75%;
+        margin-bottom: 2rem;
+
+        &--title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-left: 2rem;
+        }
+
+        .goButton {
+          margin: 0;
+        }
+      }
+    }
+
+    &-item {
+      height: auto;
+      width: 100%;
+      display: block;
+      margin: 0 auto 1rem auto;
+      padding: 1em 2em;
+      font-weight: 400;
+      background-color: vars.$lightgreen;
+      color: vars.$secondary;
+      border: 1px solid vars.$secondary;
+      border-radius: 10px;
+      box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+    }
+
     &--title {
       margin: 1rem 0;
       font-size: 1.5rem;
@@ -20,6 +57,72 @@
         text-align: center;
         margin-bottom: 2rem;
         font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      &--text {
+        line-height: 1.5;
+        letter-spacing: 1.5px;
+      }
+    }
+  }
+}
+
+
+@media screen and (min-width: 700px) {
+  .coin__page {
+    width: 100%;
+    display: flex;
+    padding: 3rem 3rem 0 3rem;
+
+    &__preview {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-settings {
+        display: flex;
+        width: 75%;
+        margin-bottom: 2rem;
+
+        &--title {
+          font-size: 1.5rem;
+          font-weight: bold;
+          margin-left: 2rem;
+        }
+
+        .goButton {
+          margin: 0;
+        }
+      }
+    }
+
+    &-item {
+      height: auto;
+      width: 75%;
+      display: block;
+      margin: 0 auto 1rem auto;
+      padding: 1em 2em;
+      font-weight: 400;
+      background-color: vars.$lightgreen;
+      color: vars.$secondary;
+      border: 1px solid vars.$secondary;
+      border-radius: 10px;
+      box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+    }
+
+
+
+    &__desc {
+      // margin: 2rem 0;
+      width: 50%;
+
+      &--title {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        font-weight: bold;
       }
 
       &--text {

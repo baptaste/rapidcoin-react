@@ -13,18 +13,18 @@ const SearchBar = ({ searchValue, onSearchChange, onSearchSubmit, }) => {
   });
 
   return (
-    <>
-    <form onSubmit={onSearchSubmit} className="form">
-    <input
-      className={isOpen ? 'form__input--open' : 'form__input'}
-      ref={inputRef}
-      placeholder="Search crypto..."
-      value={searchValue}
-      onChange={(evt) => onSearchChange(evt.target.value)}
-      />
-    </form>
-    <i className="fas fa-search" onClick={toggleInput} />
-    </>
+    <div className="form__container">
+      <form onSubmit={onSearchSubmit} className="form">
+      <input
+        className={isOpen ? 'form__input form__input--open' : 'form__input'}
+        ref={inputRef}
+        placeholder="Search crypto..."
+        value={searchValue}
+        onChange={(evt) => onSearchChange(evt.target.value)}
+        />
+      </form>
+      <i className="fas fa-search" onClick={toggleInput} />
+    </div>
   );
 
 

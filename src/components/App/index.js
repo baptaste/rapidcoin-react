@@ -9,6 +9,10 @@ import CoinPage from 'src/containers/CoinPage';
 import Header from 'src/containers/Header';
 import Loading from 'src/components/Loading';
 import MobileMenu from 'src/containers/MobileMenu';
+import Trending from 'src/containers/Trending';
+
+import blockchain from 'src/assets/blockchain.svg';
+import './app.scss';
 
 const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
   const location = useLocation();
@@ -44,6 +48,7 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
             </button>}
           {filteredCoins.length === 0 &&
             <div className="app__desc">
+              <img src={blockchain} className="blockchain_img" alt="Blockchain" />
               <h1 className="app__desc--title">Welcome to Rapidcoin</h1>
               <p className="app__desc--content">
                 Rapidcoin is an easy and fast way to find your cryptocurrency,
@@ -61,6 +66,10 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
         ) : (
         <CoinPage />
         )}
+      </Route>
+
+      <Route exact path="/trending">
+          <Trending />
       </Route>
 
     </div>

@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   hideMenu: () => {
     dispatch({ type: 'SET_IS_OPEN_MENU' });
-  }
+  },
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MobileMenu);

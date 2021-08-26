@@ -14,6 +14,7 @@ const initialState = {
   filteredCoins: [],
   isLoading: false,
   isMenuOpen: false,
+  trendingCoins: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -45,6 +46,12 @@ const reducer = (state = initialState, action = {}) => {
         coinId: action.coinId,
       };
     }
+    case 'GET_TRENDING_COIN_ID': {
+      return {
+        ...state,
+        cointId: action.coinId,
+      }
+    }
     case 'SET_INPUT_VALUE': {
       return {
         ...state,
@@ -69,6 +76,13 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         isMenuOpen: !state.isMenuOpen,
+      }
+    }
+    case 'GET_TRENDING_COINS_SUCCESS': {
+      return {
+        ...state,
+        trendingCoins: action.trendingCoins,
+        // isLoading: false,
       }
     }
     default:

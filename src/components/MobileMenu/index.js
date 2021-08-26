@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './menu.scss';
 
 const MobileMenu = ({ isMenuOpen, hideMenu }) => (
@@ -9,7 +11,30 @@ const MobileMenu = ({ isMenuOpen, hideMenu }) => (
       onClick={hideMenu}>
       <i className="fas fa-times"></i>
     </button>
+    <nav className="menu__nav">
+    <Link to="/" className="menu__nav-link" onClick={hideMenu}>
+        Home
+      </Link>
+      <Link to="/" className="menu__nav-link" onClick={hideMenu}>
+        All coins
+      </Link>
+      <Link to="/trending" className="menu__nav-link" onClick={hideMenu}>
+        Trending
+      </Link>
+      <Link to="/" className="menu__nav-link" onClick={hideMenu}>
+        Finance platforms
+      </Link>
+      <Link to="/" className="menu__nav-link" onClick={hideMenu}>
+        Contact
+      </Link>
+    </nav>
+
   </div>
 );
+
+MobileMenu.propTypes = {
+  isMenuOpen: PropTypes.bool.isRequired,
+  hideMenu: PropTypes.func.isRequired,
+}
 
 export default MobileMenu;
