@@ -22,8 +22,9 @@ const SearchBar = ({ searchValue, onSearchChange, onSearchSubmit, }) => {
         value={searchValue}
         onChange={(evt) => onSearchChange(evt.target.value)}
         />
+        <i className="fas fa-search" onClick={toggleInput} />
       </form>
-      <i className="fas fa-search" onClick={toggleInput} />
+
     </div>
   );
 

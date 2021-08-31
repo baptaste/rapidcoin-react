@@ -58,6 +58,12 @@
     border: 1px solid vars.$secondary;
     border-radius: 10px;
     box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+    transition: all 200ms ease;
+
+    &:hover {
+      background-color: white;
+      border-radius: 0;
+    }
 
     &__header {
       display: flex;

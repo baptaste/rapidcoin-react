@@ -1,6 +1,6 @@
 const trendingMiddleware = (store) => (next) => async (action) => {
   if (action.type === 'GET_TENDING_COINS') {
-    const state = store.getState();
+    // const state = store.getState();
     // state.isLoading = true;
 
     try {

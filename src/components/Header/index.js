@@ -8,18 +8,21 @@ import './header.scss';
 
 const Header = ({ resetFilter, toggleIsMenuOpen }) => (
   <header className="header">
-    <Link
-      to="/"
-    >
+    <Link to="/">
       <img src={icon} className="rapidcoin__logo" onClick={resetFilter} />
     </Link>
-    <SearchBar />
-    <button
-      type="button"
-      className="header__menu-btn"
-      onClick={toggleIsMenuOpen}>
-      <i className="fas fa-bars"></i>
-    </button>
+    <div className="header__menu">
+      <SearchBar />
+      <Link to="/"  className="header__menu-desktopBtn">All Coins</Link>
+      <Link to="/trending"  className="header__menu-desktopBtn">Trending</Link>
+      <button
+        type="button"
+        className="header__menu-mobileBtn"
+        onClick={toggleIsMenuOpen}>
+          <i className="fas fa-bars" />
+      </button>
+    </div>
+
   </header>
 );
 

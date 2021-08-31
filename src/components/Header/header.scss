@@ -14,13 +14,24 @@
     background-color: vars.$primary;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 
-    &__menu-btn {
-      display: inline-block;
-      border: none;
-      cursor: pointer;
-      background: none;
-      appearance: none;
-      color: vars.$darkpurple;
+    &__menu {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &-mobileBtn {
+        display: inline-block;
+        border: none;
+        cursor: pointer;
+        background: none;
+        appearance: none;
+        color: vars.$darkpurple;
+      }
+
+      &-desktopBtn {
+        display: none;
+      }
     }
   }
 }
@@ -28,10 +39,10 @@
 @media screen and (min-width: 700px) {
   .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     position: sticky;
-    top: 0px;
+    top: 0;
     z-index: 10;
     width: 100%;
     min-height: 70px;
@@ -39,8 +50,15 @@
     background-color: vars.$primary;
     border-bottom: 1px solid rgba(0,0,0,0.1);
 
-    &__menu-btn {
-      display: none;
+    &__menu {
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      &-mobileBtn {
+        display: none;
+      }
     }
   }
 }
