@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import './trending.scss';
 
-const Trending = ({ getTrendingCoins, getCoinId, trendingCoins, getAllCoins, coins }) => {
+const Trending = ({ getTrendingCoins, getCoinId, trendingCoins, getAllCoins }) => {
 
   useEffect(() => {
     getTrendingCoins();

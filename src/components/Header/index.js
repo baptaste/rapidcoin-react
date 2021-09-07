@@ -15,6 +15,7 @@ const Header = ({ resetFilter, toggleIsMenuOpen }) => (
       <SearchBar />
       <Link to="/"  className="header__menu-desktopBtn">All Coins</Link>
       <Link to="/trending"  className="header__menu-desktopBtn">Trending</Link>
+      <Link to="/platforms"  className="header__menu-desktopBtn">Finance Platforms</Link>
       <button
         type="button"
         className="header__menu-mobileBtn"

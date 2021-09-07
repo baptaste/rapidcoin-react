@@ -15,18 +15,18 @@ const initialState = {
   isLoading: false,
   isMenuOpen: false,
   trendingCoins: [],
+  platforms: [],
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'GET_COINS_SUCCESS': {
+    case 'GET_COINS_SUCCESS':
       return {
         ...state,
         coins: action.coins,
         isLoading: false,
       };
-    }
-    case 'GET_ONECOIN_SUCCESS': {
+    case 'GET_ONECOIN_SUCCESS':
       return {
         ...state,
         coin: action.coin,
@@ -39,51 +39,48 @@ const reducer = (state = initialState, action = {}) => {
         currentPrice: action.currentPrice,
         isLoading: false,
       };
-    }
-    case 'GET_COIN_ID': {
+    case 'GET_COIN_ID':
       return {
         ...state,
         coinId: action.coinId,
       };
-    }
-    case 'GET_TRENDING_COIN_ID': {
+    case 'GET_TRENDING_COIN_ID':
       return {
         ...state,
         cointId: action.coinId,
       }
-    }
-    case 'SET_INPUT_VALUE': {
+    case 'SET_INPUT_VALUE':
       return {
         ...state,
         searchValue: action.searchValue,
       }
-    }
-    case 'GET_FILTERED_COINS_SUCCESS': {
+    case 'GET_FILTERED_COINS_SUCCESS':
       return {
         ...state,
         filteredCoins: action.filteredCoins,
         searchValue: '',
         isLoading: false,
       }
-    }
-    case 'RESET_FILTERED_COINS': {
+    case 'RESET_FILTERED_COINS':
       return {
         ...state,
         filteredCoins: [],
       }
-    }
-    case 'SET_IS_OPEN_MENU': {
+    case 'SET_IS_OPEN_MENU':
       return {
         ...state,
         isMenuOpen: !state.isMenuOpen,
       }
-    }
-    case 'GET_TRENDING_COINS_SUCCESS': {
+    case 'GET_TRENDING_COINS_SUCCESS':
       return {
         ...state,
         trendingCoins: action.trendingCoins,
         // isLoading: false,
       }
+    case 'GET_PLATFORMS_SUCCESS':
+    return {
+      ...state,
+      platforms: action.platforms,
     }
     default:
       return state;

@@ -8,6 +8,7 @@ import coinsMiddleware from './middlewares/coinsMiddleware';
 import coinPageMiddleware from './middlewares/coinPageMiddleware';
 import searchMiddleware from './middlewares/searchMiddleware';
 import trendingMiddleware from './middlewares/trendingMiddleware';
+import platformsMiddleware from './middlewares/platformsMiddleware';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -19,7 +20,13 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, reducer);
 
 const enhancers = composeEnhancers(
-  applyMiddleware(coinsMiddleware, coinPageMiddleware, searchMiddleware, trendingMiddleware),
+  applyMiddleware (
+    coinsMiddleware,
+    coinPageMiddleware,
+    searchMiddleware,
+    trendingMiddleware,
+    platformsMiddleware
+  ),
 );
 
 export const store = createStore(persistedReducer, enhancers);

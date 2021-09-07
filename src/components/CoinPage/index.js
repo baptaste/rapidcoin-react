@@ -57,7 +57,11 @@ const CoinPage = ({
           </p>
           <p className="coin__content">
           Circ supply: {marketData.circulating_supply}</p>
-          <a href={website} target="_blank" className="coin__content">Official website: {website}</a>
+          <p className="coin__content">
+            Official website:
+            <a href={website} target="_blank" className="coin__content--url"> {website}</a>
+          </p>
+
         </article>
       </div>
 

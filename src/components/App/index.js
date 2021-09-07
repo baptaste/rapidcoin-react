@@ -10,6 +10,7 @@ import Header from 'src/containers/Header';
 import Loading from 'src/components/Loading';
 import MobileMenu from 'src/containers/MobileMenu';
 import Trending from 'src/containers/Trending';
+import Platforms from 'src/containers/Platforms';
 
 import blockchain from 'src/assets/blockchain.svg';
 import './app.scss';
@@ -28,10 +29,6 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
   const handleGoToHome = () => {
     resetFilteredCoins();
   };
-
-  // if (isLoading) {
-  //   return <Loading />;
-  // }
 
   return (
     <div className="app">
@@ -61,7 +58,9 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
       <Route exact path="/trending">
         <Trending />
       </Route>
-
+      <Route exact path="/platforms">
+        <Platforms />
+      </Route>
     </div>
   );
 };

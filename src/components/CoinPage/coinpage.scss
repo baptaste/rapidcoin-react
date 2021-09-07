@@ -110,6 +110,13 @@
       border: 1px solid vars.$sixthColor;
       border-radius: 10px;
       box-shadow: vars.$secondColor 4px 4px 0px 0px;
+
+      .coin__content--url {
+        transition: color 200ms ease;
+        &:hover {
+          color: vars.$fourthColor;
+        }
+      }
     }
 
 
