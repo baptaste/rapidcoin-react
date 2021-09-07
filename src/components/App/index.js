@@ -38,38 +38,28 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
       <Header />
       <MobileMenu />
       <Route exact path="/">
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <>
-          {filteredCoins.length !== 0 &&
-            <button type="button" className="goButton" onClick={handleGoToHome}>
-              Home
-            </button>}
-          {filteredCoins.length === 0 &&
-            <div className="app__desc">
-              <img src={blockchain} className="blockchain_img" alt="Blockchain" />
-              <h1 className="app__desc--title">Welcome to Rapidcoin</h1>
-              <p className="app__desc--content">
-                Rapidcoin is an easy and fast way to find your cryptocurrency,
-                check world's current ranking, stats and learn about coins stories
-                </p>
-            </div>}
-            <Coins />
-          </>
-        )}
+        {filteredCoins.length !== 0 &&
+          <button type="button" className="goButton" onClick={handleGoToHome}>
+            Home
+          </button>}
+        {filteredCoins.length === 0 &&
+          <div className="app__desc">
+            <img src={blockchain} className="blockchain_img" alt="Blockchain" />
+            <h1 className="app__desc--title">Welcome to Rapidcoin</h1>
+            <p className="app__desc--content">
+              Rapidcoin is an easy and fast way to find your cryptocurrency,
+              check world's current ranking, stats and learn about coins stories
+              </p>
+          </div>}
+        {isLoading ? <Loading /> : <Coins />}
       </Route>
 
       <Route exact path="/coin/:id">
-      {isLoading ? (
-          <Loading />
-        ) : (
-        <CoinPage />
-        )}
+        {isLoading ? <Loading /> : <CoinPage />}
       </Route>
 
       <Route exact path="/trending">
-          <Trending />
+        <Trending />
       </Route>
 
     </div>

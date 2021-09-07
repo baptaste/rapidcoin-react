@@ -37,11 +37,11 @@
       margin: 0 auto 1rem auto;
       padding: 1em 2em;
       font-weight: 400;
-      background-color: vars.$lightgreen;
-      color: vars.$secondary;
-      border: 1px solid vars.$secondary;
+      background-color: vars.$firstColor;
+      color: vars.$sixthColor;
+      border: 1px solid vars.$sixthColor;
       border-radius: 10px;
-      box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+      box-shadow: vars.$secondColor 4px 4px 0px 0px;
     }
 
     &--title {
@@ -105,11 +105,11 @@
       margin: 0 auto 1rem auto;
       padding: 1em 2em;
       font-weight: 400;
-      background-color: vars.$lightgreen;
-      color: vars.$secondary;
-      border: 1px solid vars.$secondary;
+      background-color: vars.$firstColor;
+      color: vars.$sixthColor;
+      border: 1px solid vars.$sixthColor;
       border-radius: 10px;
-      box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+      box-shadow: vars.$secondColor 4px 4px 0px 0px;
     }
 
 

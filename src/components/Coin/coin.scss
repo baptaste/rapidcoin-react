@@ -8,11 +8,11 @@
     margin: 0 auto 1rem auto;
     padding: 1em 2em;
     font-weight: 400;
-    background-color: vars.$lightgreen;
-    color: vars.$secondary;
-    border: 1px solid vars.$secondary;
+    background-color: vars.$firstColor;
+    color: vars.$sixthColor;
+    border: 1px solid vars.$sixthColor;
     border-radius: 10px;
-    box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+    box-shadow: vars.$secondColor 4px 4px 0px 0px;
 
     &__header {
       display: flex;
@@ -20,7 +20,7 @@
       justify-content: center;
       margin-bottom: 1rem;
       font-weight: bold;
-      // background-color: vars.$primary;
+      // background-color: vars.$fifthColor;
 
       &-img {
         width: 50px;
@@ -53,11 +53,11 @@
     display: block;
     padding: 1em 2em;
     font-weight: 400;
-    background-color: vars.$lightgreen;
-    color: vars.$secondary;
-    border: 1px solid vars.$secondary;
+    background-color: vars.$firstColor;
+    color: vars.$sixthColor;
+    border: 1px solid vars.$sixthColor;
     border-radius: 10px;
-    box-shadow: vars.$lightpurple 4px 4px 0px 0px;
+    box-shadow: vars.$secondColor 4px 4px 0px 0px;
     transition: all 200ms ease;
 
     &:hover {
@@ -71,7 +71,7 @@
       justify-content: center;
       margin-bottom: 1rem;
       font-weight: bold;
-      // background-color: vars.$primary;
+      // background-color: vars.$fifthColor;
 
       &-img {
         width: 50px;

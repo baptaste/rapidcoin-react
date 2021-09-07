@@ -33,13 +33,13 @@ body {
 @media screen and (min-width: 700px) {
   .blockchain_img {
     display: block;
+    width: 1300px;
     height: 1300px;
     left: -30%;
     margin: 0 auto;
     opacity: .1;
     position: absolute;
     top: -500%;
-    width: 1300px;
     z-index: -1;
     animation: rotating 150s linear infinite;
     -webkit-animation: rotating 150s linear infinite;
@@ -53,6 +53,7 @@ body {
     margin: 4rem 0;
     padding: 0 3rem;
     text-align: center;
+    overflow-x: clip;
 
     &--title {
       font-size: 2.3rem;
@@ -64,7 +65,7 @@ body {
     &--content {
       font-size: 1.3rem;
       line-height: 1.2;
-      color: rgb(102, 102, 102);
+      color: vars.$seventhColor;
     }
   }
 }
@@ -75,6 +76,7 @@ body {
     margin: 9rem 0;
     padding: 0 3rem;
     text-align: center;
+    overflow-x: clip;
 
     &--title {
       font-size: 2.3rem;
@@ -88,14 +90,14 @@ body {
       margin: 0 auto;
       font-size: 1.3rem;
       line-height: 1.2;
-      color: rgb(102, 102, 102);
+      color: vars.$seventhColor;
     }
   }
 }
 
 .goButton {
-  background-color: vars.$alt;
-  color: vars.$primary;
+  background-color: vars.$fourthColor;
+  color: vars.$fifthColor;
   margin: 1rem 1.3rem;
   padding: .5em 1em;
   border: none;
@@ -115,7 +117,7 @@ body {
 
 // loader
 .loader {
-  width: 15%;
+  width: fit-content;
   margin: 1rem auto;
 }
 
@@ -131,11 +133,12 @@ body {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid vars.$darkpurple;
-  border-color: vars.$darkpurple transparent vars.$darkpurple transparent;
+  border: 6px solid vars.$thirdColor;
+  border-color: vars.$thirdColor transparent vars.$thirdColor transparent;
   animation: rotating 1.2s linear infinite;
   -webkit-animation: rotating 1.2s linear infinite;
 }
+
 @keyframes rotating {
   0% {
     transform: rotate(0deg);
