@@ -21,7 +21,7 @@ const MobileMenu = ({ isMenuOpen, hideMenu }) => (
       <Link to="/trending" className="menu__nav-link" onClick={hideMenu}>
         Trending
       </Link>
-      <Link to="/" className="menu__nav-link" onClick={hideMenu}>
+      <Link to="/platforms" className="menu__nav-link" onClick={hideMenu}>
         Finance platforms
       </Link>
       <Link to="/" className="menu__nav-link" onClick={hideMenu}>

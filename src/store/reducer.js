@@ -20,12 +20,15 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'GET_COINS_SUCCESS':
+    case 'GET_COINS_SUCCESS': {
+      console.log('ETRANGE : je passe dans GET_COINS_SUCCESS dans le REDUCER');
       return {
         ...state,
         coins: action.coins,
         isLoading: false,
       };
+    }
+
     case 'GET_ONECOIN_SUCCESS':
       return {
         ...state,
@@ -71,12 +74,15 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         isMenuOpen: !state.isMenuOpen,
       }
-    case 'GET_TRENDING_COINS_SUCCESS':
+    case 'GET_TRENDING_COINS_SUCCESS': {
+      console.log('je passe dans GET_TRENDING_COINS_SUCCESS dans le REDUCER');
       return {
         ...state,
         trendingCoins: action.trendingCoins,
         // isLoading: false,
       }
+    }
+
     case 'GET_PLATFORMS_SUCCESS':
     return {
       ...state,
