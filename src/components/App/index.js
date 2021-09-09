@@ -9,7 +9,8 @@ import CoinPage from 'src/containers/CoinPage';
 import Header from 'src/containers/Header';
 import Loading from 'src/components/Loading';
 import MobileMenu from 'src/containers/MobileMenu';
-import Trending from 'src/containers/Trending';
+import Trendings from 'src/containers/Trendings';
+// import Trend from 'src/containers/Trend';
 import Platforms from 'src/containers/Platforms';
 
 import blockchain from 'src/assets/blockchain.svg';
@@ -50,16 +51,14 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
           </div>}
         {isLoading ? <Loading /> : <Coins />}
       </Route>
-
       <Route exact path="/coin/:id">
         {isLoading ? <Loading /> : <CoinPage />}
       </Route>
-
-      <Route exact path="/trending">
-        <Trending />
+      <Route exact path="/trendings">
+        {isLoading ? <Loading /> : <Trendings />}
       </Route>
       <Route exact path="/platforms">
-        <Platforms />
+        {isLoading ? <Loading /> : <Platforms />}
       </Route>
     </div>
   );
@@ -69,6 +68,7 @@ App.propTypes = {
   getAllCoins: PropTypes.func.isRequired,
   filteredCoins: PropTypes.array.isRequired,
   resetFilteredCoins: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 }
 
 export default App;

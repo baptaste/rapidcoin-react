@@ -1,3 +1,5 @@
+import { findCoin } from 'src/selectors/coins';
+
 const initialState = {
   coins: [], // array
   coin: {}, // object
@@ -20,15 +22,12 @@ const initialState = {
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'GET_COINS_SUCCESS': {
-      console.log('ETRANGE : je passe dans GET_COINS_SUCCESS dans le REDUCER');
+    case 'GET_COINS_SUCCESS':
       return {
         ...state,
         coins: action.coins,
         isLoading: false,
       };
-    }
-
     case 'GET_ONECOIN_SUCCESS':
       return {
         ...state,
@@ -50,7 +49,7 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_TRENDING_COIN_ID':
       return {
         ...state,
-        cointId: action.coinId,
+        coinId: action.coinId,
       }
     case 'SET_INPUT_VALUE':
       return {
@@ -74,20 +73,18 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         isMenuOpen: !state.isMenuOpen,
       }
-    case 'GET_TRENDING_COINS_SUCCESS': {
-      console.log('je passe dans GET_TRENDING_COINS_SUCCESS dans le REDUCER');
+    case 'GET_TRENDING_COINS_SUCCESS':
       return {
         ...state,
         trendingCoins: action.trendingCoins,
-        // isLoading: false,
+        isLoading: false,
       }
-    }
-
     case 'GET_PLATFORMS_SUCCESS':
-    return {
-      ...state,
-      platforms: action.platforms,
-    }
+      return {
+        ...state,
+        platforms: action.platforms,
+        isLoading: false,
+      }
     default:
       return state;
   }

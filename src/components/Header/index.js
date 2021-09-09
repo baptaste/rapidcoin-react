@@ -8,14 +8,14 @@ import './header.scss';
 
 const Header = ({ resetFilter, toggleIsMenuOpen }) => (
   <header className="header">
-    <Link exact to="/">
+    <Link to="/">
       <img src={icon} className="rapidcoin__logo" onClick={resetFilter} />
     </Link>
     <div className="header__menu">
       <SearchBar />
-      <Link exact to="/"  className="header__menu-desktopBtn">All Coins</Link>
-      <Link exact to="/trending"  className="header__menu-desktopBtn">Trending</Link>
-      <Link exact to="/platforms"  className="header__menu-desktopBtn">Finance Platforms</Link>
+      <Link to="/"  className="header__menu-desktopBtn">All Coins</Link>
+      <Link to="/trendings"  className="header__menu-desktopBtn">Trending</Link>
+      <Link to="/platforms"  className="header__menu-desktopBtn">Finance Platforms</Link>
       <button
         type="button"
         className="header__menu-mobileBtn"

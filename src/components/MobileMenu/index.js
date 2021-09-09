@@ -18,8 +18,8 @@ const MobileMenu = ({ isMenuOpen, hideMenu }) => (
       <Link to="/" className="menu__nav-link" onClick={hideMenu}>
         All coins
       </Link>
-      <Link to="/trending" className="menu__nav-link" onClick={hideMenu}>
-        Trending
+      <Link to="/trendings" className="menu__nav-link" onClick={hideMenu}>
+        Trendings
       </Link>
       <Link to="/platforms" className="menu__nav-link" onClick={hideMenu}>
         Finance platforms

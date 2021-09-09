@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import Trending from 'src/components/Trending';
+import Trendings from 'src/components/Trendings';
 
 const mapStateToProps = (state) => ({
   trendingCoins: state.trendingCoins,
@@ -16,4 +16,4 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Trending);
+export default connect(mapStateToProps, mapDispatchToProps)(Trendings);
