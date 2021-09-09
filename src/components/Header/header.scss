@@ -72,3 +72,13 @@
     }
   }
 }
+
+.fas.fa-coins {
+  font-size: 2.3rem;
+  font-weight: 100;
+  color: vars.$thirdColor;
+  transition: color 200ms ease;
+  &:hover {
+    color: vars.$fourthColor;
+  }
+}

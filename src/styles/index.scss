@@ -8,6 +8,10 @@
 
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   // font-family: 'Roboto', sans-serif;
   // font-family: 'Bevellier', sans-serif;
@@ -95,10 +99,12 @@ body {
   }
 }
 
+
 .goButton {
   background-color: vars.$fourthColor;
   color: vars.$fifthColor;
-  margin: 1rem 1.3rem;
+  // margin: 1rem 1.3rem;
+  margin: 1rem 1.3rem 1rem 7rem;
   padding: .5em 1em;
   border: none;
   border-radius: 5px;
@@ -110,10 +116,16 @@ body {
   }
 }
 
-.rapidcoin__logo {
-  width: 30px;
-  height: 30px;
+@media screen and (max-width: 700px) {
+  .goButton {
+    margin: 1rem 1.3rem;
+  }
 }
+
+// .rapidcoin__logo {
+//   width: 30px;
+//   height: 30px;
+// }
 
 // loader
 .loader {

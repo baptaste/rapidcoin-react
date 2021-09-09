@@ -12,14 +12,16 @@ const searchMiddleware = (store) => (next) => async (action) => {
       };
       const coins = await res.json();
 
-      const filteredCoins = coins.filter((coin) =>
-          coin.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      const filteredCoins = coins.filter((coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase()));
+
+      const successMsg = `Results for ${searchQuery} :`;
+      const errorMsg = `Sorry, there are no results for ${searchQuery}.`;
 
       if (filteredCoins.length === 0) {
-        return
+        store.dispatch({ type: 'GET_FILTERED_COINS_ERROR', errorMsg: errorMsg });
       }
-      console.log('SUCCESS, filteredCoins :', filteredCoins);
-      store.dispatch({ type: 'GET_FILTERED_COINS_SUCCESS', filteredCoins: filteredCoins });
+
+      store.dispatch({ type: 'GET_FILTERED_COINS_SUCCESS', filteredCoins: filteredCoins, successMsg });
 
     } catch (err) {
       console.error(err)

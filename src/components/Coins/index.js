@@ -4,46 +4,55 @@ import PropTypes from 'prop-types';
 import Coin from '../Coin';
 import './coins.scss';
 
-const Coins = ({ coins, getCoinId, filteredCoins }) => (
-    <main className="coins">
-      {/* all coins */}
-      {filteredCoins.length === 0 &&
-      coins.map((coin) => {
-        const getCurrentCoinId = () => (
-          getCoinId(coin)
-        );
-        return (
-          <Link
-          key={coin.id}
-          className="coins__link"
-          onClick={getCurrentCoinId}
-          to={`/coin/${coin.id}`}
-          >
-            <Coin
-              {...coin}
-            />
-        </Link>
-        );
-      })}
-      {/* filtered coins */}
-      {filteredCoins.length !== 0 &&
-      filteredCoins.map((coin) => {
-        const getCurrentCoinId = () => (
-          getCoinId(coin)
-        );
-        return (
-          <Link
-          key={coin.id}
-          className="coins__link"
-          onClick={getCurrentCoinId}
-          to={`/coin/${coin.id}`}
-          >
-            <Coin
-              {...coin}
-            />
-        </Link>
-        );
-      })}
+const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg }) => (
+    <main className="home">
+      <div className="results__msgField">
+        {filteredCoins.length !== 0 ? (
+          <p className="results__msgField--success">{successMsg}</p>
+        ) : (<p className="results__msgField--error">{errorMsg}</p>)}
+      </div>
+
+      <div className="coins">
+        {/* all coins */}
+        {filteredCoins.length === 0 &&
+        coins.map((coin) => {
+          const getCurrentCoinId = () => (
+            getCoinId(coin)
+          );
+          return (
+            <Link
+            key={coin.id}
+            className="coins__link"
+            onClick={getCurrentCoinId}
+            to={`/coin/${coin.id}`}
+            >
+              <Coin
+                {...coin}
+              />
+          </Link>
+          );
+        })}
+        {/* filtered coins */}
+        {filteredCoins.length !== 0 &&
+        filteredCoins.map((coin) => {
+          const getCurrentCoinId = () => (
+            getCoinId(coin)
+          );
+          return (
+            <Link
+            key={coin.id}
+            className="coins__link"
+            onClick={getCurrentCoinId}
+            to={`/coin/${coin.id}`}
+            >
+              <Coin
+                {...coin}
+              />
+          </Link>
+          );
+        })}
+      </div>
+
 
   </main>
 );

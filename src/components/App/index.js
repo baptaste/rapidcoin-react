@@ -38,7 +38,7 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
       <Route exact path="/">
         {filteredCoins.length !== 0 &&
           <button type="button" className="goButton" onClick={handleGoToHome}>
-            Home
+            <i className="fas fa-arrow-left" />
           </button>}
         {filteredCoins.length === 0 &&
           <div className="app__desc">

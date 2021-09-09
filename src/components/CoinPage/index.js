@@ -29,7 +29,7 @@ const CoinPage = ({
       <div className="coin__page__preview">
         <div className="coin__page__preview-settings">
           <button type="button" className="goButton" onClick={handleGoBack}>
-            Previous
+          <i className="fas fa-arrow-left" />
           </button>
           <h1 className="coin__page__preview-settings--title">{coin.name}</h1>
         </div>

@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import SearchBar from 'src/containers/SearchBar';
-import icon from 'src/assets/icon.png';
+// import icon from 'src/assets/icon.png';
 import './header.scss';
 
 const Header = ({ resetFilter, toggleIsMenuOpen }) => (
   <header className="header">
     <Link to="/">
-      <img src={icon} className="rapidcoin__logo" onClick={resetFilter} />
+      {/* <img src={icon} className="rapidcoin__logo" onClick={resetFilter} /> */}
+      <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} />
     </Link>
     <div className="header__menu">
       <SearchBar />

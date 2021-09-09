@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import './platforms.scss';
 
 const Platforms = ({ getPlatforms, platforms }) => {
@@ -6,8 +7,20 @@ const Platforms = ({ getPlatforms, platforms }) => {
     getPlatforms();
   }, []);
 
+  const history = useHistory();
+
+  const handleGoBack = () => {
+    history.goBack();
+  };
+
   return (
-    <div className="platforms">
+    <section className="platforms">
+      <button type="button" className="goButton goButton__platforms" onClick={handleGoBack}>
+        <i className="fas fa-arrow-left" />
+        </button>
+        <h1 className="platforms__title">Finance Platforms</h1>
+
+      <div className="platforms__container">
       {platforms.map((p) => (
         <ul className="platforms-list" key={p.name} >
           <li className="platform-item platform-name">{p.name}</li>
@@ -20,7 +33,9 @@ const Platforms = ({ getPlatforms, platforms }) => {
           </li>
         </ul>
       ))}
-    </div>
+      </div>
+
+    </section>
   )
 }
 

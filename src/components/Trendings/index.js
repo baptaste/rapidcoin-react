@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-// import Trend from '../Trend';
 import './trending.scss';
 
 const Trendings = ({ getTrendingCoins, getCoinId, trendingCoins }) => {
@@ -20,7 +19,7 @@ const Trendings = ({ getTrendingCoins, getCoinId, trendingCoins }) => {
   return (
     <section className="trending">
        <button type="button" className="goButton goButton__trending" onClick={handleGoBack}>
-            Previous
+          <i className="fas fa-arrow-left" />
         </button>
         <h1 className="trending__title">Top {trendingCoins.length} daily trending coins (Ordered by most popular first)</h1>
 

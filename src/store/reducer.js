@@ -13,6 +13,8 @@ const initialState = {
   coinId: null,
   // searchbar
   searchValue: '',
+  successMsg: '',
+  errorMsg: '',
   filteredCoins: [],
   isLoading: false,
   isMenuOpen: false,
@@ -60,13 +62,21 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         filteredCoins: action.filteredCoins,
+        successMsg: action.successMsg,
         searchValue: '',
         isLoading: false,
       }
+    case 'GET_FILTERED_COINS_ERROR':
+    return {
+      ...state,
+      errorMsg: action.errorMsg,
+    }
     case 'RESET_FILTERED_COINS':
       return {
         ...state,
         filteredCoins: [],
+        successMsg: '',
+        errorMsg: '',
       }
     case 'SET_IS_OPEN_MENU':
       return {
