@@ -77,7 +77,7 @@ CoinPage.propTypes = {
   coin: PropTypes.shape({
     name: PropTypes.string.isRequired,
     symbol: PropTypes.string.isRequired,
-    genesis_date: PropTypes.string.isRequired,
+    genesis_date: PropTypes.string,
   }).isRequired,
   marketData: PropTypes.shape({
     market_cap_change_percentage_24h: PropTypes.number.isRequired,
@@ -91,6 +91,11 @@ CoinPage.propTypes = {
   volumeInADay: PropTypes.number.isRequired,
   marketCap: PropTypes.number.isRequired,
   currentPrice: PropTypes.number.isRequired,
+};
+
+
+CoinPage.defaultProps = {
+  genesis_date: '',
 };
 
 export default CoinPage;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import SearchBar from 'src/containers/SearchBar';
@@ -16,9 +16,9 @@ const Header = ({ resetFilter, toggleIsMenuOpen }) => {
     </Link>
     <div className="header__menu">
       {location.pathname === '/' && <SearchBar />}
-      <Link to="/"  className="header__menu-desktopBtn">All Coins</Link>
-      <Link to="/trendings"  className="header__menu-desktopBtn">Trending</Link>
-      <Link to="/platforms"  className="header__menu-desktopBtn">Finance Platforms</Link>
+      <NavLink exact to="/"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">All Coins</NavLink>
+      <NavLink exact to="/trendings"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Trending</NavLink>
+      <NavLink exact to="/platforms"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Finance Platforms</NavLink>
       <button
         type="button"
         className="header__menu-mobileBtn"

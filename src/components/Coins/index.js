@@ -2,15 +2,43 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Coin from '../Coin';
+import blockchain from 'src/assets/blockchain.svg';
 import './coins.scss';
 
-const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg }) => (
+const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins }) => {
+  const handleGoToHome = () => {
+    resetFilteredCoins();
+  };
+  return (
     <main className="home">
-      <div className="results__msgField">
-        {filteredCoins.length !== 0 ? (
-          <p className="results__msgField--success">{successMsg}</p>
-        ) : (<p className="results__msgField--error">{errorMsg}</p>)}
-      </div>
+      {filteredCoins.length !== 0 &&
+        <div className="app__desc">
+          <img src={blockchain} className="blockchain_img" alt="Blockchain" />
+          <button type="button" className="goButton goButton__home" onClick={handleGoToHome}>
+                <i className="fas fa-arrow-left" />
+          </button>
+          <div className="results__msgField">
+              <p className="results__msgField--success">{successMsg}</p>
+          </div>
+        </div>}
+
+        {filteredCoins.length === 0 &&
+          <div className="app__desc">
+            <img src={blockchain} className="blockchain_img" alt="Blockchain" />
+            {errorMsg ? (
+               <div className="results__msgField">
+               <p className="results__msgField--error">{errorMsg}</p>
+             </div>
+            ) : (
+              <>
+              <h1 className="app__desc--title">Welcome to Rapidcoin</h1>
+              <p className="app__desc--content">
+                Rapidcoin is an easy and fast way to find your cryptocurrency,
+                check world's current ranking, stats and learn about coins stories
+                </p>
+              </>
+            )}
+          </div>}
 
       <div className="coins">
         {/* all coins */}
@@ -52,10 +80,10 @@ const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg }) => (
           );
         })}
       </div>
-
-
   </main>
-);
+  );
+
+};
 
 
 Coins.propTypes = {
@@ -73,6 +101,15 @@ Coins.propTypes = {
       market_cap_rank: PropTypes.number.isRequired,
     }).isRequired,
   ).isRequired,
+  filteredCoins: PropTypes.array.isRequired,
+  resetFilteredCoins: PropTypes.func.isRequired,
+  successMsg: PropTypes.string,
+  errorMsg: PropTypes.string,
+};
+
+Coins.defaultProps = {
+  successMsg: '',
+  errorMsg: '',
 };
 
 export default Coins;

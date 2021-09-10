@@ -10,13 +10,11 @@ import Header from 'src/containers/Header';
 import Loading from 'src/components/Loading';
 import MobileMenu from 'src/containers/MobileMenu';
 import Trendings from 'src/containers/Trendings';
-// import Trend from 'src/containers/Trend';
 import Platforms from 'src/containers/Platforms';
 
-import blockchain from 'src/assets/blockchain.svg';
 import './app.scss';
 
-const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
+const App = ({ getAllCoins, isLoading }) => {
   const location = useLocation();
 
   useEffect(() => {
@@ -27,28 +25,11 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
     window.scroll(0, 0);
   }, [location]);
 
-  const handleGoToHome = () => {
-    resetFilteredCoins();
-  };
-
   return (
     <div className="app">
       <Header />
       <MobileMenu />
       <Route exact path="/">
-        {filteredCoins.length !== 0 &&
-          <button type="button" className="goButton" onClick={handleGoToHome}>
-            <i className="fas fa-arrow-left" />
-          </button>}
-        {filteredCoins.length === 0 &&
-          <div className="app__desc">
-            <img src={blockchain} className="blockchain_img" alt="Blockchain" />
-            <h1 className="app__desc--title">Welcome to Rapidcoin</h1>
-            <p className="app__desc--content">
-              Rapidcoin is an easy and fast way to find your cryptocurrency,
-              check world's current ranking, stats and learn about coins stories
-              </p>
-          </div>}
         {isLoading ? <Loading /> : <Coins />}
       </Route>
       <Route exact path="/coin/:id">
@@ -66,8 +47,6 @@ const App = ({ getAllCoins, filteredCoins, resetFilteredCoins, isLoading }) => {
 
 App.propTypes = {
   getAllCoins: PropTypes.func.isRequired,
-  filteredCoins: PropTypes.array.isRequired,
-  resetFilteredCoins: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
 }
 

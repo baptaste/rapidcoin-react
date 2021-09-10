@@ -13,7 +13,10 @@ const mapDispatchToProps = (dispatch) => ({
   getCoinId: (coin) => {
     const coinId = coin.id;
     dispatch({ type: 'GET_COIN_ID', coinId: coinId });
-  }
+  },
+  resetFilteredCoins: () => {
+    dispatch({ type: 'RESET_FILTERED_COINS' });
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coins);

@@ -65,6 +65,10 @@
         &:hover {
           color: vars.$fourthColor;
         }
+
+        &--active {
+          color: vars.$fourthColor;
+        }
       }
 
       &-mobileBtn {
