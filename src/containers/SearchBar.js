@@ -4,8 +4,6 @@ import SearchBar from 'src/components/SearchBar';
 
 const mapStateToProps = (state) => ({
   searchValue: state.searchValue,
-  filteredCoins: state.filteredCoins,
-  coin: state.coin,
 });
 
 const mapDispatchToProps = (dispatch) => ({

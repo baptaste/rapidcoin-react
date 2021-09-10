@@ -1,19 +1,21 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import SearchBar from 'src/containers/SearchBar';
 // import icon from 'src/assets/icon.png';
 import './header.scss';
 
-const Header = ({ resetFilter, toggleIsMenuOpen }) => (
-  <header className="header">
+const Header = ({ resetFilter, toggleIsMenuOpen }) => {
+  const location = useLocation();
+
+  return (
+    <header className="header">
     <Link to="/">
-      {/* <img src={icon} className="rapidcoin__logo" onClick={resetFilter} /> */}
       <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} />
     </Link>
     <div className="header__menu">
-      <SearchBar />
+      {location.pathname === '/' && <SearchBar />}
       <Link to="/"  className="header__menu-desktopBtn">All Coins</Link>
       <Link to="/trendings"  className="header__menu-desktopBtn">Trending</Link>
       <Link to="/platforms"  className="header__menu-desktopBtn">Finance Platforms</Link>
@@ -26,7 +28,10 @@ const Header = ({ resetFilter, toggleIsMenuOpen }) => (
     </div>
 
   </header>
-);
+  );
+};
+
+
 
 Header.propTypes = {
   resetFilter: PropTypes.func.isRequired,

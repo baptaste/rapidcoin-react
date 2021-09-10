@@ -29,8 +29,8 @@ body {
     left: -60%;
     z-index: -1;
     opacity: 0.1;
-    animation: rotating infinite linear 100s;
-    -webkit-animation: rotating infinite linear 100s;
+    animation: rotating infinite linear 300s;
+    -webkit-animation: rotating infinite linear 300s;
   }
 }
 
@@ -45,8 +45,8 @@ body {
     position: absolute;
     top: -500%;
     z-index: -1;
-    animation: rotating 150s linear infinite;
-    -webkit-animation: rotating 150s linear infinite;
+    animation: rotating 300s linear infinite;
+    -webkit-animation: rotating 300s linear infinite;
   }
 }
 
@@ -122,11 +122,6 @@ body {
   }
 }
 
-// .rapidcoin__logo {
-//   width: 30px;
-//   height: 30px;
-// }
-
 // loader
 .loader {
   width: fit-content;
@@ -162,6 +157,6 @@ body {
 
 // fontawesome icons
 .fa, .fas {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 400;
 }

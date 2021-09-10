@@ -3,6 +3,7 @@ import { findCoin } from 'src/selectors/coins';
 const coinPageMiddleware = (store) => (next) => async (action) => {
   switch (action.type) {
        case 'GET_ONECOIN': {
+           console.log('je passe bien dans le GET_ONECOIN du middleware');
         const state = store.getState();
         const foundCoin = findCoin(state.coins, state.coinId);
         console.log('foundCoin in coinPageMiddleware: ', foundCoin);
@@ -15,7 +16,7 @@ const coinPageMiddleware = (store) => (next) => async (action) => {
                 throw new Error('Error, request failed');
             };
             const coinData = await res.json();
-
+            console.log('coinData/response de lapi:', coinData);
             const market_data = coinData.market_data;
             const current_price = coinData.market_data.current_price.eur;
             const market_cap = coinData.market_data.market_cap.eur;

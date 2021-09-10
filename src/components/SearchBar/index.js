@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useHistory } from "react-router-dom";
 import PropTypes from 'prop-types';
 
 import './searchbar.scss';
 
-const SearchBar = ({ searchValue, onSearchChange, onSearchSubmit, filteredCoins, coin }) => {
+const SearchBar = ({ searchValue, onSearchChange, onSearchSubmit }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleInput = () => setIsOpen(!isOpen);
   const inputRef = useRef(null);
@@ -13,21 +12,13 @@ const SearchBar = ({ searchValue, onSearchChange, onSearchSubmit, filteredCoins,
     inputRef.current.focus();
   });
 
-  const history = useHistory();
-
-  useEffect(() => {
-    // in order to force redirect towards results page
-    // if a new research just happened (when filteredCoins[0] has changed)
-    if (filteredCoins[0] !== coin) history.goBack();
-  }, [filteredCoins[0]]);
-
   return (
     <div className="form__container">
       <form onSubmit={onSearchSubmit} className="form">
       <input
         className={isOpen ? 'form__input form__input--open' : 'form__input'}
         ref={inputRef}
-        placeholder="Search crypto..."
+        placeholder="Search crypto"
         value={searchValue}
         onChange={(evt) => onSearchChange(evt.target.value)}
         />
