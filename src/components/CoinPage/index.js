@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import DOMPurify from 'dompurify';
 import PropTypes from 'prop-types';
 
@@ -19,10 +19,6 @@ const CoinPage = ({
   const handleGoBack = () => {
     history.goBack();
   };
-
-  if (!coin) {
-    return <Redirect to="/" />
-  }
 
   return (
     <section className="coin__page">

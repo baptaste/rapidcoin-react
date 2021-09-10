@@ -1,5 +1,3 @@
-import { findCoin } from 'src/selectors/coins';
-
 const initialState = {
   coins: [], // array
   coin: {}, // object

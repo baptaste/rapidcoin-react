@@ -21,9 +21,6 @@ const mapDispatchToProps = (dispatch) => ({
   getOneCoin: () => {
     dispatch({ type: 'GET_ONECOIN' });
   },
-  // getOneTrending: () => {
-  //   dispatch({ type: 'GET_ONE_TRENDING' });
-  // },
 });
 
 const container = connect(mapStateToProps, mapDispatchToProps)(CoinPage);
