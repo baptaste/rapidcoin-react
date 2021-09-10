@@ -2,18 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Coin from '../Coin';
-import blockchain from 'src/assets/blockchain.svg';
+
 import './coins.scss';
 
-const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins }) => {
+import blockchain from 'src/assets/blockchain.svg';
+import blockchainDark from 'src/assets/blockchainDark.svg';
+
+const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins, theme }) => {
   const handleGoToHome = () => {
     resetFilteredCoins();
   };
+  console.log(theme);
   return (
     <main className="home">
       {filteredCoins.length !== 0 &&
         <div className="app__desc">
-          <img src={blockchain} className="blockchain_img" alt="Blockchain" />
+          <img src={theme === 'dark' ? blockchainDark : blockchain} className="blockchain_img" alt="Blockchain" />
           <button type="button" className="goButton goButton__home" onClick={handleGoToHome}>
                 <i className="fas fa-arrow-left" />
           </button>
@@ -24,7 +28,7 @@ const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFil
 
         {filteredCoins.length === 0 &&
           <div className="app__desc">
-            <img src={blockchain} className="blockchain_img" alt="Blockchain" />
+            <img src={theme === 'dark' ? blockchainDark : blockchain} className="blockchain_img" alt="Blockchain" />
             {errorMsg ? (
                <div className="results__msgField">
                <p className="results__msgField--error">{errorMsg}</p>

@@ -10,6 +10,18 @@
 
 html {
   scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+      width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: vars.$sixthColor;
+      // border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+  }
 }
 
 body {
@@ -51,17 +63,19 @@ body {
 }
 
 .goButton {
-  background-color: vars.$fourthColor;
-  color: vars.$fifthColor;
+  background-color: vars.$fifthColor;
+  color: vars.$sixthColor;
   margin: 1rem 1.3rem 1rem 7rem;
-  padding: .5em 1em;
-  border: none;
+  padding: .5em 1.5em;
+  border: 1px solid vars.$sixthColor;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
 
   &:hover {
-    background-color: rgba(0, 0, 255, .8);
+    color: vars.$fourthColor;
+    border: 1px solid vars.$fourthColor;
+    box-shadow: 4px 4px 0 0 vars.$secondColor;
   }
 }
 
