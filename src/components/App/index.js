@@ -18,20 +18,29 @@ import { lightTheme, darkTheme } from 'src/components/Themes';
 import './app.scss';
 
 const App = ({ getAllCoins, isLoading }) => {
-  const location = useLocation();
-
   useEffect(() => {
     getAllCoins();
   }, []);
 
+  const location = useLocation();
   useEffect(() => {
     window.scroll(0, 0);
   }, [location]);
 
+  // theme mode toggler (light by default)
   const [theme, setTheme] = useState('light');
   const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light')
-  }
+    theme === 'light' ? setMode('dark') : setMode('light')
+  };
+  // persist user's preferences by storing theme in localStorage
+  const setMode = mode => {
+    window.localStorage.setItem('theme', mode)
+    setTheme(mode)
+  };
+  useEffect(() => {
+      const localTheme = window.localStorage.getItem('theme');
+      localTheme && setTheme(localTheme)
+  }, []);
 
   return (
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
