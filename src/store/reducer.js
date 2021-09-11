@@ -75,6 +75,7 @@ const reducer = (state = initialState, action = {}) => {
         filteredCoins: [],
         successMsg: '',
         errorMsg: '',
+        isMenuOpen: false,
       }
     case 'SET_IS_OPEN_MENU':
       return {

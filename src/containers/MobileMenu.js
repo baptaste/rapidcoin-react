@@ -10,7 +10,9 @@ const mapDispatchToProps = (dispatch) => ({
   hideMenu: () => {
     dispatch({ type: 'SET_IS_OPEN_MENU' });
   },
-
+  resetFilter: () => {
+    dispatch({ type: 'RESET_FILTERED_COINS' });
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MobileMenu);

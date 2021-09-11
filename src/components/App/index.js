@@ -39,7 +39,7 @@ const App = ({ getAllCoins, isLoading }) => {
       <GlobalStyles/>
       <div className="app">
         <Header themeToggler={themeToggler} theme={theme} />
-        <MobileMenu />
+        <MobileMenu themeToggler={themeToggler} theme={theme} />
 
         <Route exact path="/">
           {isLoading ? <Loading /> : <Coins theme={theme} />}

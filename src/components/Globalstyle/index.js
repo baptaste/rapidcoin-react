@@ -24,8 +24,18 @@ const GlobalStyles = createGlobalStyle`
       }
     }
   }
+  .theme-toggler, .theme-toggler--mobile {
+    background: ${({ theme }) => theme.themeTogglerBackground};
+    color: ${({ theme }) => theme.text};
+    border: ${({ theme }) => theme.themeTogglerBorder};
+
+    &:hover {
+      color: ${({ theme }) => theme.themeTogglerColorHover};
+    }
+  }
+
   .fas.fa-coins, .header__menu-mobileBtn {
-    color: ${({ theme }) => theme.headerBtns};
+    color: ${({ theme }) => theme.text};
     &:hover {
       color: ${({ theme }) => theme.headerLinksHover};
     }
@@ -45,7 +55,7 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.text};
 
     .fas.fa-times {
-      color: ${({ theme }) => theme.headerBtns};
+      color: ${({ theme }) => theme.text};
     }
   }
   .coin, .coin__page-item {
@@ -56,6 +66,8 @@ const GlobalStyles = createGlobalStyle`
   }
   .coin:hover {
     background: ${({ theme }) => theme.body};
+    border: ${({ theme }) => theme.coinBorderHover};
+    box-shadow: ${({ theme }) => theme.coinShadowHover};
   }
   .goButton {
     background: ${({ theme }) => theme.goButtonBg};

@@ -19,8 +19,8 @@ const Header = ({ resetFilter, toggleIsMenuOpen, themeToggler, theme }) => {
       <NavLink exact to="/"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">All Coins</NavLink>
       <NavLink exact to="/trendings"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Trending</NavLink>
       <NavLink exact to="/platforms"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Finance Platforms</NavLink>
-      <button onClick={themeToggler}>
-        {theme === 'light' ? <i className="fas fa-moon" /> : <i className="fas fa-sun" />}
+      <button onClick={themeToggler} className="theme-toggler">
+        {theme === 'light' ? <i className="fas fa-moon" /> : <i className="fas fa-lightbulb" />}
       </button>
       <button
         type="button"

@@ -3,11 +3,14 @@ export const lightTheme = {
   text: '#363537',
   toggleBorder: '#FFFFFF',
   background: '#363537',
-  headerBtns: '#638EF7', // light purple
+  headerBtns: '#0000FE', // strong blue
   headerLinksHover: '#0000FE', // strong blue
-  coin: '#e4fffb',
+  // coin: '#e4fffb', // green
+  coin: 'hsl(223, 90%, 98%)', // TEST
   coinShadow: '4px 4px 0 0 #d2d2f9', // very light purple
+  coinShadowHover: 'none',
   coinBorder: '1px solid #25282c', // dark grey
+  coinBorderHover: '1px solid #0000FE',
   inputBorder: '#638EF7', // light purple
   goButtonBg: '#FFFFFF',
   goButtonColor: '#000',
@@ -16,6 +19,9 @@ export const lightTheme = {
   goButtonBorderHover: '1px solid #0000FE', // strong blue
   goButtonShadow: '4px 4px 0 0 #d2d2f9', // very light purple
   platformUrlHover: '#0000FE',
+  themeTogglerBackground: 'transparent',
+  themeTogglerBorder: 'none',
+  themeTogglerColorHover: '#0000FE',
 }
 export const darkTheme = {
   // body: '#363537',
@@ -28,7 +34,9 @@ export const darkTheme = {
   headerLinksHover: '#ffa366', // main orange
   coin: '#1f2b3a', // night darkblue
   coinShadow: '4px 4px 0 0 #ffa366', // main orange
+  coinShadowHover: 'none',
   coinBorder: '1px solid rgba(255, 198, 160, 0.5)', // light border orange
+  coinBorderHover: '1px solid #ffa366',
   inputBorder: '#ffa366', // main orange
   goButtonBg: 'transparent',
   goButtonColor: '#FFFFFF',
@@ -37,4 +45,7 @@ export const darkTheme = {
   goButtonBorderHover: '1px solid #ffa366', // main orange
   goButtonShadow: '4px 4px 0 0 #ffa366', // main orange
   platformUrlHover: '#ffa366',
+  themeTogglerBackground: 'transparent',
+  themeTogglerBorder: 'none',
+  themeTogglerColorHover: '#ffa366',
 }
