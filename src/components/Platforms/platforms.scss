@@ -28,7 +28,8 @@
         width: 400px;
         min-width: 330px;
         text-align: center;
-        border-bottom: 1px solid #25282c10;
+        // border-bottom: 1px solid #25282c10;
+        border-right: none;
         padding: 1em;
 
         &:last-child {
@@ -89,8 +90,8 @@
         width: 400px;
         min-width: 330px;
         text-align: center;
-        border-bottom: 1px solid #25282c10;
-        border-right: 1px solid #25282c10;
+        // border-bottom: 1px solid #25282c10;
+        // border-right: 1px solid #25282c10;
         padding: 1em;
 
         &:nth-child(3) {

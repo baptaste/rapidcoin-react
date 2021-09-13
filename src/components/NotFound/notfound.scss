@@ -1,0 +1,47 @@
+.not-found {
+  width: 900px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &__content {
+    position: absolute;
+    width: 50%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &--title {
+      text-align: center;
+      font-size: 2rem;
+    }
+
+    .goButton {
+      &__notfound {
+        margin-top: 3rem;
+      width: fit-content;
+      }
+
+    }
+  }
+
+}
+
+.blockchain_img--notfound {
+  animation: rotating 300s linear infinite;
+  -webkit-animation: rotating 300s linear infinite;
+  display: block;
+  width: 800px;
+  height: 800px;
+  margin: 0;
+  // position: absolute;
+  // top: -250%;
+  // left: 25%;
+  position: relative;
+  opacity: .2;
+  z-index: -1;
+}

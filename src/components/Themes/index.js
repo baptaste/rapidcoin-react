@@ -18,11 +18,14 @@ export const lightTheme = {
   goButtonBorder: '1px solid #000',
   goButtonBorderHover: '1px solid #0000FE', // strong blue
   goButtonShadow: '4px 4px 0 0 #d2d2f9', // very light purple
+  coinUrlHover: '#0000FE',
   platformUrlHover: '#0000FE',
+  platformsGridBorder: '1px solid #25282c10',
   themeTogglerBackground: 'transparent',
   themeTogglerBorder: 'none',
   themeTogglerColorHover: '#0000FE',
 }
+
 export const darkTheme = {
   // body: '#363537',
   // body: '#0f0f0f',
@@ -44,7 +47,9 @@ export const darkTheme = {
   goButtonBorder: '1px solid #FFFFFF',
   goButtonBorderHover: '1px solid #ffa366', // main orange
   goButtonShadow: '4px 4px 0 0 #ffa366', // main orange
+  coinUrlHover: '#ffa366',
   platformUrlHover: '#ffa366',
+  platformsGridBorder: '1px solid rgba(255, 198, 160, 0.5)',
   themeTogglerBackground: 'transparent',
   themeTogglerBorder: 'none',
   themeTogglerColorHover: '#ffa366',

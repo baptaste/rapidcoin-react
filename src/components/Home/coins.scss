@@ -10,6 +10,12 @@
     &__load-more {
       width: fit-content;
       margin: 0 auto 3rem;
+      padding: .5em 1.5em;
+      background: transparent;
+      border: 1px solid vars.$sixthColor;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
     }
   }
 
@@ -28,7 +34,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: 4rem auto;
+    margin: 4rem auto 1rem;
 
     &__link {
       width: 90%;
@@ -47,6 +53,12 @@
     &__load-more {
       width: fit-content;
       margin: 0 auto 3rem;
+      padding: .5em 1.5em;
+      background: transparent;
+      border: 1px solid vars.$sixthColor;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 200ms ease-in-out;
     }
   }
 
@@ -59,7 +71,6 @@
   .results__msgField {
     width: fit-content;
     margin: 2rem auto;
-    color: #666;
     font-size: 1.3rem;
     line-height: 1.2;
   }
@@ -71,7 +82,6 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    // margin-top: 3rem;
 
     &__link {
       height: 360px;

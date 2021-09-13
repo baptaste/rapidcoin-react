@@ -1,5 +1,4 @@
 const initialState = {
-  allCoins: [],
   coins: [], // array
   coin: {}, // object
   marketData: {}, // object
@@ -43,11 +42,6 @@ const reducer = (state = initialState, action = {}) => {
         isLoading: false,
       }
     }
-    // case 'GET_ALL_COINS_SUCCESS':
-    // return {
-    //   ...state,
-    //   allCoins: action.allCoins,
-    // }
     case 'GET_ONECOIN_SUCCESS':
       return {
         ...state,
@@ -88,11 +82,14 @@ const reducer = (state = initialState, action = {}) => {
     return {
       ...state,
       errorMsg: action.errorMsg,
+      searchValue: '',
+      isLoading: false,
     }
     case 'RESET_FILTERED_COINS':
       return {
         ...state,
         filteredCoins: [],
+        searchValue: '',
         successMsg: '',
         errorMsg: '',
         isMenuOpen: false,

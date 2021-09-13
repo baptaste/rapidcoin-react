@@ -6,9 +6,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getCoins: () => {
-    dispatch({ type: 'GET_COINS' });
-  },
+  // getCoins: () => {
+  //   dispatch({ type: 'GET_COINS' });
+  // },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

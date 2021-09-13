@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import Coin from '../Coin';
+import Loading from 'src/components/Loading';
 
 import './coins.scss';
 
 import blockchain from 'src/assets/blockchain.svg';
 import blockchainDark from 'src/assets/blockchainDark.svg';
 
-const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins, theme, onLoadMore }) => {
+const Home = ({ getCoins, coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins, theme, onLoadMore, isLoading }) => {
+  useEffect(() => {
+    getCoins();
+  }, []);
+
   const handleGoToHome = () => {
     resetFilteredCoins();
   };
@@ -22,7 +28,7 @@ const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFil
                 <i className="fas fa-arrow-left" />
           </button>
           <div className="results__msgField">
-              <p className="results__msgField--success">{successMsg}</p>
+              <p className="results__msgField--success">{isLoading ? 'Searching...' : successMsg}</p>
           </div>
         </div>}
 
@@ -30,9 +36,9 @@ const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFil
           <div className="app__desc">
             <img src={theme === 'dark' ? blockchainDark : blockchain} className="blockchain_img" alt="Blockchain" />
             {errorMsg ? (
-               <div className="results__msgField">
-               <p className="results__msgField--error">{errorMsg}</p>
-             </div>
+              <div className="results__msgField">
+                <p className="results__msgField--error">{isLoading ? 'Searching...' : errorMsg}</p>
+              </div>
             ) : (
               <>
               <h1 className="app__desc--title">Welcome to Rapidcoin</h1>
@@ -45,55 +51,66 @@ const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFil
           </div>}
 
       <div className="coins">
-        {/* all coins */}
-        {filteredCoins.length === 0 &&
-        coins.map((coin) => {
-          const getCurrentCoinId = () => (
-            getCoinId(coin)
-          );
-          return (
-            <Link
-            key={coin.id}
-            className="coins__link"
-            onClick={getCurrentCoinId}
-            to={`/coin/${coin.id}`}
-            >
-              <Coin
-                {...coin}
-              />
-          </Link>
-          );
-        })}
-        {/* filtered coins */}
-        {filteredCoins.length !== 0 &&
-        filteredCoins.map((coin) => {
-          const getCurrentCoinId = () => (
-            getCoinId(coin)
-          );
-          return (
-            <Link
-            key={coin.id}
-            className="coins__link"
-            onClick={getCurrentCoinId}
-            to={`/coin/${coin.id}`}
-            >
-              <Coin
-                {...coin}
-              />
-          </Link>
-          );
-        })}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          // all coins
+          filteredCoins.length === 0 ? (
+            <>
+            {coins.map((coin) => {
+              const getCurrentCoinId = () => (
+                getCoinId(coin)
+              );
+              return (
+                <Link
+                key={coin.id}
+                className="coins__link"
+                onClick={getCurrentCoinId}
+                to={`/coin/${coin.id}`}
+                >
+                  <Coin
+                    {...coin}
+                  />
+              </Link>
+              );
+            })}
 
+            {/* <button className="home__load-more" onClick={onLoadMore}>Load more</button> */}
+
+            </>
+          ) : (
+            // searched coins
+            filteredCoins.map((coin) => {
+              const getCurrentCoinId = () => (
+                getCoinId(coin)
+              );
+              return (
+                <Link
+                key={coin.id}
+                className="coins__link"
+                onClick={getCurrentCoinId}
+                to={`/coin/${coin.id}`}
+                >
+                  <Coin
+                    {...coin}
+                  />
+              </Link>
+              );
+            })
+          )
+        )}
       </div>
-      {filteredCoins.length === 0 &&
-        <button className="home__load-more" onClick={onLoadMore}>Load more</button>}
+
+      {coins && filteredCoins.length === 0 &&
+      <button className="home__load-more" onClick={onLoadMore}>{isLoading ? 'Loading...' : 'Load more'}</button>}
+
   </main>
   );
 
 };
 
 
-Coins.propTypes = {
+Home.propTypes = {
   coins: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -114,9 +131,9 @@ Coins.propTypes = {
   errorMsg: PropTypes.string,
 };
 
-Coins.defaultProps = {
+Home.defaultProps = {
   successMsg: '',
   errorMsg: '',
 };
 
-export default Coins;
+export default Home;

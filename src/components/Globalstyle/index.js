@@ -69,6 +69,11 @@ const GlobalStyles = createGlobalStyle`
     border: ${({ theme }) => theme.coinBorderHover};
     box-shadow: ${({ theme }) => theme.coinShadowHover};
   }
+  .coin__content > .coin__content--url {
+    &:hover {
+      color: ${({ theme }) => theme.coinUrlHover};
+    }
+  }
   .goButton {
     background: ${({ theme }) => theme.goButtonBg};
     color: ${({ theme }) => theme.goButtonColor};
@@ -80,11 +85,24 @@ const GlobalStyles = createGlobalStyle`
       box-shadow: ${({ theme }) => theme.goButtonShadow};
     }
   }
+  .platforms-list {
+    border-bottom: ${({ theme }) => theme.platformsGridBorder};
+    border-right: ${({ theme }) => theme.platformsGridBorder};
+  }
   .platform-item > .platform-url {
     &:hover {
       color: ${({ theme }) => theme.platformUrlHover};
     }
+  }
+  .home__load-more {
+    color: ${({ theme }) => theme.text};
+    border: ${({ theme }) => theme.goButtonBorder};
 
+    &:hover {
+      color: ${({ theme }) => theme.goButtonColorHover};
+      border: ${({ theme }) => theme.goButtonBorderHover};
+      box-shadow: ${({ theme }) => theme.goButtonShadow};
+    }
   }
   `;
 

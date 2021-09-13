@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 
-import Coins from 'src/components/Coins';
+import Home from 'src/components/Home';
 
 const mapStateToProps = (state) => ({
   coins: state.coins,
   filteredCoins: state.filteredCoins,
   successMsg: state.successMsg,
   errorMsg: state.errorMsg,
+  isLoading: state.isLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  getCoins: () => {
+    dispatch({ type: 'GET_COINS' });
+  },
   getCoinId: (coin) => {
     const coinId = coin.id;
     dispatch({ type: 'GET_COIN_ID', coinId: coinId });
@@ -22,5 +26,5 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Coins);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
 
