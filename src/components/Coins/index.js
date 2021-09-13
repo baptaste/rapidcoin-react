@@ -8,11 +8,11 @@ import './coins.scss';
 import blockchain from 'src/assets/blockchain.svg';
 import blockchainDark from 'src/assets/blockchainDark.svg';
 
-const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins, theme }) => {
+const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins, theme, onLoadMore }) => {
   const handleGoToHome = () => {
     resetFilteredCoins();
   };
-  console.log(theme);
+
   return (
     <main className="home">
       {filteredCoins.length !== 0 &&
@@ -83,7 +83,10 @@ const Coins = ({ coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFil
           </Link>
           );
         })}
+
       </div>
+      {filteredCoins.length === 0 &&
+        <button className="home__load-more" onClick={onLoadMore}>Load more</button>}
   </main>
   );
 

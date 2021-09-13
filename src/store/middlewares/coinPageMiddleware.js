@@ -1,22 +1,23 @@
 import { findCoin } from 'src/selectors/coins';
 
 const coinPageMiddleware = (store) => (next) => async (action) => {
-  switch (action.type) {
-       case 'GET_ONECOIN': {
-           console.log('je passe bien dans le GET_ONECOIN du middleware');
+
+    if (action.type === 'GET_ONECOIN') {
+
         const state = store.getState();
-        const foundCoin = findCoin(state.coins, state.coinId);
-        console.log('foundCoin in coinPageMiddleware: ', foundCoin);
-        const coinId = foundCoin.id;
+        // const foundCoin = findCoin(state.coins, state.coinId);
+        // const coinId = foundCoin.id;
         state.isLoading = true;
+
         try {
-            const url = `https://api.coingecko.com/api/v3/coins/${coinId}`
+            const url = `https://api.coingecko.com/api/v3/coins/${state.coinId}`
             const res = await fetch(url);
             if (!res.ok) {
                 throw new Error('Error, request failed');
             };
             const coinData = await res.json();
             console.log('coinData/response de lapi:', coinData);
+
             const market_data = coinData.market_data;
             const current_price = coinData.market_data.current_price.eur;
             const market_cap = coinData.market_data.market_cap.eur;
@@ -36,17 +37,12 @@ const coinPageMiddleware = (store) => (next) => async (action) => {
                 website: coin_website,
             });
 
-            next(action);
-            break;
         } catch (err) {
-                console.error(err)
+            console.error(err)
         }
-       }
-
-       default:
-        next(action);
     }
 
+    next(action);
 };
 
 

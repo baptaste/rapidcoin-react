@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import CoinPage from 'src/components/CoinPage';
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) => ({
     coin: state.coin,
     marketData: state.marketData,
     image: state.image,
@@ -14,11 +13,11 @@ const mapStateToProps = (state) => {
     marketCap: state.marketCap,
     currentPrice: state.currentPrice,
     isLoading: state.isLoading,
-  };
-};
+});
 
 const mapDispatchToProps = (dispatch) => ({
   getOneCoin: () => {
+    console.log('je suis bien dans le mapDispatchToProps de CoinPage !!!');
     dispatch({ type: 'GET_ONECOIN' });
   },
 });

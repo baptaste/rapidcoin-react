@@ -8,8 +8,8 @@ const Coin = ({ name, image, symbol, current_price, market_cap, total_volume, pr
       #{market_cap_rank}
       <img src={image} className="coin__header-img" />
     </p>
-    <p className="coin__content">Name: {name}</p>
-    <p className="coin__content">Symbol: {symbol.toUpperCase()}</p>
+    <p className="coin__content">Name: {name} ({symbol.toUpperCase()})</p>
+    <p className="coin__content">Market Cap Rank: {market_cap_rank}</p>
     <p className="coin__content">Current Price: {current_price} €</p>
     <p className="coin__content">Market Cap: {market_cap} €</p>
     <p className="coin__content">Volume 24h: {total_volume} €</p>

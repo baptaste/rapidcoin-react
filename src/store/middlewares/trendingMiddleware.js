@@ -1,4 +1,5 @@
 const trendingMiddleware = (store) => (next) => async (action) => {
+
   if (action.type === 'GET_TRENDING_COINS') {
     const state = store.getState();
     state.isLoading = true;
@@ -14,20 +15,21 @@ const trendingMiddleware = (store) => (next) => async (action) => {
       // get an array with only items (obj)
       // we just need trending coins that are already presents in state
       const trendsData = coinsData.coins.map((trend) => trend.item);
-      // get an array that remove trends that are not in state's coins array
-      const trendsPresentInCoinsState = trendsData.map((t) => state.coins.filter((coin) => coin.id === t.id));
-      // remove empty arrays
-      const trends = trendsPresentInCoinsState.filter((t) => t.length !== 0);
-      // destructuring the array of arrays into array of obj, thx to flat()
-      const trendingCoins = trends.flat();
+      console.log(trendsData);
+      // // get an array that remove trends that are not in state's coins array
+      // const trendsPresentInCoinsState = trendsData.map((t) => state.coins.filter((coin) => coin.id === t.id));
+      // // remove empty arrays
+      // const trends = trendsPresentInCoinsState.filter((t) => t.length !== 0);
+      // // destructuring the array of arrays into array of obj, thx to flat()
+      // const trendingCoins = trends.flat();
 
-      store.dispatch({ type: 'GET_TRENDING_COINS_SUCCESS', trendingCoins });
+      store.dispatch({ type: 'GET_TRENDING_COINS_SUCCESS', trendingCoins: trendsData });
     } catch (err) {
         console.error(err)
     }
-  } else {
-    next(action);
   }
+
+  next(action);
 };
 
 export default trendingMiddleware;

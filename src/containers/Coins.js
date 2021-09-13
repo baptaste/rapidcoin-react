@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => ({
   resetFilteredCoins: () => {
     dispatch({ type: 'RESET_FILTERED_COINS' });
   },
+  onLoadMore: () => {
+    dispatch({ type: 'GET_MORE_COINS' });
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Coins);

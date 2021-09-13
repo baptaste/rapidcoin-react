@@ -1,4 +1,5 @@
 const initialState = {
+  allCoins: [],
   coins: [], // array
   coin: {}, // object
   marketData: {}, // object
@@ -18,6 +19,7 @@ const initialState = {
   isMenuOpen: false,
   trendingCoins: [],
   platforms: [],
+  currentPage: 1,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -26,8 +28,26 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         coins: action.coins,
+        currentPage: 1,
         isLoading: false,
       };
+    case 'GET_MORE_COINS_SUCCESS': {
+      const newCoins = [
+        ...state.coins,
+        ...action.coins,
+      ];
+      return {
+        ...state,
+        coins: newCoins,
+        currentPage: action.currentPage,
+        isLoading: false,
+      }
+    }
+    // case 'GET_ALL_COINS_SUCCESS':
+    // return {
+    //   ...state,
+    //   allCoins: action.allCoins,
+    // }
     case 'GET_ONECOIN_SUCCESS':
       return {
         ...state,
@@ -40,12 +60,12 @@ const reducer = (state = initialState, action = {}) => {
         marketCap: action.marketCap,
         currentPrice: action.currentPrice,
         isLoading: false,
-      };
+      }
     case 'GET_COIN_ID':
       return {
         ...state,
         coinId: action.coinId,
-      };
+      }
     case 'GET_TRENDING_COIN_ID':
       return {
         ...state,

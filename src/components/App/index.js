@@ -17,9 +17,9 @@ import GlobalStyles from 'src/components/Globalstyle';
 import { lightTheme, darkTheme } from 'src/components/Themes';
 import './app.scss';
 
-const App = ({ getAllCoins, isLoading }) => {
+const App = ({ getCoins, isLoading }) => {
   useEffect(() => {
-    getAllCoins();
+    getCoins();
   }, []);
 
   const location = useLocation();
@@ -50,6 +50,7 @@ const App = ({ getAllCoins, isLoading }) => {
         <Header themeToggler={themeToggler} theme={theme} />
         <MobileMenu themeToggler={themeToggler} theme={theme} />
 
+        {/* <Route exact path="/"><p>Toto</p></Route> */}
         <Route exact path="/">
           {isLoading ? <Loading /> : <Coins theme={theme} />}
         </Route>
@@ -69,7 +70,7 @@ const App = ({ getAllCoins, isLoading }) => {
 };
 
 App.propTypes = {
-  getAllCoins: PropTypes.func.isRequired,
+  getCoins: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
 }
 

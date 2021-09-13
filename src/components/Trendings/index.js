@@ -21,7 +21,7 @@ const Trendings = ({ getTrendingCoins, getCoinId, trendingCoins }) => {
        <button type="button" className="goButton goButton__trending" onClick={handleGoBack}>
           <i className="fas fa-arrow-left" />
         </button>
-        <h1 className="trending__title">Top {trendingCoins.length} daily trending coins (Ordered by most popular first)</h1>
+        <h1 className="trending__title">Top {trendingCoins.length} daily trending coins</h1>
 
         <div className="trending-coins">
           {trendingCoins.map((trend) => {
@@ -36,21 +36,12 @@ const Trendings = ({ getTrendingCoins, getCoinId, trendingCoins }) => {
                   <article className="coin">
                     <p className="coin__header">
                       #{index++}
-                      <img src={trend.image} className="coin__header-img" />
+                      <img src={trend.small} className="coin__header-img" />
                     </p>
-                    <p className="coin__content">Name: {trend.name}</p>
-                    <p className="coin__content">Symbol: {trend.symbol.toUpperCase()}</p>
-                    <p className="coin__content">Current Price: {trend.current_price} €</p>
+                    <p className="coin__content">Name: {trend.name} ({trend.symbol.toUpperCase()})</p>
                     <p className="coin__content">Market Cap Rank: {trend.market_cap_rank}</p>
-                    <p className="coin__content">Market Cap: {trend.market_cap} €</p>
-                    <p className="coin__content">Volume 24h: {trend.total_volume} €</p>
-                    <p className="coin__content">
-                    Price change 24h:
-                    <span className={trend.price_change_percentage_24h > 0 ? 'coin__content--pos' : 'coin__content--neg'}>
-                      {trend.price_change_percentage_24h} %
-                    </span>
-                  </p>
-                  <p className="coin__content">Circ supply: {trend.circulating_supply}</p>
+                    <p className="coin__content">Clic to see more informations</p>
+
                   </article>
                 </Link>
               );

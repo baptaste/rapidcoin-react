@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  getAllCoins: () => {
+  getCoins: () => {
     dispatch({ type: 'GET_COINS' });
   },
 });

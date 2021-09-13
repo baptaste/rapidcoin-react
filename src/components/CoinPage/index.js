@@ -10,6 +10,7 @@ const CoinPage = ({
   website, volumeInADay, marketCap, currentPrice }) => {
 
   useEffect(() => {
+    console.log('je passe bien dans le useEffect qui appelle getOneCoin() !');
     getOneCoin();
   }, []);
 
@@ -35,8 +36,8 @@ const CoinPage = ({
             #{coin.market_cap_rank}
             <img src={image.small} className="coin__header-img" />
           </p>
-          <p className="coin__content">Name: {coin.name}</p>
-          <p className="coin__content">Symbol: {coin.symbol.toUpperCase()}</p>
+          <p className="coin__content">Name: {coin.name} ({coin.symbol.toUpperCase()})</p>
+          <p className="coin__content">Market Cap Rank: {coin.market_cap_rank}</p>
           {coin.genesis_date &&
           <p className="coin__content">
             Birth: {coin.genesis_date}</p>}

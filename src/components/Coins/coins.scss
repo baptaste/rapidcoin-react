@@ -6,6 +6,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    &__load-more {
+      width: fit-content;
+      margin: 0 auto 3rem;
+    }
   }
 
   .results__msgField {
@@ -38,6 +43,11 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    &__load-more {
+      width: fit-content;
+      margin: 0 auto 3rem;
+    }
   }
 
   .goButton {

@@ -1,4 +1,5 @@
 const platformsMiddleware = (store) => (next) => async (action) => {
+
   if (action.type === 'GET_PLATFORMS') {
     const state = store.getState();
     state.isLoading = true;
@@ -15,9 +16,9 @@ const platformsMiddleware = (store) => (next) => async (action) => {
     } catch (err) {
         console.error(err)
     }
-  } else {
-    next(action);
   }
+
+  next(action);
 };
 
 export default platformsMiddleware;
