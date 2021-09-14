@@ -41,7 +41,7 @@ export const darkTheme = {
   coinBorder: '1px solid rgba(255, 198, 160, 0.5)', // light border orange
   coinBorderHover: '1px solid #ffa366',
   inputBorder: '#ffa366', // main orange
-  goButtonBg: 'transparent',
+  goButtonBg: '#202020',
   goButtonColor: '#FFFFFF',
   goButtonColorHover: '#ffa366', // main orange
   goButtonBorder: '1px solid #FFFFFF',

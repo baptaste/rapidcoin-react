@@ -2,8 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './coin.scss';
 
-const Coin = ({ name, image, symbol, current_price, market_cap, total_volume, price_change_percentage_24h, circulating_supply, market_cap_rank }) => (
-  <article className="coin">
+const Coin = ({
+  name,
+  image,
+  symbol,
+  current_price,
+  market_cap,
+  total_volume,
+  price_change_percentage_24h,
+  circulating_supply,
+  market_cap_rank }) => {
+
+    //TODO, coin === trendingcoin
+
+    return (
+      <article className="coin">
     <p className="coin__header">
       #{market_cap_rank}
       <img src={image} className="coin__header-img" />
@@ -21,7 +34,10 @@ const Coin = ({ name, image, symbol, current_price, market_cap, total_volume, pr
     </p>
     <p className="coin__content">Circ supply: {circulating_supply}</p>
   </article>
-);
+    );
+  };
+
+
 
 Coin.propTypes = {
   name: PropTypes.string.isRequired,

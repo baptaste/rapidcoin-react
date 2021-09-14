@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Coin from '../Coin';
 import Loading from 'src/components/Loading';
 
-import './coins.scss';
+import './home.scss';
 
 import blockchain from 'src/assets/blockchain.svg';
 import blockchainDark from 'src/assets/blockchainDark.svg';
