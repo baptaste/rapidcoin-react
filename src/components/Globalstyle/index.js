@@ -23,6 +23,10 @@ const GlobalStyles = createGlobalStyle`
         color: ${({ theme }) => theme.headerLinksHover};
       }
     }
+
+    &__menu-mobileBtn--topBar, &__menu-mobileBtn--subBar {
+      background-color: ${({ theme }) => theme.text};
+    }
   }
   .theme-toggler, .theme-toggler--mobile {
     background: ${({ theme }) => theme.themeTogglerBackground};
@@ -84,6 +88,10 @@ const GlobalStyles = createGlobalStyle`
       border: ${({ theme }) => theme.goButtonBorderHover};
       box-shadow: ${({ theme }) => theme.goButtonShadow};
     }
+  }
+  .goButton__filter-price--active {
+    color: ${({ theme }) => theme.priceButtonColorActive};
+    border: ${({ theme }) => theme.priceButtonBorderActive};
   }
   .platforms-list {
     border-bottom: ${({ theme }) => theme.platformsGridBorder};

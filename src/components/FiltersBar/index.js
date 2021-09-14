@@ -25,17 +25,18 @@ const FiltersBar = ({
     {isCoinsFilteredDESC &&
       <button
       type="button"
-      className="goButton goButton__filter-price"
+      className={isCoinsFilteredDESC ? 'goButton goButton__filter-price--active' : 'goButton'}
+      // className="goButton goButton__filter-price"
       onClick={getCoinsByPriceASC}>
-      <i className="fas fa-sort-amount-down"></i> Price
+      <i className="fas fa-sort-amount-down" /> Price
     </button>}
 
     {isCoinsFilteredASC &&
       <button
       type="button"
-      className="goButton goButton__filter-price"
+      className={isCoinsFilteredASC ? 'goButton goButton__filter-price--active' : 'goButton'}
       onClick={getCoinsByPriceDESC}>
-      <i className="fas fa-sort-amount-up-alt"></i> Price
+      <i className="fas fa-sort-amount-up-alt" /> Price
     </button>}
   </div>
 );

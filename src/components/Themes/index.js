@@ -25,6 +25,8 @@ export const lightTheme = {
   themeTogglerBorder: 'none',
   themeTogglerColorHover: '#0000FE',
   coinPageDividerBorder: 'rgba(0,0,0,0.1)',
+  priceButtonColorActive: '#0000FE',
+  priceButtonBorderActive: '1px solid #0000FE',
 }
 
 export const darkTheme = {
@@ -55,4 +57,6 @@ export const darkTheme = {
   themeTogglerBorder: 'none',
   themeTogglerColorHover: '#ffa366',
   coinPageDividerBorder: 'hsl(0, 0%, 48%);',
+  priceButtonColorActive: '#ffa366',
+  priceButtonBorderActive: '1px solid #ffa366',
 }

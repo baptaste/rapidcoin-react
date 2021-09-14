@@ -1,3 +1,4 @@
+@use 'src/styles/vars.scss';
 // mobile
 @media screen and (max-width: 700px) {
   .filters-bar {
@@ -36,6 +37,11 @@
       align-items: center;
       justify-content: space-between;
       padding: .3em 1.5em;
+
+      &--active {
+        color: vars.$fourthColor;
+        border: 1px solid vars.$fourthColor;
+      }
     }
   }
 }

@@ -26,7 +26,8 @@ const Header = ({ resetFilter, toggleIsMenuOpen, themeToggler, theme }) => {
         type="button"
         className="header__menu-mobileBtn"
         onClick={toggleIsMenuOpen}>
-          <i className="fas fa-bars" />
+          <div className="header__menu-mobileBtn--topBar"></div>
+          <div className="header__menu-mobileBtn--subBar"></div>
       </button>
     </div>
 
