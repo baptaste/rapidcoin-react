@@ -78,6 +78,36 @@ const reducer = (state = initialState, action = {}) => {
         isLoading: false,
       }
     }
+    case 'GET_MORE_COINS_DESC_SUCCESS' : {
+      const newCoins = [
+        ...state.coins,
+        ...action.coinsDESC,
+      ];
+      newCoins.sort(function(a, b) {
+        return b.current_price - a.current_price;
+      });
+      return {
+        ...state,
+        coins: newCoins,
+        currentPage: action.currentPage,
+        isLoading: false,
+      }
+    }
+    case 'GET_MORE_COINS_ASC_SUCCESS' : {
+      const newCoins = [
+        ...state.coins,
+        ...action.coinsASC,
+      ];
+      newCoins.sort(function(a, b) {
+        return a.current_price - b.current_price;
+      });
+      return {
+        ...state,
+        coins: newCoins,
+        currentPage: action.currentPage,
+        isLoading: false,
+      }
+    }
     case 'GET_ONECOIN_SUCCESS':
       return {
         ...state,

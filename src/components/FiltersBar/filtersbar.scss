@@ -4,12 +4,10 @@
     width: 90%;
     display: flex;
     margin: 3rem auto 1rem;
-    // padding: 1rem 1.5rem;
-    border: 1px solid black;
   }
 
   .goButton {
-    &__filter--price {
+    &__filter-price {
       width: 110px;
       display: flex;
       align-items: center;
@@ -22,15 +20,17 @@
 // desktop
 @media screen and (min-width: 700px) {
   .filters-bar {
-    width: 50%;
+    width: 40%;
+    height: 40px;
     display: flex;
+    justify-content: space-around;
     margin: 1rem auto 3rem;
-    // padding: 1rem 1.5rem;
-    border: 1px solid black;
   }
 
   .goButton {
-    &__filter--price {
+    margin: 0;
+
+    &__filter-price {
       width: 110px;
       display: flex;
       align-items: center;

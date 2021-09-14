@@ -16,7 +16,7 @@ const Header = ({ resetFilter, toggleIsMenuOpen, themeToggler, theme }) => {
     </Link>
     <div className="header__menu">
       {location.pathname === '/' && <SearchBar />}
-      <NavLink exact to="/"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">All Coins</NavLink>
+      <NavLink exact to="/"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Home</NavLink>
       <NavLink exact to="/trendings"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Trending</NavLink>
       <NavLink exact to="/platforms"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Finance Platforms</NavLink>
       <button onClick={themeToggler} className="theme-toggler">

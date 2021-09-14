@@ -56,7 +56,7 @@ const Home = ({
               <>
               <h1 className="app__desc--title">Welcome to Rapidcoin</h1>
               <p className="app__desc--content">
-                Rapidcoin is an easy and fast way to find your cryptocurrency,
+                Rapidcoin is an easy and fast way to find your favorite cryptocurrency,
                 check world's current ranking, stats and learn about coins stories
                 </p>
               </>

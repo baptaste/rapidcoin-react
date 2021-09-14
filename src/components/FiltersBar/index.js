@@ -11,7 +11,7 @@ const FiltersBar = ({
   isCoinsFilteredASC
 }) => (
   <div className="filters-bar">
-    <button type="button" className="goButton" onClick={getCoins}>#</button>
+    <button type="button" className="goButton" onClick={getCoins}># Market Cap</button>
 
     {!isFilterByPriceClicked && (!isCoinsFilteredDESC && !isCoinsFilteredASC) &&
     <button
@@ -25,7 +25,7 @@ const FiltersBar = ({
     {isCoinsFilteredDESC &&
       <button
       type="button"
-      className="goButton goButton__filter--price"
+      className="goButton goButton__filter-price"
       onClick={getCoinsByPriceASC}>
       <i className="fas fa-sort-amount-down"></i> Price
     </button>}
@@ -33,7 +33,7 @@ const FiltersBar = ({
     {isCoinsFilteredASC &&
       <button
       type="button"
-      className="goButton goButton__filter--price"
+      className="goButton goButton__filter-price"
       onClick={getCoinsByPriceDESC}>
       <i className="fas fa-sort-amount-up-alt"></i> Price
     </button>}

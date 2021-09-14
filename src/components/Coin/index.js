@@ -23,7 +23,7 @@ const Coin = ({
     <p className="coin__header">
       #{market_cap_rank}
       <img src={image} className="coin__header-img" />
-      {trendyCoin && <i className="fab fa-hotjar" title="Hot" />}
+      {trendyCoin && <i className="fab fa-hotjar" title="Trending" />}
     </p>
     <p className="coin__content">Name: {name} ({symbol.toUpperCase()})</p>
     <p className="coin__content">Market Cap Rank: {market_cap_rank.toLocaleString()}</p>
