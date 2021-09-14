@@ -24,6 +24,7 @@ export const lightTheme = {
   themeTogglerBackground: 'transparent',
   themeTogglerBorder: 'none',
   themeTogglerColorHover: '#0000FE',
+  coinPageDividerBorder: 'rgba(0,0,0,0.1)',
 }
 
 export const darkTheme = {
@@ -53,4 +54,5 @@ export const darkTheme = {
   themeTogglerBackground: 'transparent',
   themeTogglerBorder: 'none',
   themeTogglerColorHover: '#ffa366',
+  coinPageDividerBorder: 'hsl(0, 0%, 48%);',
 }

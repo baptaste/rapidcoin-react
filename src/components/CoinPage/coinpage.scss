@@ -35,6 +35,7 @@
       height: auto;
       width: 100%;
       display: block;
+      position: relative;
       margin: 0 auto 1rem auto;
       padding: 1em 2em;
       font-weight: 400;
@@ -43,6 +44,15 @@
       border: 1px solid vars.$sixthColor;
       border-radius: 10px;
       box-shadow: vars.$secondColor 4px 4px 0px 0px;
+
+      &--backgroundImg {
+        position: absolute;
+        width: 130px;
+        height: 130px;
+        top: 30px;
+        right: 20px;
+        opacity: .7;
+      }
     }
 
     &--title {
@@ -77,10 +87,22 @@
     padding: 3rem 3rem;
 
     &__preview {
-      width: 50%;
+      position: relative;
+      width: 48%;
+      height: fit-content;
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      // page divider
+      &:after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 60%;
+        top: 25%;
+        right: 0;
+      }
 
       &-settings {
         display: flex;
@@ -103,6 +125,7 @@
       height: auto;
       width: 75%;
       display: block;
+      position: relative;
       margin: 0 auto 1rem auto;
       padding: 1em 2em;
       font-weight: 400;
@@ -112,6 +135,15 @@
       border: 1px solid vars.$sixthColor;
       border-radius: 10px;
       box-shadow: vars.$secondColor 4px 4px 0px 0px;
+
+      &--backgroundImg {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        top: 50px;
+        right: 30px;
+        opacity: .7;
+      }
     }
 
     .coin__content > &--url {
@@ -124,8 +156,9 @@
 
 
     &__desc {
-      // margin: 2rem 0;
       width: 50%;
+      padding-left: 5rem;
+      overflow-wrap: break-word;
 
       &--title {
         text-align: center;

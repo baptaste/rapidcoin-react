@@ -15,12 +15,19 @@
     box-shadow: vars.$secondColor 4px 4px 0px 0px;
 
     &__header {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
       font-weight: bold;
-      // background-color: vars.$fifthColor;
+
+      .fab.fa-hotjar { // fire icon
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: vars.$eleventhColor;
+      }
 
       &-img {
         width: 50px;
@@ -66,12 +73,21 @@
     }
 
     &__header {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 1rem;
       font-weight: bold;
-      // background-color: vars.$fifthColor;
+
+      .fab.fa-hotjar { // fire icon
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: vars.$eleventhColor;
+        animation: shining 2000ms infinite;
+        -webkit-animation: shining 2000ms infinite;
+      }
 
       &-img {
         width: 50px;

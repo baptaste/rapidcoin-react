@@ -85,6 +85,12 @@ body {
   }
 }
 
+// fontawesome icons
+.fa, .fas {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
 // loader
 .loader {
   width: fit-content;
@@ -103,12 +109,14 @@ body {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid vars.$thirdColor;
-  border-color: vars.$thirdColor transparent vars.$thirdColor transparent;
+  border: 6px solid vars.$fourthColor;
+  border-color: vars.$fourthColor transparent vars.$fourthColor transparent;
   animation: rotating 1.2s linear infinite;
   -webkit-animation: rotating 1.2s linear infinite;
 }
 
+
+// loader animation
 @keyframes rotating {
   0% {
     transform: rotate(0deg);
@@ -117,9 +125,54 @@ body {
     transform: rotate(360deg);
   }
 }
+@-webkit-keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
-// fontawesome icons
-.fa, .fas {
-  font-size: 1.2rem;
-  font-weight: 400;
+// fire icon animation
+@keyframes shining {
+  0% {
+    color: vars.$eleventhColor;
+  }
+  50% {
+    color: vars.$ninthColor;
+  }
+  100% {
+    color: vars.$eleventhColor;
+  }
+}
+@-webkit-keyframes shining {
+   0% {
+    color: vars.$eleventhColor;
+  }
+  50% {
+    color: vars.$ninthColor;
+  }
+  100% {
+    color: vars.$eleventhColor;
+  }
+}
+@-moz-keyframes shining {
+   0% {
+    color: vars.$eleventhColor;
+  }
+  50% {
+    color: vars.$ninthColor;
+  }
+  100% {
+    color: vars.$eleventhColor;
+  }
 }

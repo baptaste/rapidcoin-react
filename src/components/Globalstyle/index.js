@@ -104,6 +104,11 @@ const GlobalStyles = createGlobalStyle`
       box-shadow: ${({ theme }) => theme.goButtonShadow};
     }
   }
+  .coin__page__preview {
+    &:after {
+      background-color: ${({ theme }) => theme.coinPageDividerBorder};
+    }
+  }
   `;
 
 export default GlobalStyles;

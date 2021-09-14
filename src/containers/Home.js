@@ -8,6 +8,7 @@ const mapStateToProps = (state) => ({
   successMsg: state.successMsg,
   errorMsg: state.errorMsg,
   isLoading: state.isLoading,
+  trendingCoins: state.trendingCoins,
 });
 
 const mapDispatchToProps = (dispatch) => ({

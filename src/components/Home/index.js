@@ -10,7 +10,18 @@ import './home.scss';
 import blockchain from 'src/assets/blockchain.svg';
 import blockchainDark from 'src/assets/blockchainDark.svg';
 
-const Home = ({ getCoins, coins, getCoinId, filteredCoins, successMsg, errorMsg, resetFilteredCoins, theme, onLoadMore, isLoading }) => {
+const Home = ({
+  getCoins,
+  coins,
+  getCoinId,
+  filteredCoins,
+  successMsg,
+  errorMsg,
+  resetFilteredCoins,
+  theme,
+  onLoadMore,
+  isLoading,
+  trendingCoins }) => {
   useEffect(() => {
     getCoins();
   }, []);
@@ -70,6 +81,8 @@ const Home = ({ getCoins, coins, getCoinId, filteredCoins, successMsg, errorMsg,
                 >
                   <Coin
                     {...coin}
+                    trendingCoins={trendingCoins}
+                    coin={coin}
                   />
               </Link>
               );
@@ -93,6 +106,8 @@ const Home = ({ getCoins, coins, getCoinId, filteredCoins, successMsg, errorMsg,
                 >
                   <Coin
                     {...coin}
+                    trendingCoins={trendingCoins}
+                    coin={coin}
                   />
               </Link>
               );
