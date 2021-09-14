@@ -72,7 +72,6 @@ const App = ({ isLoading }) => {
 };
 
 App.propTypes = {
-  getCoins: PropTypes.func.isRequired,
   isLoading: PropTypes.bool.isRequired,
 }
 

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import Coin from '../Coin';
 import Loading from 'src/components/Loading';
+import FiltersBar from 'src/containers/FiltersBar';
 
 import './home.scss';
 
@@ -22,6 +23,7 @@ const Home = ({
   onLoadMore,
   isLoading,
   trendingCoins }) => {
+
   useEffect(() => {
     getCoins();
   }, []);
@@ -60,6 +62,8 @@ const Home = ({
               </>
             )}
           </div>}
+
+      {filteredCoins.length === 0 && <FiltersBar />}
 
       <div className="coins">
         {isLoading ? (

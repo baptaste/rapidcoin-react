@@ -65,9 +65,11 @@ const CoinPage = ({
           </p>
           <p className="coin__content">
             Circulating supply: {marketData.circulating_supply.toLocaleString()} units
-            {marketData.max_supply !== null ? (` (max ${marketData.max_supply.toLocaleString()})`) : ' (unlimited)'}
+            {marketData.max_supply !== null ?
+            ` (max ${marketData.max_supply.toLocaleString()})` : ' (unlimited)'}
           </p>
-          {coin.hashing_algorithm && <p className="coin__content">Hashing algorithm: {coin.hashing_algorithm}</p>}
+          {coin.hashing_algorithm &&
+          <p className="coin__content">Hashing algorithm: {coin.hashing_algorithm}</p>}
           {coin.genesis_date &&
           <p className="coin__content">Initial release: {coin.genesis_date}
           </p>}

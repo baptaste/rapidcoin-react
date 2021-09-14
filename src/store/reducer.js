@@ -18,7 +18,12 @@ const initialState = {
   isMenuOpen: false,
   trendingCoins: [],
   platforms: [],
+  // home pagination
   currentPage: 1,
+  // filtersBar
+  isFilterByPriceClicked: false,
+  isCoinsFilteredDESC: false,
+  isCoinsFilteredASC: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -29,7 +34,38 @@ const reducer = (state = initialState, action = {}) => {
         coins: action.coins,
         currentPage: 1,
         isLoading: false,
-      };
+        isFilterByPriceClicked: false,
+        isCoinsFilteredDESC: false,
+        isCoinsFilteredASC: false,
+      }
+    case 'GET_COINS_BY_PRICE_DESC': {
+      const coinsCopy = state.coins.map((coin) => coin);
+      // first time clicked => default price DESC
+      const coinsByPriceDesc = coinsCopy.sort(function(a, b) {
+        return b.current_price - a.current_price;
+      });
+      return {
+        ...state,
+        coins: coinsByPriceDesc,
+        isFilterByPriceClicked: !state.isFilterByPriceClicked,
+        isCoinsFilteredDESC: true,
+        isCoinsFilteredASC: false,
+      }
+    }
+    case 'GET_COINS_BY_PRICE_ASC': {
+      const coinsCopy = state.coins.map((coin) => coin);
+      // second/x time clicked => ASC price
+      const coinsByPriceAsc = coinsCopy.sort(function(a, b) {
+        return a.current_price - b.current_price;
+      });
+      return {
+        ...state,
+        coins: coinsByPriceAsc,
+        isFilterByPriceClicked: !state.isFilterByPriceClicked,
+        isCoinsFilteredASC: true,
+        isCoinsFilteredDESC: false,
+      }
+    }
     case 'GET_MORE_COINS_SUCCESS': {
       const newCoins = [
         ...state.coins,
