@@ -4,7 +4,7 @@
   .filters-bar {
     width: 90%;
     display: flex;
-    margin: 3rem auto 1rem;
+    margin: 3rem auto 0;
   }
 
   .goButton {
@@ -21,22 +21,21 @@
 // desktop
 @media screen and (min-width: 700px) {
   .filters-bar {
-    width: 40%;
+    width: fit-content;
     height: 40px;
     display: flex;
-    justify-content: space-around;
-    margin: 1rem auto 3rem;
+    margin-left: 3rem;
+    margin-bottom: 3rem;
   }
 
   .goButton {
-    margin: 0;
+    margin: 0 2rem;
 
     &__filter-price {
-      width: 110px;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: .3em 1.5em;
 
       &--active {
         color: vars.$fourthColor;

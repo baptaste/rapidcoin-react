@@ -8,10 +8,12 @@ const FiltersBar = ({
   getCoinsByPriceASC,
   isFilterByPriceClicked,
   isCoinsFilteredDESC,
-  isCoinsFilteredASC
+  isCoinsFilteredASC,
+  toggleCurrency,
+  isEUR,
 }) => (
   <div className="filters-bar">
-    <button type="button" className="goButton" onClick={getCoins}># Market Cap</button>
+    <button type="button" className="goButton" onClick={getCoins} title="Rank">#</button>
 
     {!isFilterByPriceClicked && (!isCoinsFilteredDESC && !isCoinsFilteredASC) &&
     <button
@@ -26,7 +28,7 @@ const FiltersBar = ({
       <button
       type="button"
       className={isCoinsFilteredDESC ? 'goButton goButton__filter-price--active' : 'goButton'}
-      // className="goButton goButton__filter-price"
+      title="Desending price"
       onClick={getCoinsByPriceASC}>
       <i className="fas fa-sort-amount-down" /> Price
     </button>}
@@ -35,9 +37,14 @@ const FiltersBar = ({
       <button
       type="button"
       className={isCoinsFilteredASC ? 'goButton goButton__filter-price--active' : 'goButton'}
+      title="Ascending price"
       onClick={getCoinsByPriceDESC}>
       <i className="fas fa-sort-amount-up-alt" /> Price
     </button>}
+
+    <button type="button" className="goButton" onClick={toggleCurrency} title="Currency">
+      {isEUR ? '$' : '€'}
+    </button>
   </div>
 );
 

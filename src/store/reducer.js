@@ -24,6 +24,11 @@ const initialState = {
   isFilterByPriceClicked: false,
   isCoinsFilteredDESC: false,
   isCoinsFilteredASC: false,
+  currency: 'eur',
+  targetCurrency: 'usd',
+  isCurrencyTogglerClicked: false,
+  isEUR: true,
+  isUSD: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -37,6 +42,7 @@ const reducer = (state = initialState, action = {}) => {
         isFilterByPriceClicked: false,
         isCoinsFilteredDESC: false,
         isCoinsFilteredASC: false,
+        isCurrencyTogglerClicked: false,
       }
     case 'GET_COINS_BY_PRICE_DESC': {
       const coinsCopy = state.coins.map((coin) => coin);
@@ -177,6 +183,13 @@ const reducer = (state = initialState, action = {}) => {
         platforms: action.platforms,
         isLoading: false,
       }
+    case 'SET_CURRENCY_VALUE':
+    return {
+      ...state,
+      isCurrencyTogglerClicked: true,
+      isEUR: !state.isEUR,
+      isUSD: !state.isUSD,
+    }
     default:
       return state;
   }

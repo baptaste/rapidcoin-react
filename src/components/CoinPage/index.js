@@ -7,19 +7,22 @@ import './coinpage.scss';
 
 const CoinPage = ({
   getOneCoin, coin, marketData, image, description,
-  website, volumeInADay, marketCap, currentPrice }) => {
+  website, volumeInADay, marketCap, currentPrice, isEUR }) => {
 
   useEffect(() => {
-    console.log('je passe bien dans le useEffect qui appelle getOneCoin() !');
     getOneCoin();
   }, []);
 
-  const cleanDescription = DOMPurify.sanitize(description, {FORBID_TAGS: ['a']});
+  const cleanDescription = DOMPurify.sanitize(description, {ALLOWED_TAGS: ['em', 'strong']});
   const history = useHistory();
 
   const handleGoBack = () => {
     history.goBack();
   };
+
+  let currency;
+  if (isEUR) currency = '€';
+  if (!isEUR) currency = '$';
 
   return (
     <section className="coin__page">
@@ -34,15 +37,12 @@ const CoinPage = ({
 
         <article className="coin__page-item">
         <img src={image.large} className="coin__page-item--backgroundImg" />
-          <p className="coin__header">
-            #{coin.market_cap_rank}
-            {/* <img src={image.small} className="coin__header-img" /> */}
-          </p>
+          <p className="coin__header">#{coin.market_cap_rank}</p>
           <p className="coin__content">Name: {coin.name} ({coin.symbol.toUpperCase()})</p>
           <p className="coin__content">Market Cap Rank: {coin.market_cap_rank}</p>
-          <p className="coin__content">Current Price: {currentPrice.toLocaleString()} €</p>
-          <p className="coin__content">Market Cap: {marketCap.toLocaleString()} €</p>
-          <p className="coin__content">Volume 24h: {volumeInADay.toLocaleString()} €</p>
+          <p className="coin__content">Current Price: {currentPrice.toLocaleString()} {currency}</p>
+          <p className="coin__content">Market Cap: {marketCap.toLocaleString()} {currency}</p>
+          <p className="coin__content">Volume 24h: {volumeInADay.toLocaleString()} {currency}</p>
           <p className="coin__content">Price change 24h:
             <span className={marketData.price_change_percentage_24h > 0 ?
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_24h} %

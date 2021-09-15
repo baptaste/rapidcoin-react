@@ -13,10 +13,15 @@ const Coin = ({
   circulating_supply,
   market_cap_rank,
   trendingCoins,
-  coin }) => {
+  coin,
+  isEUR }) => {
 
     // get trendy coin
     const trendyCoin = trendingCoins.find((trend) =>  trend.id === coin.id);
+
+    let currency;
+    if (isEUR) currency = '€';
+    if (!isEUR) currency = '$';
 
     return (
       <article className="coin">
@@ -27,9 +32,9 @@ const Coin = ({
     </p>
     <p className="coin__content">Name: {name} ({symbol.toUpperCase()})</p>
     <p className="coin__content">Market Cap Rank: {market_cap_rank.toLocaleString()}</p>
-    <p className="coin__content">Current Price: {current_price.toLocaleString()} €</p>
-    <p className="coin__content">Market Cap: {market_cap.toLocaleString()} €</p>
-    <p className="coin__content">Volume 24h: {total_volume.toLocaleString()} €</p>
+    <p className="coin__content">Current Price: {current_price.toLocaleString()} {currency}</p>
+    <p className="coin__content">Market Cap: {market_cap.toLocaleString()} {currency}</p>
+    <p className="coin__content">Volume 24h: {total_volume.toLocaleString()} {currency}</p>
     <p className="coin__content">
       Price change 24h:
       <span className={price_change_percentage_24h > 0 ? 'coin__content--pos' : 'coin__content--neg'}>

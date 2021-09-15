@@ -22,11 +22,14 @@ const Home = ({
   theme,
   onLoadMore,
   isLoading,
-  trendingCoins }) => {
+  trendingCoins,
+  isCurrencyTogglerClicked,
+  isEUR,
+ }) => {
 
   useEffect(() => {
     getCoins();
-  }, []);
+  }, [isCurrencyTogglerClicked]);
 
   const handleGoToHome = () => {
     resetFilteredCoins();
@@ -87,6 +90,7 @@ const Home = ({
                     {...coin}
                     trendingCoins={trendingCoins}
                     coin={coin}
+                    isEUR={isEUR}
                   />
               </Link>
               );
@@ -112,6 +116,7 @@ const Home = ({
                     {...coin}
                     trendingCoins={trendingCoins}
                     coin={coin}
+                    isEUR={isEUR}
                   />
               </Link>
               );
