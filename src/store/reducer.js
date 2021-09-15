@@ -29,11 +29,14 @@ const initialState = {
   isCurrencyTogglerClicked: false,
   isEUR: true,
   isUSD: false,
+  isFilterByMarketCapClicked: false,
+  isMarketCapFilteredDESC: false,
+  isMarketCapFilteredASC: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case 'GET_COINS_SUCCESS':
+    case 'GET_COINS_SUCCESS': {
       return {
         ...state,
         coins: action.coins,
@@ -43,7 +46,11 @@ const reducer = (state = initialState, action = {}) => {
         isCoinsFilteredDESC: false,
         isCoinsFilteredASC: false,
         isCurrencyTogglerClicked: false,
+        isMarketCapFilteredDESC: false,
+        isMarketCapFilteredASC: false,
+        isFilterByMarketCapClicked: false,
       }
+    }
     case 'GET_COINS_BY_PRICE_DESC': {
       const coinsCopy = state.coins.map((coin) => coin);
       // first time clicked => default price DESC
@@ -56,6 +63,9 @@ const reducer = (state = initialState, action = {}) => {
         isFilterByPriceClicked: !state.isFilterByPriceClicked,
         isCoinsFilteredDESC: true,
         isCoinsFilteredASC: false,
+        isFilterByMarketCapClicked: false,
+        isMarketCapFilteredDESC: false,
+        isMarketCapFilteredASC: false,
       }
     }
     case 'GET_COINS_BY_PRICE_ASC': {
@@ -69,6 +79,43 @@ const reducer = (state = initialState, action = {}) => {
         coins: coinsByPriceAsc,
         isFilterByPriceClicked: !state.isFilterByPriceClicked,
         isCoinsFilteredASC: true,
+        isCoinsFilteredDESC: false,
+        isFilterByMarketCapClicked: false,
+        isMarketCapFilteredDESC: false,
+        isMarketCapFilteredASC: false,
+      }
+    }
+    case 'GET_COINS_BY_MARKETCAP_DESC': {
+      const coinsCopy = state.coins.map((coin) => coin);
+      const coinsByMarketCapDESC = coinsCopy.sort(function(a, b) {
+        return b.market_cap - a.market_cap;
+      });
+      console.log('on passe dans GET_COINS_BY_MARKETCAP_DESC dans le reducer', coinsByMarketCapDESC);
+      return {
+        ...state,
+        coins: coinsByMarketCapDESC,
+        isFilterByMarketCapClicked: !state.isFilterByMarketCapClicked,
+        isMarketCapFilteredDESC: true,
+        isMarketCapFilteredASC: false,
+        isFilterByPriceClicked: false,
+        isCoinsFilteredASC: false,
+        isCoinsFilteredDESC: false,
+      }
+    }
+    case 'GET_COINS_BY_MARKETCAP_ASC': {
+      const coinsCopy = state.coins.map((coin) => coin);
+      const coinsByMarketCapASC = coinsCopy.sort(function(a, b) {
+        return a.market_cap - b.market_cap;
+      });
+      console.log('on passe dans GET_COINS_BY_MARKETCAP_ASC dans le reducer', coinsByMarketCapASC);
+      return {
+        ...state,
+        coins: coinsByMarketCapASC,
+        isFilterByMarketCapClicked: !state.isFilterByMarketCapClicked,
+        isMarketCapFilteredDESC: false,
+        isMarketCapFilteredASC: true,
+        isFilterByPriceClicked: false,
+        isCoinsFilteredASC: false,
         isCoinsFilteredDESC: false,
       }
     }
@@ -84,7 +131,7 @@ const reducer = (state = initialState, action = {}) => {
         isLoading: false,
       }
     }
-    case 'GET_MORE_COINS_DESC_SUCCESS' : {
+    case 'GET_MORE_COINS_DESC_PRICE_SUCCESS' : {
       const newCoins = [
         ...state.coins,
         ...action.coinsDESC,
@@ -99,13 +146,43 @@ const reducer = (state = initialState, action = {}) => {
         isLoading: false,
       }
     }
-    case 'GET_MORE_COINS_ASC_SUCCESS' : {
+    case 'GET_MORE_COINS_ASC_PRICE_SUCCESS' : {
       const newCoins = [
         ...state.coins,
         ...action.coinsASC,
       ];
       newCoins.sort(function(a, b) {
         return a.current_price - b.current_price;
+      });
+      return {
+        ...state,
+        coins: newCoins,
+        currentPage: action.currentPage,
+        isLoading: false,
+      }
+    }
+    case 'GET_MORE_COINS_DESC_MARKET_SUCCESS': {
+      const newCoins = [
+        ...state.coins,
+        ...action.coinsDESC,
+      ];
+      newCoins.sort(function(a, b) {
+        return b.market_cap - a.market_cap;
+      });
+      return {
+        ...state,
+        coins: newCoins,
+        currentPage: action.currentPage,
+        isLoading: false,
+      }
+    }
+    case 'GET_MORE_COINS_ASC_MARKET_SUCCESS': {
+      const newCoins = [
+        ...state.coins,
+        ...action.coinsASC,
+      ];
+      newCoins.sort(function(a, b) {
+        return a.market_cap - b.market_cap;
       });
       return {
         ...state,

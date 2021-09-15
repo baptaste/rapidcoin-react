@@ -7,6 +7,9 @@ const mapStateToProps = (state) => ({
   isCoinsFilteredDESC: state.isCoinsFilteredDESC,
   isCoinsFilteredASC: state.isCoinsFilteredASC,
   isEUR: state.isEUR,
+  isFilterByMarketCapClicked: state.isFilterByMarketCapClicked,
+  isMarketCapFilteredDESC: state.isMarketCapFilteredDESC,
+  isMarketCapFilteredASC: state.isMarketCapFilteredASC,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -21,6 +24,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
   toggleCurrency: () => {
     dispatch({ type: 'SET_CURRENCY_VALUE' });
+  },
+  getCoinsByMarketCapDESC: () => {
+    dispatch({ type: 'GET_COINS_BY_MARKETCAP_DESC' });
+  },
+  getCoinsByMarketCapASC: () => {
+    dispatch({ type: 'GET_COINS_BY_MARKETCAP_ASC' });
   },
 });
 

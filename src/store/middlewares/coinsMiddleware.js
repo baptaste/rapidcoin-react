@@ -47,7 +47,7 @@ const coinsMiddleware = (store) => (next) => async (action) => {
 
   if (action.type === 'GET_MORE_COINS') {
     state.isLoading = true;
-    const newCurrentPage = state.currentPage + 1;
+    const newCurrentPage = state.currentPage + 1; // increase current page value by 1 each time
     try {
       let url;
       if (isEUR && !isUSD) {
@@ -62,23 +62,45 @@ const coinsMiddleware = (store) => (next) => async (action) => {
       };
       const coinsData = await res.json();
 
-      if (state.isCoinsFilteredDESC === true) {
+      // filtered by desc price
+      if (state.isCoinsFilteredDESC) {
         const coinsDataCopyDESC = coinsData.map((coin) => coin);
         coinsDataCopyDESC.sort(function(a, b) {
           return b.current_price - a.current_price;
         });
-        store.dispatch({ type: 'GET_MORE_COINS_DESC_SUCCESS', coinsDESC: coinsDataCopyDESC, currentPage: newCurrentPage });
+        store.dispatch({ type: 'GET_MORE_COINS_DESC_PRICE_SUCCESS', coinsDESC: coinsDataCopyDESC, currentPage: newCurrentPage });
       }
-
-      if (state.isCoinsFilteredASC === true) {
+      // filtered by asc price
+      if (state.isCoinsFilteredASC) {
         const coinsDataCopyASC = coinsData.map((coin) => coin);
         coinsDataCopyASC.sort(function(a, b) {
           return a.current_price - b.current_price;
         });
-        store.dispatch({ type: 'GET_MORE_COINS_ASC_SUCCESS', coinsASC: coinsDataCopyASC, currentPage: newCurrentPage });
+        store.dispatch({ type: 'GET_MORE_COINS_ASC_PRICE_SUCCESS', coinsASC: coinsDataCopyASC, currentPage: newCurrentPage });
+      }
+      // filtered by desc market cap
+      if (state.isMarketCapFilteredDESC) {
+        const coinsDataCopyDESC = coinsData.map((coin) => coin);
+        coinsDataCopyDESC.sort(function(a, b) {
+          return b.market_cap - a.market_cap;
+        });
+        store.dispatch({ type: 'GET_MORE_COINS_DESC_MARKET_SUCCESS', coinsDESC: coinsDataCopyDESC, currentPage: newCurrentPage });
+      }
+      // filtered by asc market cap
+      if (state.isMarketCapFilteredASC) {
+        const coinsDataCopyASC = coinsData.map((coin) => coin);
+        coinsDataCopyASC.sort(function(a, b) {
+          return a.market_cap - b.market_cap;
+        });
+        store.dispatch({ type: 'GET_MORE_COINS_ASC_MARKET_SUCCESS', coinsASC: coinsDataCopyASC, currentPage: newCurrentPage });
       }
 
-      if (!state.isFilterByPriceClicked && !state.isCoinsFilteredDESC && !state.isCoinsFilteredASC) {
+      if (
+        !state.isFilterByPriceClicked &&
+        !state.isCoinsFilteredDESC &&
+        !state.isCoinsFilteredASC &&
+        !state.isMarketCapFilteredDESC &&
+        !state.isMarketCapFilteredASC) {
         store.dispatch({ type: 'GET_MORE_COINS_SUCCESS', coins: coinsData, currentPage: newCurrentPage });
       }
 
