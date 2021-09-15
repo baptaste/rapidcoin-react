@@ -89,9 +89,9 @@ const GlobalStyles = createGlobalStyle`
       box-shadow: ${({ theme }) => theme.goButtonShadow};
     }
   }
-  .goButton__filter-price--active {
-    color: ${({ theme }) => theme.priceButtonColorActive};
-    border: ${({ theme }) => theme.priceButtonBorderActive};
+  .goButton__filter.active {
+    color: ${({ theme }) => theme.filtersButtonColorActive};
+    border: ${({ theme }) => theme.filtersButtonBorderActive};
   }
   .platforms-list {
     border-bottom: ${({ theme }) => theme.platformsGridBorder};

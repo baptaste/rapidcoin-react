@@ -18,8 +18,10 @@ const FiltersBar = ({
   getCoinsByMarketCapDESC,
 }) => (
   <div className="filters-bar">
+    {/* default rank */}
     <button type="button" className="goButton" onClick={getCoins} title="Rank">Rank</button>
 
+    {/* price filter */}
     {!isFilterByPriceClicked && (!isCoinsFilteredDESC && !isCoinsFilteredASC) &&
     <button
       type="button"
@@ -32,7 +34,7 @@ const FiltersBar = ({
     {isCoinsFilteredDESC &&
       <button
       type="button"
-      className={isCoinsFilteredDESC ? 'goButton goButton__filter-price--active' : 'goButton'}
+      className={isCoinsFilteredDESC ? 'goButton goButton__filter active' : 'goButton'}
       title="Desending price"
       onClick={getCoinsByPriceASC}>
       <i className="fas fa-sort-amount-down" /> Price
@@ -41,15 +43,11 @@ const FiltersBar = ({
     {isCoinsFilteredASC &&
       <button
       type="button"
-      className={isCoinsFilteredASC ? 'goButton goButton__filter-price--active' : 'goButton'}
+      className={isCoinsFilteredASC ? 'goButton goButton__filter active' : 'goButton'}
       title="Ascending price"
       onClick={getCoinsByPriceDESC}>
       <i className="fas fa-sort-amount-up-alt" /> Price
     </button>}
-
-    <button type="button" className="goButton" onClick={toggleCurrency} title="Currency">
-      {isEUR ? '$' : '€'}
-    </button>
 
     {/* market cap filter */}
     {!isFilterByMarketCapClicked && (!isMarketCapFilteredDESC && !isMarketCapFilteredASC) &&
@@ -64,7 +62,7 @@ const FiltersBar = ({
     {isMarketCapFilteredDESC &&
       <button
       type="button"
-      className={isMarketCapFilteredDESC ? 'goButton goButton__filter-price--active' : 'goButton'}
+      className={isMarketCapFilteredDESC ? 'goButton goButton__filter active' : 'goButton'}
       title="Desending price"
       onClick={getCoinsByMarketCapASC}>
       <i className="fas fa-sort-amount-down" /> Market Cap
@@ -73,11 +71,16 @@ const FiltersBar = ({
     {isMarketCapFilteredASC &&
       <button
       type="button"
-      className={isMarketCapFilteredASC ? 'goButton goButton__filter-price--active' : 'goButton'}
+      className={isMarketCapFilteredASC ? 'goButton goButton__filter active' : 'goButton'}
       title="Ascending price"
       onClick={getCoinsByMarketCapDESC}>
       <i className="fas fa-sort-amount-up-alt" /> Market Cap
     </button>}
+
+    {/* currency toggler */}
+    <button type="button" className="goButton" onClick={toggleCurrency} title="Switch currency">
+      {isEUR ? '$' : '€'}
+    </button>
   </div>
 );
 

@@ -18,7 +18,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getOneCoin: () => {
-    console.log('je suis bien dans le mapDispatchToProps de CoinPage !!!');
     dispatch({ type: 'GET_ONECOIN' });
   },
 });

@@ -43,26 +43,27 @@ const CoinPage = ({
           <p className="coin__content">Current Price: {currentPrice.toLocaleString()} {currency}</p>
           <p className="coin__content">Market Cap: {marketCap.toLocaleString()} {currency}</p>
           <p className="coin__content">Volume 24h: {volumeInADay.toLocaleString()} {currency}</p>
-          <p className="coin__content">Price change 24h:
+          <p className="coin__content--price-list">Price change:</p>
+          <p className="coin__content--price-change">24h:
             <span className={marketData.price_change_percentage_24h > 0 ?
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_24h} %
             </span>
           </p>
-          <p className="coin__content">Price change 7d:
+          <p className="coin__content--price-change">7d:
             <span className={marketData.price_change_percentage_7d > 0 ?
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_7d} %
             </span>
           </p>
-          <p className="coin__content">Price change 1 month:
+          <p className="coin__content--price-change">last month:
             <span className={marketData.price_change_percentage_30d > 0 ?
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_30d} %
             </span>
           </p>
-          <p className="coin__content">Price change past 6 months:
+          <p className="coin__content--price-change">past 6 months:
             <span className={marketData.price_change_percentage_200d > 0 ?
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_200d} %
             </span>
-          </p>
+         </p>
           <p className="coin__content">
             Circulating supply: {marketData.circulating_supply.toLocaleString()} units
             {marketData.max_supply !== null ?
