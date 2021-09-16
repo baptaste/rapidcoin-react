@@ -1,14 +1,18 @@
-# Cryptocurrencies stats tracker V2 (react)
+# Cryptocurrencies stats tracker
 
-RapidCoin is a website that shows datas of top current cryptocurrencies ordered by market capitalization,
-provided by CoinGecko's API.
-You can see infos among 100 coins easily (like Bitcoin, Ethereum and more).
+Rapidcoin is an application that lists a large amount of cryptocurrencies (market cap, volume, price change, coin description and more), by consuming CoinGecko's API.
 
-The site displays coins in "block" format but if you're visiting on desktop you could switch for a classic table dashboard.
+Visitors can search for a specific coin and see its details, filter coins by price or market capitalization and switch between euro and US Dollar.
 
 ## Stack
 
-Here is the stuff that i use to build this project:
+Stack used to build this project:
 - react
+- react-dom
+- react-router-dom
 - redux
-- scss
+- react-redux
+- redux-persist
+- sass (scss)
+- styled-components
+- dompurify
