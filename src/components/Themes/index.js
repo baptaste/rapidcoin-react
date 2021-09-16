@@ -5,7 +5,6 @@ export const lightTheme = {
   background: '#363537',
   headerBtns: '#0000FE', // strong blue
   headerLinksHover: '#0000FE', // strong blue
-  // coin: '#e4fffb', // green
   coin: 'hsl(223, 90%, 98%)', // TEST
   coinShadow: '4px 4px 0 0 #d2d2f9', // very light purple
   coinShadowHover: 'none',
@@ -30,8 +29,6 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  // body: '#363537',
-  // body: '#0f0f0f',
   body: '#202020', // dark background
   text: '#FAFAFA',
   toggleBorder: '#6B8096',

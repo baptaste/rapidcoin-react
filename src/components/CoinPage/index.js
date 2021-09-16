@@ -54,15 +54,24 @@ const CoinPage = ({
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_7d} %
             </span>
           </p>
-          <p className="coin__content--price-change">last month:
+          <p className="coin__content--price-change">1 month:
             <span className={marketData.price_change_percentage_30d > 0 ?
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_30d} %
             </span>
           </p>
-          <p className="coin__content--price-change">past 6 months:
+          <p className="coin__content--price-change">6 months:
+          {marketData.price_change_percentage_200d !== 0 ? (
             <span className={marketData.price_change_percentage_200d > 0 ?
               'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_200d} %
             </span>
+          ) : (' No stats yet.')}
+         </p>
+         <p className="coin__content--price-change">1 year:
+          {marketData.price_change_percentage_1y !== 0 ? (
+            <span className={marketData.price_change_percentage_1y > 0 ?
+              'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_1y} %
+            </span>
+          ) : (' No stats yet.')}
          </p>
           <p className="coin__content">
             Circulating supply: {marketData.circulating_supply.toLocaleString()} units

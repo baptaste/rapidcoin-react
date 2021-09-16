@@ -11,7 +11,6 @@ const platformsMiddleware = (store) => (next) => async (action) => {
           throw new Error('Error, request failed');
       };
       const platformsData = await res.json();
-      console.log(platformsData);
       store.dispatch({ type: 'GET_PLATFORMS_SUCCESS', platforms: platformsData });
     } catch (err) {
         console.error(err)

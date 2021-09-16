@@ -8,7 +8,6 @@ import { store, persistor } from "./store";
 
 // local
 import App from 'src/containers/App';
-// import store from './store';
 
 const rootReactElement = (
   <Provider store={store}>

@@ -1,13 +1,13 @@
 const initialState = {
-  coins: [], // array
-  coin: {}, // object
-  marketData: {}, // object
-  image: {}, // object
-  description: '', // string
-  website: '', // string
-  volumeInADay: 1, // number
-  marketCap: 1, // number
-  currentPrice: 1, // number
+  coins: [],
+  coin: {},
+  marketData: {},
+  image: {},
+  description: '',
+  website: '',
+  volumeInADay: 1,
+  marketCap: 1,
+  currentPrice: 1,
   coinId: null,
   // searchbar
   searchValue: '',
@@ -90,7 +90,6 @@ const reducer = (state = initialState, action = {}) => {
       const coinsByMarketCapDESC = coinsCopy.sort(function(a, b) {
         return b.market_cap - a.market_cap;
       });
-      console.log('on passe dans GET_COINS_BY_MARKETCAP_DESC dans le reducer', coinsByMarketCapDESC);
       return {
         ...state,
         coins: coinsByMarketCapDESC,
@@ -107,7 +106,6 @@ const reducer = (state = initialState, action = {}) => {
       const coinsByMarketCapASC = coinsCopy.sort(function(a, b) {
         return a.market_cap - b.market_cap;
       });
-      console.log('on passe dans GET_COINS_BY_MARKETCAP_ASC dans le reducer', coinsByMarketCapASC);
       return {
         ...state,
         coins: coinsByMarketCapASC,
