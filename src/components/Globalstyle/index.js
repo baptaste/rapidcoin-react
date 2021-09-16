@@ -117,6 +117,9 @@ const GlobalStyles = createGlobalStyle`
       background-color: ${({ theme }) => theme.coinPageDividerBorder};
     }
   }
+  .footer, .menu__footer {
+    color: ${({ theme }) => theme.footerColor};
+  }
   `;
 
 export default GlobalStyles;

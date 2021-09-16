@@ -1,6 +1,9 @@
 @use 'src/styles/vars.scss';
 
 .menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   position: fixed;
   top: 0;
   width: 100%;
@@ -26,14 +29,25 @@
   &__nav {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     width: 300px;
-    height: auto;
-    margin: 30% auto;
+    height: 300px;
+    margin: 5rem auto;
     text-transform: uppercase;
 
     &-link {
       font-size: 1.3rem;
       margin-bottom: 3rem;
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: .9rem;
+    color: vars.$seventhColor;
+    &>p {
+      margin-bottom: .5rem;
     }
   }
 }

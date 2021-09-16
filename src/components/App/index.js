@@ -13,6 +13,7 @@ import Trendings from 'src/containers/Trendings';
 import Platforms from 'src/containers/Platforms';
 import Loading from 'src/components/Loading';
 import NotFound from 'src/components/NotFound';
+import Footer from 'src/components/Footer';
 
 import GlobalStyles from 'src/components/Globalstyle';
 import { lightTheme, darkTheme } from 'src/components/Themes';
@@ -65,6 +66,8 @@ const App = ({ isLoading }) => {
             <NotFound theme={theme} />
           </Route>
         </Switch>
+
+        <Footer />
       </div>
       </>
     </ThemeProvider>

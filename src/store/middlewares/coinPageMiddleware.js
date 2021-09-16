@@ -1,5 +1,3 @@
-import { findCoin } from 'src/selectors/coins';
-
 const coinPageMiddleware = (store) => (next) => async (action) => {
 
     if (action.type === 'GET_ONECOIN') {

@@ -26,6 +26,7 @@ export const lightTheme = {
   coinPageDividerBorder: 'rgba(0,0,0,0.1)',
   filtersButtonColorActive: '#0000FE',
   filtersButtonBorderActive: '1px solid #0000FE',
+  footerColor: '#666666',
 }
 
 export const darkTheme = {
@@ -56,4 +57,5 @@ export const darkTheme = {
   coinPageDividerBorder: 'hsl(0, 0%, 48%);',
   filtersButtonColorActive: '#ffa366',
   filtersButtonBorderActive: '1px solid #ffa366',
+  footerColor: '#ccc',
 }
