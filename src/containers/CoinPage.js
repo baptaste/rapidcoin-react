@@ -5,13 +5,6 @@ import CoinPage from 'src/components/CoinPage';
 
 const mapStateToProps = (state) => ({
     coin: state.coin,
-    marketData: state.marketData,
-    image: state.image,
-    description: state.description,
-    website: state.website,
-    volumeInADay: state.volumeInADay,
-    marketCap: state.marketCap,
-    currentPrice: state.currentPrice,
     isLoading: state.isLoading,
     isEUR: state.isEUR,
     coinId: state.coinId,

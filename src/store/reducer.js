@@ -1,13 +1,6 @@
 const initialState = {
   coins: [],
   coin: {},
-  marketData: {},
-  image: {},
-  description: '',
-  website: '',
-  volumeInADay: 1,
-  marketCap: 1,
-  currentPrice: 1,
   coinId: null,
   // searchbar
   searchValue: '',
@@ -193,13 +186,6 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         coin: action.coin,
-        marketData: action.marketData,
-        image: action.image,
-        description: action.description,
-        website: action.website,
-        volumeInADay: action.volumeInADay,
-        marketCap: action.marketCap,
-        currentPrice: action.currentPrice,
         isLoading: false,
       }
     case 'GET_COIN_ID':

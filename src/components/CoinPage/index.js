@@ -6,14 +6,15 @@ import PropTypes from 'prop-types';
 import './coinpage.scss';
 
 const CoinPage = ({
-  getOneCoin, coin, marketData, image, description,
-  website, volumeInADay, marketCap, currentPrice, isEUR, coinId }) => {
+  getOneCoin, coin, isEUR, coinId }) => {
 
   useEffect(() => {
     getOneCoin();
   }, [coinId]);
 
-  const cleanDescription = DOMPurify.sanitize(description, {ALLOWED_TAGS: ['em', 'strong']});
+  const { market_data, image, description, links } = coin;
+
+  const cleanDescription = DOMPurify.sanitize(description.en, {ALLOWED_TAGS: ['em', 'strong']});
   const history = useHistory();
 
   const handleGoBack = () => {
@@ -25,7 +26,7 @@ const CoinPage = ({
   if (!isEUR) currency = '$';
 
   return (
-    coin && (
+    coin !== {} && (
       <section className="coin__page">
 
         <div className="coin__page__preview">
@@ -37,55 +38,99 @@ const CoinPage = ({
         </div>
 
         <article className="coin__page-item">
-        <img src={image.large} className="coin__page-item--backgroundImg" />
+          <img src={image.large} className="coin__page-item--backgroundImg" />
           <p className="coin__header">#{coin.market_cap_rank}</p>
           <p className="coin__content">Name: {coin.name} ({coin.symbol.toUpperCase()})</p>
           <p className="coin__content">Market Cap Rank: {coin.market_cap_rank}</p>
-          <p className="coin__content">Current Price: {currentPrice.toLocaleString()} {currency}</p>
-          <p className="coin__content">Market Cap: {marketCap.toLocaleString()} {currency}</p>
-          <p className="coin__content">Volume 24h: {volumeInADay.toLocaleString()} {currency}</p>
+          <p className="coin__content">Current Price: {isEUR ?
+            (market_data.current_price.eur.toLocaleString()) : (market_data.current_price.usd.toLocaleString())} {currency}</p>
+          <p className="coin__content">Market Cap: {isEUR ?
+            (market_data.market_cap.eur.toLocaleString()) : (market_data.market_cap.usd.toLocaleString())} {currency}</p>
+          <p className="coin__content">Volume 24h: {isEUR ?
+            (market_data.total_volume.eur.toLocaleString()) : (market_data.total_volume.usd.toLocaleString())} {currency}</p>
           <p className="coin__content--price-list">Price change:</p>
           <p className="coin__content--price-change">24h:
-            <span className={marketData.price_change_percentage_24h > 0 ?
-              'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_24h} %
-            </span>
+            {isEUR ? (
+              <span className={market_data.price_change_percentage_24h_in_currency.eur > 0 ?
+                'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_24h_in_currency.eur} %
+              </span>
+            ) : (
+              <span className={market_data.price_change_percentage_24h_in_currency.usd > 0 ?
+                'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_24h_in_currency.usd} %
+              </span>)}
           </p>
           <p className="coin__content--price-change">7d:
-            <span className={marketData.price_change_percentage_7d > 0 ?
-              'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_7d} %
+          {isEUR ? (
+            <span className={market_data.price_change_percentage_7d_in_currency.eur > 0 ?
+              'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_7d_in_currency.eur} %
             </span>
+            ) : (
+              <span className={market_data.price_change_percentage_7d_in_currency.usd > 0 ?
+                'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_7d_in_currency.usd} %
+              </span>)}
           </p>
           <p className="coin__content--price-change">1 month:
-            <span className={marketData.price_change_percentage_30d > 0 ?
-              'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_30d} %
+          {isEUR ? (
+            <span className={market_data.price_change_percentage_30d_in_currency.eur > 0 ?
+              'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_30d_in_currency.eur} %
             </span>
+          ) : (
+            <span className={market_data.price_change_percentage_30d_in_currency.usd > 0 ?
+              'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_30d_in_currency.usd} %
+            </span>)}
           </p>
-          <p className="coin__content--price-change">6 months:
-          {marketData.price_change_percentage_200d !== 0 ? (
-            <span className={marketData.price_change_percentage_200d > 0 ?
-              'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_200d} %
-            </span>
-          ) : (' No stats yet.')}
-         </p>
-         <p className="coin__content--price-change">1 year:
-          {marketData.price_change_percentage_1y !== 0 ? (
-            <span className={marketData.price_change_percentage_1y > 0 ?
-              'coin__content--pos' : 'coin__content--neg'}>{marketData.price_change_percentage_1y} %
-            </span>
-          ) : (' No stats yet.')}
-         </p>
+
+          {isEUR &&
+            <p className="coin__content--price-change">6 months:
+            {market_data.price_change_percentage_200d !== 0 &&
+            market_data.price_change_percentage_200d_in_currency.eur !== 0 ? (
+              <span className={market_data.price_change_percentage_200d_in_currency.eur > 0 ?
+                'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_200d_in_currency.eur} %
+              </span>
+            ) : (' No stats yet')}
+            </p>}
+          {!isEUR &&
+            <p className="coin__content--price-change">6 months:
+            {market_data.price_change_percentage_200d !== 0 &&
+            market_data.price_change_percentage_200d_in_currency.usd !== 0 ? (
+              <span className={market_data.price_change_percentage_200d_in_currency.usd > 0 ?
+                'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_200d_in_currency.usd} %
+              </span>
+            ) : (' No stats yet')}
+          </p>}
+
+          {isEUR &&
+            <p className="coin__content--price-change">1 year:
+            {market_data.price_change_percentage_1y !== 0 &&
+            market_data.price_change_percentage_1y_in_currency.eur !== 0 ? (
+              <span className={market_data.price_change_percentage_1y_in_currency.eur > 0 ?
+                'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_1y_in_currency.eur} %
+              </span>
+            ) : (' No stats yet')}
+            </p>}
+          {!isEUR &&
+            <p className="coin__content--price-change">1 year:
+            {market_data.price_change_percentage_1y !== 0 &&
+            market_data.price_change_percentage_1y_in_currency.usd !== 0 ? (
+              <span className={market_data.price_change_percentage_1y_in_currency.usd > 0 ?
+                'coin__content--pos' : 'coin__content--neg'}>{market_data.price_change_percentage_1y_in_currency.usd} %
+              </span>
+            ) : (' No stats yet')}
+            </p>}
+
           <p className="coin__content">
-            Circulating supply: {marketData.circulating_supply.toLocaleString()} units
-            {marketData.max_supply !== null ?
-            ` (max ${marketData.max_supply.toLocaleString()})` : ' (unlimited)'}
+            Circulating supply: {market_data.circulating_supply.toLocaleString()} units
+            {market_data.max_supply !== null ?
+            ` (max ${market_data.max_supply.toLocaleString()})` : ' (unlimited)'}
           </p>
+
           {coin.hashing_algorithm &&
           <p className="coin__content">Hashing algorithm: {coin.hashing_algorithm}</p>}
           {coin.genesis_date &&
           <p className="coin__content">Initial release: {coin.genesis_date}
           </p>}
           <p className="coin__content">Official website:
-            <a href={website} target="_blank" className="coin__content--url"> {website}</a>
+            <a href={links.homepage[0]} target="_blank" className="coin__content--url"> {links.homepage[0]}</a>
           </p>
         </article>
       </div>
@@ -102,6 +147,7 @@ const CoinPage = ({
 
     </section>
     )
+
   );
 };
 
@@ -112,18 +158,15 @@ CoinPage.propTypes = {
     symbol: PropTypes.string.isRequired,
     genesis_date: PropTypes.string,
   }).isRequired,
-  marketData: PropTypes.shape({
-    market_cap_change_percentage_24h: PropTypes.number.isRequired,
-    circulating_supply: PropTypes.number.isRequired,
-  }).isRequired,
-  image: PropTypes.shape({
-    small: PropTypes.string.isRequired,
-  }).isRequired,
-  description: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
-  volumeInADay: PropTypes.number.isRequired,
-  marketCap: PropTypes.number.isRequired,
-  currentPrice: PropTypes.number.isRequired,
+  // market_data: PropTypes.shape({
+  //   market_cap_change_percentage_24h: PropTypes.number.isRequired,
+  //   circulating_supply: PropTypes.number.isRequired,
+  // }).isRequired,
+  // image: PropTypes.shape({
+  //   large: PropTypes.string.isRequired,
+  // }).isRequired,
+  // description: PropTypes.string.isRequired,
+  // market_cap: PropTypes.number.isRequired,
 };
 
 
