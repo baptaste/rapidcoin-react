@@ -14,6 +14,7 @@ const mapStateToProps = (state) => ({
     currentPrice: state.currentPrice,
     isLoading: state.isLoading,
     isEUR: state.isEUR,
+    coinId: state.coinId,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -7,11 +7,11 @@ import './coinpage.scss';
 
 const CoinPage = ({
   getOneCoin, coin, marketData, image, description,
-  website, volumeInADay, marketCap, currentPrice, isEUR }) => {
+  website, volumeInADay, marketCap, currentPrice, isEUR, coinId }) => {
 
   useEffect(() => {
     getOneCoin();
-  }, []);
+  }, [coinId]);
 
   const cleanDescription = DOMPurify.sanitize(description, {ALLOWED_TAGS: ['em', 'strong']});
   const history = useHistory();
@@ -25,9 +25,10 @@ const CoinPage = ({
   if (!isEUR) currency = '$';
 
   return (
-    <section className="coin__page">
+    coin && (
+      <section className="coin__page">
 
-      <div className="coin__page__preview">
+        <div className="coin__page__preview">
         <div className="coin__page__preview-settings">
           <button type="button" className="goButton" onClick={handleGoBack}>
           <i className="fas fa-arrow-left" />
@@ -89,19 +90,18 @@ const CoinPage = ({
         </article>
       </div>
 
+      <div className="coin__page__desc">
+      {cleanDescription ? (
+        <>
+        <h2 className="coin__page__desc--title">About</h2>
+        <p className="coin__page__desc--text">{cleanDescription}</p>
+        </>
+      ) : (<p className="coin__page__desc--text">No description.</p> )
+      }
+      </div>
 
-  <div className="coin__page__desc">
-  {cleanDescription ? (
-    <>
-    <h2 className="coin__page__desc--title">About</h2>
-    <p className="coin__page__desc--text">{cleanDescription}</p>
-    </>
-  ) : (<p className="coin__page__desc--text">No description.</p> )
-  }
-  </div>
-
-
-  </section>
+    </section>
+    )
   );
 };
 
