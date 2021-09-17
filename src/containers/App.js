@@ -6,7 +6,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  getDefaultCoin: () => {
+    dispatch({ type: 'GET_DEFAULT_COIN' })
+  },
 });
 
-export default connect(mapStateToProps, null)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

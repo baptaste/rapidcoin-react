@@ -19,7 +19,11 @@ import GlobalStyles from 'src/components/Globalstyle';
 import { lightTheme, darkTheme } from 'src/components/Themes';
 import './app.scss';
 
-const App = ({ isLoading }) => {
+const App = ({ isLoading, getDefaultCoin }) => {
+
+  useEffect(() => {
+    getDefaultCoin();
+  }, []);
 
   const location = useLocation();
   useEffect(() => {

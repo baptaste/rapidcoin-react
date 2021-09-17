@@ -10,11 +10,12 @@ const CoinPage = ({
 
   useEffect(() => {
     getOneCoin();
-  }, [coinId]);
+  }, []);
 
   const { market_data, image, description, links } = coin;
 
   const cleanDescription = DOMPurify.sanitize(description.en, {ALLOWED_TAGS: ['em', 'strong']});
+
   const history = useHistory();
 
   const handleGoBack = () => {
@@ -147,7 +148,6 @@ const CoinPage = ({
 
     </section>
     )
-
   );
 };
 
