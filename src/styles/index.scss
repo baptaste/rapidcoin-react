@@ -1,35 +1,24 @@
 @use 'reset';
 @use 'vars';
 
-// or you can import your own font
-@font-face {
-  // font-family: 'Roboto';
-  // src: url('../assets/fonts/Roboto-Regular.ttf');
-
-}
-
 html {
   scroll-behavior: smooth;
   ::-webkit-scrollbar {
-      width: 7px;
+    width: 7px;
   }
-
   ::-webkit-scrollbar-thumb {
-      background: vars.$sixthColor;
-      // border-radius: 5px;
+    background: vars.$sixthColor;
   }
-
   ::-webkit-scrollbar-track {
       background: #f1f1f1;
   }
 }
 
 body {
-  // font-family: 'Roboto', sans-serif;
-  // font-family: 'Bevellier', sans-serif;
-  font-family: 'Chillax', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   width: 100%;
 }
+
 @media screen and (max-width: 700px) {
   .blockchain_img {
     display: block;

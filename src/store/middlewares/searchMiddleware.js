@@ -63,6 +63,64 @@ const searchMiddleware = (store) => (next) => async (action) => {
     }
   }
 
+  if (action.type === 'GET_SEARCH_SUGGESTIONS') {
+    const state = store.getState();
+    const searchQuery = state.searchValue;
+    const eur = state.currency;
+    const usd = state.targetCurrency;
+    const isEUR = state.isEUR;
+    const isUSD = state.isUSD;
+    let url;
+    // state.isLoading = true;
+
+    try {
+      if (isEUR && !isUSD) {
+        url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${eur}&order=market_cap_desc&per_page=250&page=1&sparkline=false`;
+      }
+      if (isUSD && !isEUR) {
+        url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${usd}&order=market_cap_desc&per_page=250&page=1&sparkline=false`;
+      }
+      const res = await fetch(url);
+      if (!res.ok) {
+          throw new Error('Error, request failed');
+      };
+      const coins = await res.json();
+
+      const suggestedCoins = coins.filter((coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase()));
+
+      if (suggestedCoins.length === 0) {
+        //new request on page 2
+        try {
+          if (isEUR && !isUSD) {
+            url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${eur}&order=market_cap_desc&per_page=250&page=2&sparkline=false`;
+          }
+          if (isUSD && !isEUR) {
+            url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${usd}&order=market_cap_desc&per_page=250&page=2&sparkline=false`;
+          }
+          const res = await fetch(url);
+          if (!res.ok) {
+              throw new Error('Error, request failed');
+          };
+          const coins = await res.json();
+
+          const newSuggestedCoins = coins.filter((coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase()));
+
+          if (newSuggestedCoins === 0) {
+            return;
+          } else {
+            store.dispatch({ type: 'GET_SUGGESTED_COINS_SUCCESS', suggestedCoins: newSuggestedCoins.slice(0,5) });
+          }
+        } catch (err) {
+          console.error(err)
+        }
+      } else {
+        store.dispatch({ type: 'GET_SUGGESTED_COINS_SUCCESS', suggestedCoins: suggestedCoins.slice(0,5) });
+      }
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
   next(action);
 };
 

@@ -57,10 +57,9 @@ const GlobalStyles = createGlobalStyle`
   .menu--open {
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
-
-    .fas.fa-times {
-      color: ${({ theme }) => theme.text};
-    }
+  }
+  .fas.fa-times {
+    color: ${({ theme }) => theme.text};
   }
   .coin, .coin__page-item {
     background: ${({ theme }) => theme.coin};
@@ -139,13 +138,23 @@ const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.text};
     }
   }
-
   tbody tr:hover {
     background: ${({ theme }) => theme.tableTRhover};
   }
   .new-feature {
     background: ${({ theme }) => theme.newFeatureBackground};
     color: ${({ theme }) => theme.newFeatureColor};
+  }
+  .search-suggestions {
+    background: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
+  }
+  .suggestion:hover {
+    background: ${({ theme }) => theme.tableTRhover};
+  }
+  .suggestion:last-child {
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
   }
   `;
 

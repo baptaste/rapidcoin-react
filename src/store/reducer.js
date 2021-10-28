@@ -7,6 +7,7 @@ const initialState = {
   successMsg: '',
   errorMsg: '',
   filteredCoins: [],
+  suggestedCoins: [],
   isLoading: false,
   isMenuOpen: false,
   trendingCoins: [],
@@ -50,6 +51,7 @@ const reducer = (state = initialState, action = {}) => {
           isSwitchDashboardClicked: false,
           isBlockDashboard: true,
           isTableDashboard: false,
+          suggestedCoins: [],
         }
       }
       if (state.isSwitchDashboardClicked) {
@@ -68,6 +70,7 @@ const reducer = (state = initialState, action = {}) => {
           isSwitchDashboardClicked: true,
           isBlockDashboard: false,
           isTableDashboard: true,
+          suggestedCoins: [],
         }
       }
     }
@@ -230,12 +233,23 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         searchValue: action.searchValue,
       }
+    case 'EMPTY_INPUT_VALUE':
+    return {
+      ...state,
+      searchValue: '',
+    }
+    case 'GET_SUGGESTED_COINS_SUCCESS':
+    return {
+      ...state,
+      suggestedCoins: action.suggestedCoins,
+    }
     case 'GET_FILTERED_COINS_SUCCESS':
       return {
         ...state,
         filteredCoins: action.filteredCoins,
         successMsg: action.successMsg,
         searchValue: '',
+        suggestedCoins: [],
         isLoading: false,
       }
     case 'GET_FILTERED_COINS_ERROR':

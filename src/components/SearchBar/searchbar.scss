@@ -35,13 +35,65 @@
       right: 10px;
     }
   }
+
+  .search-suggestions {
+    position: absolute;
+    left: 17%;
+    top: 60px;
+    width: 70%;
+    height: auto;
+    background-color: vars.$fifthColor;
+    border-radius: 7px;
+    box-shadow: rgba(128, 138, 157, 0.12) 0px 1px 2px 0px,
+                rgba(128, 138, 157, 0.24) 0px 8px 32px 0px;
+    &:nth-child(2) {
+      padding-top: 1.5rem;
+    }
+  }
+
+  .close-menu-btn {
+    &.suggestions-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  .suggestion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    cursor: pointer;
+
+    span {
+      color: #aaa;
+      padding-right: 1rem;
+    }
+
+    .coin-suggested {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding-left: .5rem;
+      font-size: .9rem;
+
+      &__img {
+        width: 30px;
+        margin-left: 1rem;
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 700px) {
   .form__container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 60%;
+    position: relative;
   }
   .form {
     width: 100%;
@@ -64,6 +116,59 @@
       position: absolute;
       top: 10px;
       right: 10px;
+    }
+  }
+
+  .search-suggestions {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 60%;
+    height: auto;
+    border-radius: 7px;
+    box-shadow: rgba(128, 138, 157, 0.12) 0px 1px 2px 0px,
+                rgba(128, 138, 157, 0.24) 0px 8px 32px 0px;
+
+    &:nth-child(2) {
+      padding-top: 1.5rem;
+    }
+  }
+
+  .close-menu-btn {
+    &.suggestions-btn {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  .suggestion {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: .5rem;
+    transition: all 250ms ease-out;
+
+    span {
+      color: #aaa;
+      padding-right: 1rem;
+    }
+
+    .coin-suggested {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: .5rem;
+      cursor: pointer;
+
+      &__img {
+        width: 30px;
+        height: 30px;
+        margin-left: 1rem;
+      }
     }
   }
 }

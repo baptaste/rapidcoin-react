@@ -67,5 +67,5 @@ export const darkTheme = {
   tableTheadBorderBottom: '2.5px solid rgba(255, 198, 160, .1)',
   newFeatureBackground: '#1f2b3a',
   newFeatureColor: '#ffa366',
-  tableTRhover: 'rgba(210, 210, 249, .2)',
+  tableTRhover: '#1f2b3a',
 }
