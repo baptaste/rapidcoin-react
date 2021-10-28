@@ -30,9 +30,12 @@ const Coin = ({
       <img src={image} className="coin__header-img" />
       {trendyCoin && <i className="fab fa-hotjar" title="Trending" />}
     </p>
-    <p className="coin__content">Name: {name} ({symbol.toUpperCase()})</p>
+    <p className="coin__content">
+      Name: <span className="coin__content--name">{name} </span>
+      ({symbol.toUpperCase()})
+      </p>
     <p className="coin__content">Market Cap Rank: {market_cap_rank.toLocaleString()}</p>
-    <p className="coin__content">Current Price: {current_price.toLocaleString()} {currency}</p>
+    <p className="coin__content">Current Price: {current_price} {currency}</p>
     <p className="coin__content">Market Cap: {market_cap.toLocaleString()} {currency}</p>
     <p className="coin__content">Volume 24h: {total_volume.toLocaleString()} {currency}</p>
     <p className="coin__content">

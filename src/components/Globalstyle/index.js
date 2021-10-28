@@ -120,6 +120,33 @@ const GlobalStyles = createGlobalStyle`
   .footer, .menu__footer {
     color: ${({ theme }) => theme.footerColor};
   }
+  .table thead {
+    border-bottom: ${({ theme }) => theme.tableTheadBorderBottom};
+  }
+  .table tr {
+    border-bottom: ${({ theme }) => theme.tableTRborderBottom};
+  }
+
+  @media screen and (max-width: 700px) {
+    thead tr th:nth-child(1),
+    tbody tr td:nth-child(1) {
+      background: ${({ theme }) => theme.body};
+      color: ${({ theme }) => theme.text};
+    }
+    thead tr th:nth-child(2),
+    tbody tr td:nth-child(2) {
+      background: ${({ theme }) => theme.body};
+      color: ${({ theme }) => theme.text};
+    }
+  }
+
+  tbody tr:hover {
+    background: ${({ theme }) => theme.tableTRhover};
+  }
+  .new-feature {
+    background: ${({ theme }) => theme.newFeatureBackground};
+    color: ${({ theme }) => theme.newFeatureColor};
+  }
   `;
 
 export default GlobalStyles;

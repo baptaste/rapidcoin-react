@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Coin from '../Coin';
 import Loading from 'src/components/Loading';
 import FiltersBar from 'src/containers/FiltersBar';
+import Table from 'src/containers/Table';
 
 import './home.scss';
 
@@ -25,6 +26,7 @@ const Home = ({
   trendingCoins,
   isCurrencyTogglerClicked,
   isEUR,
+  isSwitchDashboardClicked,
  }) => {
 
   useEffect(() => {
@@ -73,55 +75,63 @@ const Home = ({
           <Loading />
         ) : (
           // all coins
-          filteredCoins.length === 0 ? (
-            <>
-            {coins.map((coin) => {
-              const getCurrentCoinId = () => (
-                getCoinId(coin)
-              );
-              return (
-                <Link
-                key={coin.id}
-                className="coins__link"
-                onClick={getCurrentCoinId}
-                to={`/coin/${coin.id}`}
-                >
-                  <Coin
-                    {...coin}
-                    trendingCoins={trendingCoins}
-                    coin={coin}
-                    isEUR={isEUR}
-                  />
-              </Link>
-              );
-            })}
-
-            {/* <button className="home__load-more" onClick={onLoadMore}>Load more</button> */}
-
-            </>
+          isSwitchDashboardClicked ? (
+            <Table />
           ) : (
-            // searched coins
-            filteredCoins.map((coin) => {
-              const getCurrentCoinId = () => (
-                getCoinId(coin)
-              );
-              return (
-                <Link
-                key={coin.id}
-                className="coins__link"
-                onClick={getCurrentCoinId}
-                to={`/coin/${coin.id}`}
-                >
-                  <Coin
-                    {...coin}
-                    trendingCoins={trendingCoins}
-                    coin={coin}
-                    isEUR={isEUR}
-                  />
-              </Link>
-              );
-            })
+            filteredCoins.length === 0 ? (
+              <>
+              {coins.map((coin) => {
+                const getCurrentCoinId = () => (
+                  getCoinId(coin)
+                );
+                return (
+                  <Link
+                  key={coin.id}
+                  className="coins__link"
+                  onClick={getCurrentCoinId}
+                  to={`/coin/${coin.id}`}
+                  >
+                    <Coin
+                      {...coin}
+                      trendingCoins={trendingCoins}
+                      coin={coin}
+                      isEUR={isEUR}
+                    />
+                </Link>
+                );
+              })}
+
+              {/* {Mettre composant Table ICI} */}
+              {/* {isSwitchDashboardClicked && <Table />} */}
+
+
+              </>
+            ) : (
+              // searched coins
+              filteredCoins.map((coin) => {
+                const getCurrentCoinId = () => (
+                  getCoinId(coin)
+                );
+                return (
+                  <Link
+                  key={coin.id}
+                  className="coins__link"
+                  onClick={getCurrentCoinId}
+                  to={`/coin/${coin.id}`}
+                  >
+                    <Coin
+                      {...coin}
+                      trendingCoins={trendingCoins}
+                      coin={coin}
+                      isEUR={isEUR}
+                    />
+                </Link>
+                );
+              })
+            )
           )
+
+
         )}
       </div>
 

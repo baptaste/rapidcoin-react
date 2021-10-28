@@ -27,6 +27,11 @@ export const lightTheme = {
   filtersButtonColorActive: '#0000FE',
   filtersButtonBorderActive: '1px solid #0000FE',
   footerColor: '#666666',
+  tableTRborderBottom: '1px solid #25282c10',
+  tableTheadBorderBottom: '2.5px solid rgba(37,40,44,.06275)',
+  newFeatureBackground: '#d2d2f9',
+  newFeatureColor: '#0000fe',
+  tableTRhover: 'rgba(210, 210, 249, .2)',
 }
 
 export const darkTheme = {
@@ -58,4 +63,9 @@ export const darkTheme = {
   filtersButtonColorActive: '#ffa366',
   filtersButtonBorderActive: '1px solid #ffa366',
   footerColor: '#ccc',
+  tableTRborderBottom: '1px solid rgba(255, 198, 160, .1)',
+  tableTheadBorderBottom: '2.5px solid rgba(255, 198, 160, .1)',
+  newFeatureBackground: '#1f2b3a',
+  newFeatureColor: '#ffa366',
+  tableTRhover: 'rgba(210, 210, 249, .2)',
 }

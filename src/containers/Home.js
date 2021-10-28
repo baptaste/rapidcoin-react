@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
   trendingCoins: state.trendingCoins,
   isCurrencyTogglerClicked: state.isCurrencyTogglerClicked,
   isEUR: state.isEUR,
+  isSwitchDashboardClicked: state.isSwitchDashboardClicked,
 });
 
 const mapDispatchToProps = (dispatch) => ({

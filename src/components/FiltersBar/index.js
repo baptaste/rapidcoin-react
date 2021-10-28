@@ -16,6 +16,9 @@ const FiltersBar = ({
   isMarketCapFilteredASC,
   getCoinsByMarketCapASC,
   getCoinsByMarketCapDESC,
+  switchDashboard,
+  isBlockDashboard,
+  isSwitchDashboardClicked,
 }) => (
   <div className="filters-bar">
     {/* default rank */}
@@ -35,7 +38,7 @@ const FiltersBar = ({
       <button
       type="button"
       className={isCoinsFilteredDESC ? 'goButton goButton__filter active' : 'goButton'}
-      title="Desending price"
+      title="Descending"
       onClick={getCoinsByPriceASC}>
       <i className="fas fa-sort-amount-down" /> Price
     </button>}
@@ -44,7 +47,7 @@ const FiltersBar = ({
       <button
       type="button"
       className={isCoinsFilteredASC ? 'goButton goButton__filter active' : 'goButton'}
-      title="Ascending price"
+      title="Ascending"
       onClick={getCoinsByPriceDESC}>
       <i className="fas fa-sort-amount-up-alt" /> Price
     </button>}
@@ -63,7 +66,7 @@ const FiltersBar = ({
       <button
       type="button"
       className={isMarketCapFilteredDESC ? 'goButton goButton__filter active' : 'goButton'}
-      title="Desending price"
+      title="Descending"
       onClick={getCoinsByMarketCapASC}>
       <i className="fas fa-sort-amount-down" /> Market Cap
     </button>}
@@ -72,7 +75,7 @@ const FiltersBar = ({
       <button
       type="button"
       className={isMarketCapFilteredASC ? 'goButton goButton__filter active' : 'goButton'}
-      title="Ascending price"
+      title="Ascending"
       onClick={getCoinsByMarketCapDESC}>
       <i className="fas fa-sort-amount-up-alt" /> Market Cap
     </button>}
@@ -80,6 +83,18 @@ const FiltersBar = ({
     {/* currency toggler */}
     <button type="button" className="goButton" onClick={toggleCurrency} title="Switch currency">
       {isEUR ? '$' : '€'}
+    </button>
+
+    {/* dashboard toggler */}
+    <button type="button" className="goButton flex" onClick={switchDashboard} title="Switch dashboard">
+      {!isSwitchDashboardClicked && isBlockDashboard ? (
+        <>
+        <p>Table dashboard </p><span className="new-feature">NEW</span>
+        </>
+      ) : (
+        <p>Block dashboard</p>
+      )}
+
     </button>
   </div>
 );

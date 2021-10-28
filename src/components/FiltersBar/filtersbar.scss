@@ -19,6 +19,18 @@
       justify-content: space-between;
       padding: .3em 1.5em;
     }
+
+    &.flex {
+      display: flex;
+      align-items: center;
+
+      .new-feature {
+        display: inline-block;
+        margin-left: .5em;
+        padding: .3rem;
+        border-radius: 3px;
+      }
+    }
   }
 }
 
@@ -42,7 +54,21 @@
       align-items: center;
       justify-content: space-between;
     }
+
+    &.flex {
+      display: flex;
+      align-items: center;
+
+      .new-feature {
+        display: inline-block;
+        margin-left: .5em;
+        padding: .3rem;
+        border-radius: 3px;
+      }
+    }
   }
+
+
 }
 
 .active {

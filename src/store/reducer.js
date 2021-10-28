@@ -25,23 +25,50 @@ const initialState = {
   isFilterByMarketCapClicked: false,
   isMarketCapFilteredDESC: false,
   isMarketCapFilteredASC: false,
+  // Table
+  isSwitchDashboardClicked: false,
+  isBlockDashboard: true,
+  isTableDashboard: false,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case 'GET_COINS_SUCCESS': {
-      return {
-        ...state,
-        coins: action.coins,
-        currentPage: 1,
-        isLoading: false,
-        isFilterByPriceClicked: false,
-        isCoinsFilteredDESC: false,
-        isCoinsFilteredASC: false,
-        isCurrencyTogglerClicked: false,
-        isMarketCapFilteredDESC: false,
-        isMarketCapFilteredASC: false,
-        isFilterByMarketCapClicked: false,
+      if (!state.isSwitchDashboardClicked) {
+        return {
+          ...state,
+          coins: action.coins,
+          currentPage: 1,
+          isLoading: false,
+          isFilterByPriceClicked: false,
+          isCoinsFilteredDESC: false,
+          isCoinsFilteredASC: false,
+          isCurrencyTogglerClicked: false,
+          isMarketCapFilteredDESC: false,
+          isMarketCapFilteredASC: false,
+          isFilterByMarketCapClicked: false,
+          isSwitchDashboardClicked: false,
+          isBlockDashboard: true,
+          isTableDashboard: false,
+        }
+      }
+      if (state.isSwitchDashboardClicked) {
+        return {
+          ...state,
+          coins: action.coins,
+          currentPage: 1,
+          isLoading: false,
+          isFilterByPriceClicked: false,
+          isCoinsFilteredDESC: false,
+          isCoinsFilteredASC: false,
+          isCurrencyTogglerClicked: false,
+          isMarketCapFilteredDESC: false,
+          isMarketCapFilteredASC: false,
+          isFilterByMarketCapClicked: false,
+          isSwitchDashboardClicked: true,
+          isBlockDashboard: false,
+          isTableDashboard: true,
+        }
       }
     }
     case 'GET_COINS_BY_PRICE_DESC': {
@@ -250,6 +277,13 @@ const reducer = (state = initialState, action = {}) => {
       isCurrencyTogglerClicked: true,
       isEUR: !state.isEUR,
       isUSD: !state.isUSD,
+    }
+    case 'SET_DASHBOARD':
+    return {
+      ...state,
+      isSwitchDashboardClicked: !state.isSwitchDashboardClicked,
+      isBlockDashboard: !state.isBlockDashboard,
+      isTableDashboard: !state.isTableDashboard,
     }
     default:
       return state;

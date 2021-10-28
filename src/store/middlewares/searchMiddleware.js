@@ -26,7 +26,7 @@ const searchMiddleware = (store) => (next) => async (action) => {
       const filteredCoins = coins.filter((coin) => coin.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
       const successMsg = `Results for "${searchQuery}" :`;
-      const errorMsg = `Sorry, there are no results for "${searchQuery}".`;
+      const errorMsg = `No results for "${searchQuery}"`;
 
       // no results, lets try on page 2
       if (filteredCoins.length === 0) {

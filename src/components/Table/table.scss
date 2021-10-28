@@ -1,0 +1,177 @@
+@use 'src/styles/vars.scss';
+
+@media screen and (max-width: 700px) {
+  ::-webkit-scrollbar {
+    height: 0px;
+    width: 0px;
+  }
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: auto;
+    margin: 0 auto 2rem;
+    font-size: .9rem;
+
+
+    thead {
+        border-bottom: 2.5px solid #25282c10;
+        font-weight: bold;
+
+        tr > .name-column {
+          padding-right: 55px;
+        }
+    }
+
+    th, td {
+        height: 50px;
+        vertical-align: middle;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    tr {
+        transition: all 250ms ease-out;
+        border-bottom: 1px solid #25282c10;
+        :first-child {
+          padding-left: .5rem;
+        }
+    }
+
+    thead tr th:nth-child(1),
+    tbody tr td:nth-child(1) {
+      position: sticky;
+      left: 0;
+      z-index: 9;
+    }
+
+    thead tr th:nth-child(2),
+    tbody tr td:nth-child(2) {
+      position: sticky;
+      left: 22.81px;
+      z-index: 9;
+    }
+
+    .coin-images {
+        width: 30px;
+        height: 30px;
+    }
+
+    .table-coin {
+        &__td {
+          min-width: 130px;
+          text-align: left;
+          padding: 0 0 0 1rem;
+        }
+        &__price {
+          min-width: 100px;
+        }
+        .coin-images {
+          width: auto;
+        }
+        &__link {
+          display: flex;
+          align-items: center;
+          width: 200px;
+          margin: 0;
+          a {
+            width: 100%;
+          }
+        }
+        &.flex {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+        }
+        &__name {
+          margin-left: 1rem;
+          padding-right: .5rem;
+          font-weight: bold;
+        }
+    }
+
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-bottom: 3rem;
+    table-layout: auto;
+
+    thead {
+        border-bottom: 2.5px solid #25282c10;
+        font-weight: bold;
+
+        tr > .name-column {
+          padding-right: 215px;
+        }
+    }
+
+    th, td {
+        height: 50px;
+        vertical-align: middle;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    tr {
+        min-width: 310px;
+        transition: all 250ms ease-out;
+        border-bottom: 1px solid #25282c10;
+        :first-child {
+          padding-left: .5rem;
+        }
+    }
+
+    tbody tr:hover {
+      background-color: rgba(210, 210, 249, .2);
+    }
+
+    .coin-images {
+        width: 30px;
+        height: 30px;
+    }
+
+    .table-coin {
+        .coin-images {
+          width: auto;
+        }
+        &__link {
+          display: flex;
+          align-items: center;
+          width: 300px;
+          margin: 0 auto;
+          a {
+            width: 100%;
+          }
+        }
+        &.flex {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+        }
+        &__name {
+          margin-left: 1rem;
+          padding-right: .5rem;
+          font-weight: bold;
+        }
+    }
+
+  }
+}
+
+.fab.fa-hotjar { // fire icon
+  margin-left: .3rem;
+  color: vars.$eleventhColor;
+  animation: shining 2000ms infinite;
+  -webkit-animation: shining 2000ms infinite;
+}

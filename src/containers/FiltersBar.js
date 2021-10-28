@@ -10,6 +10,8 @@ const mapStateToProps = (state) => ({
   isFilterByMarketCapClicked: state.isFilterByMarketCapClicked,
   isMarketCapFilteredDESC: state.isMarketCapFilteredDESC,
   isMarketCapFilteredASC: state.isMarketCapFilteredASC,
+  isBlockDashboard: state.isBlockDashboard,
+  isSwitchDashboardClicked: state.isSwitchDashboardClicked,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -30,6 +32,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   getCoinsByMarketCapASC: () => {
     dispatch({ type: 'GET_COINS_BY_MARKETCAP_ASC' });
+  },
+  switchDashboard: () => {
+    dispatch({ type: 'SET_DASHBOARD' });
   },
 });
 
