@@ -27,7 +27,7 @@ const Coin = ({
       <article className="coin">
     <p className="coin__header">
       #{market_cap_rank}
-      <img src={image} className="coin__header-img" />
+      <img src={image} className="coin__header-img" alt={`${coin.name} logo`} />
       {trendyCoin && <i className="fab fa-hotjar" title="Trending" />}
     </p>
     <p className="coin__content">

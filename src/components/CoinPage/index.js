@@ -32,14 +32,14 @@ const CoinPage = ({
 
         <div className="coin__page__preview">
         <div className="coin__page__preview-settings">
-          <button type="button" className="goButton" onClick={handleGoBack}>
+          <button type="button" className="goButton" onClick={handleGoBack} aria-label="Go previous page">
           <i className="fas fa-arrow-left" />
           </button>
           <h1 className="coin__page__preview-settings--title">{coin.name}</h1>
         </div>
 
         <article className="coin__page-item">
-          <img src={image.large} className="coin__page-item--backgroundImg" />
+          <img src={image.large} className="coin__page-item--backgroundImg" alt={`${coin.name} logo`}/>
           <p className="coin__header">#{coin.market_cap_rank}</p>
           <p className="coin__content">Name: {coin.name} ({coin.symbol.toUpperCase()})</p>
           <p className="coin__content">Market Cap Rank: {coin.market_cap_rank}</p>
@@ -131,7 +131,7 @@ const CoinPage = ({
           <p className="coin__content">Initial release: {coin.genesis_date}
           </p>}
           <p className="coin__content">Official website:
-            <a href={links.homepage[0]} target="_blank" className="coin__content--url"> {links.homepage[0]}</a>
+            <a href={links.homepage[0]} target="_blank" className="coin__content--url" rel="noopener noreferrer"> {links.homepage[0]}</a>
           </p>
         </article>
       </div>

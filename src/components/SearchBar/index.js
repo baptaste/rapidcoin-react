@@ -23,11 +23,11 @@ const SearchBar = ({ searchValue, onSearchChange, onSearchSubmit, suggestedCoins
         value={searchValue}
         onChange={(evt) => onSearchChange(evt.target.value)}
         />
-        <i className="fas fa-search" onClick={toggleInput} />
+        <i className="fas fa-search" onClick={toggleInput} aria-label="Search" />
       </form>
       {searchValue !== '' && suggestedCoins.length !== 0 && (
          <div className="search-suggestions">
-           <button onClick={hideSuggestions} className="close-menu-btn suggestions-btn">
+           <button onClick={hideSuggestions} className="close-menu-btn suggestions-btn" aria-label="Close suggestions">
            <i className="fas fa-times" />
             </button>
          {suggestedCoins.map((coin) => {

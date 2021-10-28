@@ -10,16 +10,18 @@ const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme }) 
   return (
     <div className={isMenuOpen ? "menu menu--open" : "menu"}>
     <div className="menu__header">
-      <Link to="/" className="home-menu-btn">
-        <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} />
+      <Link to="/" className="home-menu-btn" title="Home">
+        <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} aria-label="Home" />
       </Link>
-      <button onClick={themeToggler} className="theme-toggler--mobile">
+      <button onClick={themeToggler} className="theme-toggler--mobile" aria-label="Toggle light mode">
           {theme === 'light' ? <i className="fas fa-moon" /> : <i className="fas fa-lightbulb" />}
       </button>
       <button
         type="button"
         className="close-menu-btn"
-        onClick={hideMenu}>
+        onClick={hideMenu}
+        aria-label="Close Mobile Menu"
+        >
         <i className="fas fa-times"></i>
       </button>
     </div>

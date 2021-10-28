@@ -11,21 +11,23 @@ const Header = ({ resetFilter, toggleIsMenuOpen, themeToggler, theme }) => {
 
   return (
     <header className="header">
-    <Link to="/">
-      <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} />
+    <Link to="/" title="Home">
+      <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} aria-label="Home" />
     </Link>
     <div className="header__menu">
       {location.pathname === '/' && <SearchBar />}
       <NavLink exact to="/"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Home</NavLink>
       <NavLink exact to="/trendings"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Trending</NavLink>
       <NavLink exact to="/platforms"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Finance Platforms</NavLink>
-      <button onClick={themeToggler} className="theme-toggler">
+      <button onClick={themeToggler} className="theme-toggler" aria-label="Toggle light mode">
         {theme === 'light' ? <i className="fas fa-moon" /> : <i className="fas fa-lightbulb" />}
       </button>
       <button
         type="button"
         className="header__menu-mobileBtn"
-        onClick={toggleIsMenuOpen}>
+        onClick={toggleIsMenuOpen}
+        aria-label="Open Mobile Menu"
+        >
           <div className="header__menu-mobileBtn--topBar"></div>
           <div className="header__menu-mobileBtn--subBar"></div>
       </button>

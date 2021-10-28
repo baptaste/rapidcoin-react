@@ -18,7 +18,7 @@ const Trendings = ({ getTrendingCoins, getCoinId, trendingCoins }) => {
 
   return (
     <section className="trending">
-       <button type="button" className="goButton goButton__trending" onClick={handleGoBack}>
+       <button type="button" className="goButton goButton__trending" onClick={handleGoBack} aria-label="Go previous page">
           <i className="fas fa-arrow-left" />
         </button>
         <h1 className="trending__title">Top {trendingCoins.length} daily trending coins</h1>
@@ -36,7 +36,7 @@ const Trendings = ({ getTrendingCoins, getCoinId, trendingCoins }) => {
                   <article className="coin">
                     <p className="coin__header">
                       #{index++}
-                      <img src={trend.small} className="coin__header-img" />
+                      <img src={trend.small} className="coin__header-img" alt={`${trend.name} logo`}/>
                     </p>
                     <p className="coin__content">Name: {trend.name} ({trend.symbol.toUpperCase()})</p>
                     <p className="coin__content">Market Cap Rank: {trend.market_cap_rank}</p>

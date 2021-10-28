@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>© {year} Rapidcoin. All rights reserved</p>
-      <a href="https://github.com/baptaste/rapidcoin-react" target="_blank">
+      <a href="https://github.com/baptaste/rapidcoin-react" target="_blank" rel="noopener noreferrer">
         <i className="fab fa-github"></i> Source code
       </a>
     </footer>

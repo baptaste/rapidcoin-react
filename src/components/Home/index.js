@@ -42,7 +42,7 @@ const Home = ({
       {filteredCoins.length !== 0 &&
         <div className="app__desc">
           <img src={theme === 'dark' ? blockchainDark : blockchain} className="blockchain_img" alt="Blockchain" />
-          <button type="button" className="goButton goButton__home" onClick={handleGoToHome}>
+          <button type="button" className="goButton goButton__home" onClick={handleGoToHome} aria-label="Go previous page">
                 <i className="fas fa-arrow-left" />
           </button>
           <div className="results__msgField">

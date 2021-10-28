@@ -15,7 +15,7 @@ const Platforms = ({ getPlatforms, platforms }) => {
 
   return (
     <section className="platforms">
-      <button type="button" className="goButton goButton__platforms" onClick={handleGoBack}>
+      <button type="button" className="goButton goButton__platforms" onClick={handleGoBack} aria-label="Go previous page">
         <i className="fas fa-arrow-left" />
         </button>
         <h1 className="platforms__title">Finance Platforms</h1>
