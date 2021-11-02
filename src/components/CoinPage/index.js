@@ -41,10 +41,11 @@ const CoinPage = ({
         <article className="coin__page-item">
           <img src={image.large} className="coin__page-item--backgroundImg" alt={`${coin.name} logo`}/>
           <p className="coin__header">#{coin.market_cap_rank}</p>
-          <p className="coin__content">Name: {coin.name} ({coin.symbol.toUpperCase()})</p>
+          <p className="coin__content">Name: <span className="coin__content--name">{coin.name} </span>
+          ({coin.symbol.toUpperCase()})</p>
           <p className="coin__content">Market Cap Rank: {coin.market_cap_rank}</p>
           <p className="coin__content">Current Price: {isEUR ?
-            (market_data.current_price.eur.toLocaleString()) : (market_data.current_price.usd.toLocaleString())} {currency}</p>
+            (market_data.current_price.eur) : (market_data.current_price.usd)} {currency}</p>
           <p className="coin__content">Market Cap: {isEUR ?
             (market_data.market_cap.eur.toLocaleString()) : (market_data.market_cap.usd.toLocaleString())} {currency}</p>
           <p className="coin__content">Volume 24h: {isEUR ?
@@ -130,9 +131,10 @@ const CoinPage = ({
           {coin.genesis_date &&
           <p className="coin__content">Initial release: {coin.genesis_date}
           </p>}
+          {links.homepage[0] &&
           <p className="coin__content">Official website:
             <a href={links.homepage[0]} target="_blank" className="coin__content--url" rel="noopener noreferrer"> {links.homepage[0]}</a>
-          </p>
+          </p>}
         </article>
       </div>
 

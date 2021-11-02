@@ -285,12 +285,28 @@ const reducer = (state = initialState, action = {}) => {
         platforms: action.platforms,
         isLoading: false,
       }
-    case 'SET_CURRENCY_VALUE':
+    case 'SET_CURRENCY_VALUE': {
+      if (action.value === 'EUR') {
+        return {
+          ...state,
+          isCurrencyTogglerClicked: false,
+          isEUR: true,
+          isUSD: false,
+        }
+      }
+      if (action.value === 'USD') {
+        return {
+          ...state,
+          isCurrencyTogglerClicked: false,
+          isUSD: true,
+          isEUR: false,
+        }
+      }
+    }
+    case 'SET_IS_CURRENCIES_WRAPPER_OPEN':
     return {
       ...state,
-      isCurrencyTogglerClicked: true,
-      isEUR: !state.isEUR,
-      isUSD: !state.isUSD,
+      isCurrencyTogglerClicked: !state.isCurrencyTogglerClicked,
     }
     case 'SET_DASHBOARD':
     return {

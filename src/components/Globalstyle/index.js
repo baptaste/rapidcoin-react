@@ -51,7 +51,8 @@ const GlobalStyles = createGlobalStyle`
     &__input, &__input--open {
       background: ${({ theme }) => theme.body};
       color: ${({ theme }) => theme.text};
-      border-color: ${({ theme }) => theme.inputBorder};
+      // border-color: ${({ theme }) => theme.inputBorder};
+      border-color: ${({ theme }) => theme.text};
     }
   }
   .menu--open {
@@ -121,6 +122,10 @@ const GlobalStyles = createGlobalStyle`
   }
   .table thead {
     border-bottom: ${({ theme }) => theme.tableTheadBorderBottom};
+
+    th {
+      background: ${({ theme }) => theme.body};
+    }
   }
   .table tr {
     border-bottom: ${({ theme }) => theme.tableTRborderBottom};
@@ -155,6 +160,31 @@ const GlobalStyles = createGlobalStyle`
   .suggestion:last-child {
     border-bottom-left-radius: 7px;
     border-bottom-right-radius: 7px;
+  }
+  .select-currency-btn {
+    color: ${({ theme }) => theme.text};
+  }
+  .currencies-wrapper {
+    background: ${({ theme }) => theme.body};
+
+    .currency-btn {
+      color: ${({ theme }) => theme.text};
+
+      &:first-child {
+        border-top-left-radius: 7px;
+        border-top-right-radius: 7px;
+      }
+      &:last-child {
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+      }
+      &:hover {
+        background: ${({ theme }) => theme.tableTRhover};
+      }
+    }
+  }
+  .fas.fa-caret-down {
+    color: ${({ theme }) => theme.text};
   }
   `;
 

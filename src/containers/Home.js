@@ -9,7 +9,6 @@ const mapStateToProps = (state) => ({
   errorMsg: state.errorMsg,
   isLoading: state.isLoading,
   trendingCoins: state.trendingCoins,
-  isCurrencyTogglerClicked: state.isCurrencyTogglerClicked,
   isEUR: state.isEUR,
   isSwitchDashboardClicked: state.isSwitchDashboardClicked,
 });

@@ -2,7 +2,10 @@ import { connect } from 'react-redux';
 
 import Header from 'src/components/Header';
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  isEUR: state.isEUR,
+  isCurrencyTogglerClicked: state.isCurrencyTogglerClicked,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   resetFilter: () => {
@@ -10,7 +13,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
   toggleIsMenuOpen: () => {
     dispatch({ type: 'SET_IS_OPEN_MENU' });
+  },
+  toggleCurrency: (value) => {
+    dispatch({ type: 'SET_CURRENCY_VALUE', value });
+  },
+  toggleCurrenciesButton: () => {
+    dispatch({ type: 'SET_IS_CURRENCIES_WRAPPER_OPEN' })
   }
 });
 
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

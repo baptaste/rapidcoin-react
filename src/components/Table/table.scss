@@ -104,12 +104,19 @@
     table-layout: auto;
 
     thead {
-        border-bottom: 2.5px solid #25282c10;
-        font-weight: bold;
+      position: relative;
+      border-bottom: 2.5px solid #25282c10;
+      font-weight: bold;
+      z-index: 10;
 
-        tr > .name-column {
-          padding-right: 215px;
-        }
+      tr > .name-column {
+        padding-right: 215px;
+      }
+    }
+
+    th {
+      position: sticky;
+      top: 72.5px;
     }
 
     th, td {

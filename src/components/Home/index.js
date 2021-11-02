@@ -24,14 +24,13 @@ const Home = ({
   onLoadMore,
   isLoading,
   trendingCoins,
-  isCurrencyTogglerClicked,
   isEUR,
   isSwitchDashboardClicked,
  }) => {
 
   useEffect(() => {
     getCoins();
-  }, [isCurrencyTogglerClicked]);
+  }, [isEUR]);
 
   const handleGoToHome = () => {
     resetFilteredCoins();
@@ -100,11 +99,6 @@ const Home = ({
                 </Link>
                 );
               })}
-
-              {/* {Mettre composant Table ICI} */}
-              {/* {isSwitchDashboardClicked && <Table />} */}
-
-
               </>
             ) : (
               // searched coins

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './menu.scss';
 import { getYear } from 'src/utils';
 
-const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme }) => {
+const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme, toggleCurrenciesButton, isCurrencyTogglerClicked, toggleCurrency, isEUR, isUSD }) => {
   const year = getYear();
 
   return (
@@ -13,6 +13,36 @@ const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme }) 
       <Link to="/" className="home-menu-btn" title="Home">
         <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} aria-label="Home" />
       </Link>
+
+      <div className="select-currencies">
+      <span className="currency-symbol">{isEUR ? (
+        <i className="fas fa-euro-sign"></i>
+      ) : (
+        <i className="fas fa-dollar-sign"></i>
+      )}</span>
+        <button
+        type="button"
+        className="select-currency-btn"
+        aria-label="Select currency"
+        onClick={toggleCurrenciesButton}
+        >
+          {isEUR ? 'EUR' :  'USD'}
+          <i className="fas fa-caret-down"></i>
+        </button>
+
+        {isCurrencyTogglerClicked && (
+          <div className="currencies-wrapper">
+          <button type="button" aria-label="EUR" onClick={(e) => toggleCurrency(e.target.ariaLabel)}
+            className="currency-btn">
+              EUR
+            </button>
+            <button type="button" aria-label="USD" onClick={(e) => toggleCurrency(e.target.ariaLabel)}
+            className="currency-btn">
+              USD
+          </button>
+        </div>
+        )}
+      </div>
       <button onClick={themeToggler} className="theme-toggler--mobile" aria-label="Toggle light mode">
           {theme === 'light' ? <i className="fas fa-moon" /> : <i className="fas fa-lightbulb" />}
       </button>
