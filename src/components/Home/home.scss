@@ -74,6 +74,10 @@
     margin: 2rem auto;
     font-size: 1.3rem;
     line-height: 1.2;
+
+    &--error {
+      padding-right: 1rem;
+    }
   }
 
   .coins {
@@ -140,5 +144,14 @@
       line-height: 1.2;
       color: vars.$seventhColor;
     }
+  }
+
+  .search-results {
+    height: 150px;
+    position: relative;
+    margin: 3rem 0 5rem;
+    padding: 0 3rem;
+    text-align: center;
+    overflow-x: clip;
   }
 }

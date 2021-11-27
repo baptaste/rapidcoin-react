@@ -21,6 +21,9 @@ const mapDispatchToProps = (dispatch) => ({
     const coinId = coin.id;
     dispatch({ type: 'GET_COIN_ID', coinId: coinId });
   },
+  getFilteredCoins: () => {
+    dispatch({ type: 'ON_SEARCH_SUBMIT' })
+  },
   resetFilteredCoins: () => {
     dispatch({ type: 'RESET_FILTERED_COINS' });
   },

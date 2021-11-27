@@ -39,20 +39,6 @@
 
     &__content {
       margin-bottom: 1rem;
-
-      &--name {
-        font-weight: bold;
-      }
-
-      &--pos {
-        color: rgb(7, 201, 72);
-        padding-left: .5em;
-      }
-
-      &--neg {
-        color: rgb(226, 60, 19);
-        padding-left: .5em;
-      }
     }
   }
 }
@@ -103,20 +89,16 @@
 
     &__content {
       margin-bottom: 1.4rem;
-
-      &--name {
-        font-weight: bold;
-      }
-
-      &--pos {
-        color: rgb(7, 201, 72);
-        padding-left: .5em;
-      }
-
-      &--neg {
-        color: rgb(226, 60, 19);
-        padding-left: .5em;
-      }
     }
   }
+}
+
+.coin__content--pos {
+  color: rgb(7, 201, 72);
+  padding-left: .5em;
+}
+
+.coin__content--neg {
+  color: rgb(226, 60, 19);
+  padding-left: .5em;
 }

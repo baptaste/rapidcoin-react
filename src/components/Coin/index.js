@@ -31,20 +31,20 @@ const Coin = ({
       {trendyCoin && <i className="fab fa-hotjar" title="Trending" />}
     </p>
     <p className="coin__content">
-      Name: <span className="coin__content--name">{name} </span>
+      Name: <span className="textBold">{name} </span>
       ({symbol.toUpperCase()})
       </p>
-    <p className="coin__content">Market Cap Rank: {market_cap_rank.toLocaleString()}</p>
-    <p className="coin__content">Current Price: {current_price} {currency}</p>
-    <p className="coin__content">Market Cap: {market_cap.toLocaleString()} {currency}</p>
-    <p className="coin__content">Volume 24h: {total_volume.toLocaleString()} {currency}</p>
+    <p className="coin__content">Market Cap Rank: <span className="textBold">{market_cap_rank.toLocaleString()}</span></p>
+    <p className="coin__content">Current Price: <span className="textBold">{current_price} {currency}</span></p>
+    <p className="coin__content">Market Cap: <span className="textBold">{market_cap.toLocaleString()} {currency}</span></p>
+    <p className="coin__content">Volume 24h: <span className="textBold">{total_volume.toLocaleString()} {currency}</span></p>
     <p className="coin__content">
       Price change 24h:
-      <span className={price_change_percentage_24h > 0 ? 'coin__content--pos' : 'coin__content--neg'}>
+      <span className={price_change_percentage_24h > 0 ? 'coin__content--pos textBold' : 'coin__content--neg textBold'}>
          {price_change_percentage_24h} %
       </span>
     </p>
-    <p className="coin__content">Circ supply: {circulating_supply.toLocaleString()}</p>
+    <p className="coin__content">Circ supply: <span className="textBold">{circulating_supply.toLocaleString()}</span></p>
   </article>
     );
   };

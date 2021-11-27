@@ -40,8 +40,6 @@ const Trendings = ({ getTrendingCoins, getCoinId, trendingCoins }) => {
                     </p>
                     <p className="coin__content">Name: {trend.name} ({trend.symbol.toUpperCase()})</p>
                     <p className="coin__content">Market Cap Rank: {trend.market_cap_rank}</p>
-                    <p className="coin__content">Clic to see more informations</p>
-
                   </article>
                 </Link>
               );

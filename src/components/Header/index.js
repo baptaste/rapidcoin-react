@@ -25,7 +25,7 @@ const Header = ({
           <Link to="/" title="Home">
             <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} aria-label="Home" />
           </Link>
-          <NavLink exact to="/"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Home</NavLink>
+          <NavLink exact to="/" onClick={resetFilter} className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Home</NavLink>
           <NavLink exact to="/trendings"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Trending</NavLink>
           <NavLink exact to="/platforms"  className="header__menu-desktopBtn" activeClassName="header__menu-desktopBtn--active">Finance Platforms</NavLink>
         </div>

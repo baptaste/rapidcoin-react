@@ -10,3 +10,35 @@ $ninthColor: #ffa366; // coin boxshadow dark
 $tenthColor: rgba(255, 198, 160, 0.5); // coin boxshadow dark
 $eleventhColor: #ff6600;
 $headerLinksHover: hsl(240, 100%, 70%);
+
+.textBold {
+  font-weight: bold;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.flex-align-center {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.disabled {
+  cursor: default;
+  color: grey;
+}

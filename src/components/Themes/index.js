@@ -5,7 +5,7 @@ export const lightTheme = {
   background: '#363537',
   headerBtns: '#0000FE', // strong blue
   headerLinksHover: '#0000FE', // strong blue
-  coin: 'hsl(223, 90%, 98%)', // TEST
+  coin: 'hsl(223, 90%, 98%)',
   coinShadow: '4px 4px 0 0 #d2d2f9', // very light purple
   coinShadowHover: 'none',
   coinBorder: '1px solid #25282c', // dark grey
@@ -32,10 +32,17 @@ export const lightTheme = {
   newFeatureBackground: '#d2d2f9',
   newFeatureColor: '#0000fe',
   tableTRhover: 'rgba(210, 210, 249, .2)',
+  activeLinkBackground: '#d2d2f9',
+  loaderBorder:  '6px solid #638EF7',
+  loaderBorderColor: '#638EF7 transparent #638EF7 transparent',
+  selectValuesBackground: 'hsl(223, 90%, 98%)',
 }
 
 export const darkTheme = {
-  body: '#202020', // dark background
+  // body: '#202020', // dark background
+  // body: '#17171A',
+  // body: '#171924',
+  body: 'hsl(240, 100%, 5%)',
   text: '#FAFAFA',
   toggleBorder: '#6B8096',
   background: '#999',
@@ -47,7 +54,7 @@ export const darkTheme = {
   coinBorder: '1px solid rgba(255, 198, 160, 0.5)', // light border orange
   coinBorderHover: '1px solid #ffa366',
   inputBorder: '#ffa366', // main orange
-  goButtonBg: '#202020',
+  goButtonBg: 'hsl(240, 100%, 5%)',
   goButtonColor: '#FFFFFF',
   goButtonColorHover: '#ffa366', // main orange
   goButtonBorder: '1px solid #FFFFFF',
@@ -55,7 +62,7 @@ export const darkTheme = {
   goButtonShadow: '4px 4px 0 0 #ffa366', // main orange
   coinUrlHover: '#ffa366',
   platformUrlHover: '#ffa366',
-  platformsGridBorder: '1px solid rgba(255, 198, 160, 0.5)',
+  platformsGridBorder: '1px solid rgba(255, 198, 160, 0.1)',
   themeTogglerBackground: 'transparent',
   themeTogglerBorder: 'none',
   themeTogglerColorHover: '#ffa366',
@@ -68,4 +75,8 @@ export const darkTheme = {
   newFeatureBackground: '#1f2b3a',
   newFeatureColor: '#ffa366',
   tableTRhover: '#1f2b3a',
+  activeLinkBackground: 'hsl(240, 100%, 5%)',
+  loaderBorder:  '6px solid #ffa366',
+  loaderBorderColor: '#ffa366 transparent #ffa366 transparent',
+  selectValuesBackground: '#1f2b3a',
 }

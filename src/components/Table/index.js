@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-import Coin from '../Coin';
 import './table.scss';
 
 const Table = ({
@@ -12,12 +10,7 @@ const Table = ({
   trendingCoins,
 }) => {
 
-  const trendyCoins = trendingCoins
-                              .filter((trend) => trend.id)
-                              .map((trend) => trend.id);
-  // // console.log(trendyCoins);
-  // const coinId = getCoinId(coin);
-  // console.log(coinId);
+  const trendyCoins = trendingCoins.filter((trend) => trend.id).map((trend) => trend.id);
 
   let currency;
   if (isEUR) currency = '€';
@@ -27,13 +20,13 @@ const Table = ({
     <table className="table">
     <thead>
         <tr>
-          <th>#</th>
-          <th className="name-column">Name</th>
-          <th>Price</th>
-          <th>24h %</th>
-          <th>Market Capitalization</th>
-          <th>Volume 24h</th>
-          <th>Circulating supply</th>
+          <th className="link-column text-left">#</th>
+          <th className="name-column text-left">Name</th>
+          <th className="price-column text-right">Price</th>
+          <th className="change-column text-center">24h %</th>
+          <th className="text-center">Market Capitalization</th>
+          <th className="text-center">Volume 24h</th>
+          <th className="text-center">Circulating supply</th>
         </tr>
     </thead>
     <tbody>
@@ -42,11 +35,20 @@ const Table = ({
         coins.map((coin) => {
           const getCurrentCoinId = () => {
             return getCoinId(coin);
-            // return coin.id;
           }
           return (
             <tr className="table-coin" key={coin.id}>
-              <td>{coin.market_cap_rank.toLocaleString()}</td>
+              <td>
+                <Link
+                  onClick={getCurrentCoinId}
+                  to={`/coin/${coin.id}`}
+                  title={`See ${coin.name} infos`}
+                  className="flex-center-around"
+                >
+                  <span className="table-coin__rank">{coin.market_cap_rank.toLocaleString()}</span>
+                  <img src={coin.image} alt={`${coin.name} logo`} className="coin-images" />
+                </Link>
+              </td>
               <td className="table-coin__link">
                 <Link
                 onClick={getCurrentCoinId}
@@ -54,13 +56,13 @@ const Table = ({
                 title={`See ${coin.name} infos`}
                 >
                   <div className="table-coin flex">
-                    <img src={coin.image} alt={`${coin.name} logo`} className="coin-images" />
                     <p className="table-coin__name">{coin.name}</p>
                     <p>({coin.symbol.toUpperCase()})</p>
                     {trendyCoins.find((id) => id === coin.id) && <i className="fab fa-hotjar" title="Trending" />}
                   </div>
                 </Link>
               </td>
+
               <td className="table-coin__price">{coin.current_price} {currency}</td>
               <td className="table-coin__td">
                  <span className={coin.price_change_percentage_24h > 0 ?
@@ -73,6 +75,7 @@ const Table = ({
             </tr>
           );
         })
+
       ) : (
 
         filteredCoins.map((coin) => {
@@ -81,7 +84,17 @@ const Table = ({
           );
           return (
             <tr className="table-coin" key={coin.id}>
-              <td>{coin.market_cap_rank.toLocaleString()}</td>
+               <td>
+                <Link
+                  onClick={getCurrentCoinId}
+                  to={`/coin/${coin.id}`}
+                  title={`See ${coin.name} infos`}
+                  className="flex-center-around"
+                >
+                  <span className="table-coin__rank">{coin.market_cap_rank.toLocaleString()}</span>
+                  <img src={coin.image} alt={`${coin.name} logo`} className="coin-images" />
+                </Link>
+              </td>
               <td className="table-coin__link">
                 <Link
                   onClick={getCurrentCoinId}
@@ -89,7 +102,6 @@ const Table = ({
                   title={`See ${coin.name} infos`}
                 >
                   <div className="table-coin flex">
-                    <img src={coin.image} alt={`${coin.name} logo`} className="coin-images" />
                     <p className="table-coin__name">{coin.name}</p>
                     <p>({coin.symbol.toUpperCase()})</p>
                     {trendyCoins.find((id) => id === coin.id) && <i className="fab fa-hotjar" title="Trending" />}

@@ -19,11 +19,15 @@ import GlobalStyles from 'src/components/Globalstyle';
 import { lightTheme, darkTheme } from 'src/components/Themes';
 import './app.scss';
 
-const App = ({ isLoading, getDefaultCoin }) => {
+const App = ({ init, isLoading, getDefaultCoin, isMenuOpen, hideMenu, documentTitle }) => {
 
   useEffect(() => {
     getDefaultCoin();
   }, []);
+
+  useEffect(() => {
+    document.title = documentTitle
+  }, [documentTitle])
 
   const location = useLocation();
   useEffect(() => {
@@ -34,6 +38,7 @@ const App = ({ isLoading, getDefaultCoin }) => {
   const [theme, setTheme] = useState('light');
   const themeToggler = () => {
     theme === 'light' ? setMode('dark') : setMode('light')
+    if (isMenuOpen) hideMenu();
   };
   // persist user's preferences by storing theme in localStorage
   const setMode = mode => {
@@ -52,25 +57,23 @@ const App = ({ isLoading, getDefaultCoin }) => {
       <div className="app">
         <Header themeToggler={themeToggler} theme={theme} />
         <MobileMenu themeToggler={themeToggler} theme={theme} />
-
-        <Switch>
-          <Route exact path="/">
-            <Home theme={theme} />
-          </Route>
-          <Route exact path="/coin/:id">
-            {isLoading ? <Loading /> : <CoinPage />}
-          </Route>
-          <Route exact path="/trendings">
-            {isLoading ? <Loading /> : <Trendings />}
-          </Route>
-          <Route exact path="/platforms">
-            {isLoading ? <Loading /> : <Platforms />}
-          </Route>
-          <Route>
-            <NotFound theme={theme} />
-          </Route>
-        </Switch>
-
+          <Switch>
+            <Route exact path="/">
+              <Home theme={theme} />
+            </Route>
+            <Route exact path="/coin/:id">
+              {isLoading ? <Loading /> : <CoinPage />}
+            </Route>
+            <Route exact path="/trendings">
+              {isLoading ? <Loading /> : <Trendings />}
+            </Route>
+            <Route exact path="/platforms">
+              {isLoading ? <Loading /> : <Platforms />}
+            </Route>
+            <Route>
+              <NotFound theme={theme} />
+            </Route>
+          </Switch>
         <Footer />
       </div>
       </>

@@ -81,16 +81,16 @@ const FiltersBar = ({
     </button>}
 
     {/* dashboard toggler */}
-    <button type="button" className="goButton goButton__filter flex" onClick={switchDashboard} title="Switch dashboard">
-      {!isSwitchDashboardClicked && isBlockDashboard ? (
-        <>
-        <p>Table dashboard </p>
-        {/* <span className="new-feature">NEW</span> */}
-        </>
+    <button type="button" className="goButton goButton__filter flex" onClick={switchDashboard} title="Switch">
+      {isSwitchDashboardClicked && isBlockDashboard ? (
+        <div className="dashboardButton flex-center-around">
+          <i className="fas fa-th-list"></i>Table dashboard
+        </div>
       ) : (
-        <p>Block dashboard</p>
+        <div className="dashboardButton flex-center-around">
+          <i className="fas fa-square"></i>Block dashboard
+        </div>
       )}
-
     </button>
   </div>
 );

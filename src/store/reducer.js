@@ -1,7 +1,10 @@
 const initialState = {
+  documentTitle: 'Rapidcoin | Find your coin',
   coins: [],
   coin: {},
   coinId: null,
+  chartData: [],
+  chartValue: '1',
   // searchbar
   searchValue: '',
   successMsg: '',
@@ -28,12 +31,22 @@ const initialState = {
   isMarketCapFilteredASC: false,
   // Table
   isSwitchDashboardClicked: false,
-  isBlockDashboard: true,
-  isTableDashboard: false,
+  isBlockDashboard: false,
+  isTableDashboard: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
+    case 'GET_DEFAULT_COIN_SUCCESS':
+      return {
+      ...state,
+        documentTitle: 'Rapidcoin | Find your coin',
+        coin: action.coin,
+        isLoading: false,
+        isBlockDashboard: false,
+        isTableDashboard: true,
+        isSwitchDashboardClicked: false,
+    }
     case 'GET_COINS_SUCCESS': {
       if (!state.isSwitchDashboardClicked) {
         return {
@@ -49,8 +62,8 @@ const reducer = (state = initialState, action = {}) => {
           isMarketCapFilteredASC: false,
           isFilterByMarketCapClicked: false,
           isSwitchDashboardClicked: false,
-          isBlockDashboard: true,
-          isTableDashboard: false,
+          isBlockDashboard: false,
+          isTableDashboard: true,
           suggestedCoins: [],
         }
       }
@@ -68,8 +81,8 @@ const reducer = (state = initialState, action = {}) => {
           isMarketCapFilteredASC: false,
           isFilterByMarketCapClicked: false,
           isSwitchDashboardClicked: true,
-          isBlockDashboard: false,
-          isTableDashboard: true,
+          isBlockDashboard: true,
+          isTableDashboard: false,
           suggestedCoins: [],
         }
       }
@@ -216,7 +229,10 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         coin: action.coin,
+        chartValue: '1',
+        // searchValue: '',
         isLoading: false,
+        documentTitle: action.coin.name + ' | Rapidcoin'
       }
     case 'GET_COIN_ID':
       return {
@@ -248,7 +264,7 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         filteredCoins: action.filteredCoins,
         successMsg: action.successMsg,
-        searchValue: '',
+        // searchValue: '',
         suggestedCoins: [],
         isLoading: false,
       }
@@ -267,6 +283,7 @@ const reducer = (state = initialState, action = {}) => {
         successMsg: '',
         errorMsg: '',
         isMenuOpen: false,
+        documentTitle: 'Rapidcoin | Find your coin',
       }
     case 'SET_IS_OPEN_MENU':
       return {
@@ -278,12 +295,14 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         trendingCoins: action.trendingCoins,
         isLoading: false,
+        documentTitle: 'Trending | Rapidcoin',
       }
     case 'GET_PLATFORMS_SUCCESS':
       return {
         ...state,
         platforms: action.platforms,
         isLoading: false,
+        documentTitle: 'Finance Platforms | Rapidcoin',
       }
     case 'SET_CURRENCY_VALUE': {
       if (action.value === 'EUR') {
@@ -292,6 +311,7 @@ const reducer = (state = initialState, action = {}) => {
           isCurrencyTogglerClicked: false,
           isEUR: true,
           isUSD: false,
+          isMenuOpen: false,
         }
       }
       if (action.value === 'USD') {
@@ -300,6 +320,7 @@ const reducer = (state = initialState, action = {}) => {
           isCurrencyTogglerClicked: false,
           isUSD: true,
           isEUR: false,
+          isMenuOpen: false,
         }
       }
     }
@@ -315,6 +336,17 @@ const reducer = (state = initialState, action = {}) => {
       isBlockDashboard: !state.isBlockDashboard,
       isTableDashboard: !state.isTableDashboard,
     }
+    case 'GET_MARKET_CHART_SUCCESS':
+      return {
+        ...state,
+        chartData: action.chartData,
+        isLoading: false,
+      }
+    case 'SET_CHART_VALUE':
+      return {
+        ...state,
+        chartValue: action.value,
+      }
     default:
       return state;
   }

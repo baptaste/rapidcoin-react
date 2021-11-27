@@ -38,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
-  .fas.fa-coins, .header__menu-mobileBtn {
+  .fas.fa-coins, .fas.fa-ring, .header__menu-mobileBtn {
     color: ${({ theme }) => theme.text};
     &:hover {
       color: ${({ theme }) => theme.headerLinksHover};
@@ -78,6 +78,10 @@ const GlobalStyles = createGlobalStyle`
       color: ${({ theme }) => theme.coinUrlHover};
     }
   }
+  .coin__page-intro--ranking {
+    background: ${({ theme }) => theme.newFeatureBackground};
+    color: ${({ theme }) => theme.newFeatureColor};
+  }
   .goButton {
     background: ${({ theme }) => theme.goButtonBg};
     color: ${({ theme }) => theme.goButtonColor};
@@ -112,11 +116,6 @@ const GlobalStyles = createGlobalStyle`
       box-shadow: ${({ theme }) => theme.goButtonShadow};
     }
   }
-  .coin__page__preview {
-    &:after {
-      background-color: ${({ theme }) => theme.coinPageDividerBorder};
-    }
-  }
   .footer, .menu__footer {
     color: ${({ theme }) => theme.footerColor};
   }
@@ -142,6 +141,9 @@ const GlobalStyles = createGlobalStyle`
       background: ${({ theme }) => theme.body};
       color: ${({ theme }) => theme.text};
     }
+  }
+  tbody tr {
+    background: ${({ theme }) => theme.body};
   }
   tbody tr:hover {
     background: ${({ theme }) => theme.tableTRhover};
@@ -185,6 +187,30 @@ const GlobalStyles = createGlobalStyle`
   }
   .fas.fa-caret-down {
     color: ${({ theme }) => theme.text};
+  }
+  .selectValues {
+    background: ${({ theme }) => theme.selectValuesBackground};
+    border: ${({ theme }) => theme.tableTRborderBottom};
+
+    .btnValue {
+      background: ${({ theme }) => theme.selectValuesBackground};
+      color: ${({ theme }) => theme.text};
+      &.active {
+        background: ${({ theme }) => theme.activeLinkBackground};
+        color: ${({ theme }) => theme.text};
+      }
+      &.disabled {
+        color: grey;
+      }
+      &:hover:not(.disabled) {
+        background: ${({ theme }) => theme.activeLinkBackground};
+        color: ${({ theme }) => theme.text};
+      }
+    }
+  }
+  .lds-dual-ring:after {
+    border: ${({ theme }) => theme.loaderBorder};
+    border-color: ${({ theme }) => theme.loaderBorderColor};
   }
   `;
 

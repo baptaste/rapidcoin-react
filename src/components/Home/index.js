@@ -26,11 +26,18 @@ const Home = ({
   trendingCoins,
   isEUR,
   isSwitchDashboardClicked,
+  getFilteredCoins,
  }) => {
 
   useEffect(() => {
     getCoins();
   }, [isEUR]);
+
+  useEffect(() => {
+    if (filteredCoins.length !== 0) {
+      getFilteredCoins();
+    }
+  }, [isEUR])
 
   const handleGoToHome = () => {
     resetFilteredCoins();
@@ -39,7 +46,7 @@ const Home = ({
   return (
     <main className="home">
       {filteredCoins.length !== 0 &&
-        <div className="app__desc">
+        <div className="search-results">
           <img src={theme === 'dark' ? blockchainDark : blockchain} className="blockchain_img" alt="Blockchain" />
           <button type="button" className="goButton goButton__home" onClick={handleGoToHome} aria-label="Go previous page">
                 <i className="fas fa-arrow-left" />
@@ -53,8 +60,11 @@ const Home = ({
           <div className="app__desc">
             <img src={theme === 'dark' ? blockchainDark : blockchain} className="blockchain_img" alt="Blockchain" />
             {errorMsg ? (
-              <div className="results__msgField">
+              <div className="results__msgField flex-align-center">
                 <p className="results__msgField--error">{isLoading ? 'Searching...' : errorMsg}</p>
+                <button type="button" className="goButton goButton__home" onClick={handleGoToHome} aria-label="Go previous page">
+                <i className="fas fa-times" />
+                </button>
               </div>
             ) : (
               <>
@@ -74,7 +84,7 @@ const Home = ({
           <Loading />
         ) : (
           // all coins
-          isSwitchDashboardClicked ? (
+          !isSwitchDashboardClicked ? (
             <Table />
           ) : (
             filteredCoins.length === 0 ? (
