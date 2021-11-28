@@ -48,7 +48,8 @@ export const darkTheme = {
   background: '#999',
   headerBtns: '#FFFFFF',
   headerLinksHover: '#ffa366', // main orange
-  coin: '#1f2b3a', // night darkblue
+  // coin: '#1f2b3a', // night darkblue
+  coin: 'hsl(240, 100%, 8%)',
   coinShadow: '4px 4px 0 0 #ffa366', // main orange
   coinShadowHover: 'none',
   coinBorder: '1px solid rgba(255, 198, 160, 0.5)', // light border orange
@@ -74,7 +75,8 @@ export const darkTheme = {
   tableTheadBorderBottom: '2.5px solid rgba(255, 198, 160, .1)',
   newFeatureBackground: '#1f2b3a',
   newFeatureColor: '#ffa366',
-  tableTRhover: '#1f2b3a',
+  // tableTRhover: '#1f2b3a',
+  tableTRhover: 'hsl(240, 100%, 8%)',
   activeLinkBackground: 'hsl(240, 100%, 5%)',
   loaderBorder:  '6px solid #ffa366',
   loaderBorderColor: '#ffa366 transparent #ffa366 transparent',

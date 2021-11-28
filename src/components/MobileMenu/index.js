@@ -13,7 +13,6 @@ const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme, to
       <Link to="/" className="home-menu-btn" title="Home">
         <i className="fas fa-coins rapidcoin__logo" onClick={resetFilter} aria-label="Home" />
       </Link>
-
       <div className="select-currencies">
       <span className="currency-symbol">{isEUR ? (
         <i className="fas fa-euro-sign"></i>
@@ -29,7 +28,6 @@ const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme, to
           {isEUR ? 'EUR' :  'USD'}
           <i className="fas fa-caret-down"></i>
         </button>
-
         {isCurrencyTogglerClicked && (
           <div className="currencies-wrapper">
           <button type="button" aria-label="EUR" onClick={(e) => toggleCurrency(e.target.ariaLabel)}
@@ -40,8 +38,7 @@ const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme, to
             className="currency-btn">
               USD
           </button>
-        </div>
-        )}
+        </div>)}
       </div>
       <button onClick={themeToggler} className="theme-toggler--mobile" aria-label="Toggle light mode">
           {theme === 'light' ? <i className="fas fa-moon" /> : <i className="fas fa-lightbulb" />}
@@ -55,19 +52,17 @@ const MobileMenu = ({ isMenuOpen, hideMenu, resetFilter, themeToggler, theme, to
         <i className="fas fa-times"></i>
       </button>
     </div>
-
     <nav className="menu__nav">
     <Link to="/" className="menu__nav-link" onClick={hideMenu}>
-        Home
-      </Link>
-      <Link to="/trendings" className="menu__nav-link" onClick={hideMenu}>
-        Trending
-      </Link>
-      <Link to="/platforms" className="menu__nav-link" onClick={hideMenu}>
-        Finance platforms
-      </Link>
+      Cryptocurrencies
+    </Link>
+    <Link to="/trendings" className="menu__nav-link" onClick={hideMenu}>
+      Trending
+    </Link>
+    <Link to="/platforms" className="menu__nav-link" onClick={hideMenu}>
+      Finance platforms
+    </Link>
     </nav>
-
     <div className="menu__footer">
       <p>© {year} Rapidcoin. All rights reserved</p>
       <a href="https://github.com/baptaste/rapidcoin-react" target="_blank">

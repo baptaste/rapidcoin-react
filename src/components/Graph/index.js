@@ -104,7 +104,7 @@ const Graph = ({ getMarketChart, chartData, chartValue, coin, isEUR, isLoading }
           },
           chartOptions: {
             chart: {
-              width: 325,
+              width: 320,
               height: 450,
             },
           },

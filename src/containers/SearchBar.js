@@ -5,6 +5,7 @@ import SearchBar from 'src/components/SearchBar';
 const mapStateToProps = (state) => ({
   searchValue: state.searchValue,
   suggestedCoins: state.suggestedCoins,
+  isSearching: state.isSearching,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -20,8 +21,8 @@ const mapDispatchToProps = (dispatch) => ({
     const coinId = coin.id;
     dispatch({ type: 'GET_COIN_ID', coinId: coinId });
   },
-  hideSuggestions: () => {
-    dispatch({ type: 'EMPTY_INPUT_VALUE' })
+  handleIsSearching: () => {
+    dispatch({ type: 'SET_IS_SEARCHING' })
   }
 });
 

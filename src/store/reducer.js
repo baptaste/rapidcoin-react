@@ -1,38 +1,43 @@
 const initialState = {
+  // Settings
   documentTitle: 'Rapidcoin | Find your coin',
-  coins: [],
-  coin: {},
-  coinId: null,
-  chartData: [],
-  chartValue: '1',
-  // searchbar
-  searchValue: '',
-  successMsg: '',
-  errorMsg: '',
-  filteredCoins: [],
-  suggestedCoins: [],
   isLoading: false,
   isMenuOpen: false,
-  trendingCoins: [],
-  platforms: [],
-  // home pagination
   currentPage: 1,
-  // filtersBar
-  isFilterByPriceClicked: false,
-  isCoinsFilteredDESC: false,
-  isCoinsFilteredASC: false,
+  // Settings > Dashboard
+  isSwitchDashboardClicked: false,
+  isBlockDashboard: false,
+  isTableDashboard: true,
+  // Settings > currency
   currency: 'eur',
   targetCurrency: 'usd',
   isCurrencyTogglerClicked: false,
   isEUR: true,
   isUSD: false,
+  // Coins datas
+  coins: [],
+  coin: {},
+  coinId: null,
+  // Alter datas
+  trendingCoins: [],
+  platforms: [],
+  // Research
+  isSearching: false,
+  filteredCoins: [],
+  suggestedCoins: [],
+  searchValue: '',
+  successMsg: '',
+  errorMsg: '',
+  // Chart
+  chartData: [],
+  chartValue: '1',
+  // FiltersBar
+  isFilterByPriceClicked: false,
+  isCoinsFilteredDESC: false,
+  isCoinsFilteredASC: false,
   isFilterByMarketCapClicked: false,
   isMarketCapFilteredDESC: false,
   isMarketCapFilteredASC: false,
-  // Table
-  isSwitchDashboardClicked: false,
-  isBlockDashboard: false,
-  isTableDashboard: true,
 };
 
 const reducer = (state = initialState, action = {}) => {
@@ -40,12 +45,15 @@ const reducer = (state = initialState, action = {}) => {
     case 'GET_DEFAULT_COIN_SUCCESS':
       return {
       ...state,
-        documentTitle: 'Rapidcoin | Find your coin',
-        coin: action.coin,
-        isLoading: false,
-        isBlockDashboard: false,
-        isTableDashboard: true,
-        isSwitchDashboardClicked: false,
+      documentTitle: 'Rapidcoin | Find your coin',
+      coin: action.coin,
+      isLoading: false,
+      isBlockDashboard: false,
+      isTableDashboard: true,
+      isSwitchDashboardClicked: false,
+      isSearching: false,
+      suggestedCoins: [],
+      searchValue: '',
     }
     case 'GET_COINS_SUCCESS': {
       if (!state.isSwitchDashboardClicked) {
@@ -54,6 +62,8 @@ const reducer = (state = initialState, action = {}) => {
           coins: action.coins,
           currentPage: 1,
           isLoading: false,
+          isSearching: false,
+          searchValue: '',
           isFilterByPriceClicked: false,
           isCoinsFilteredDESC: false,
           isCoinsFilteredASC: false,
@@ -73,6 +83,8 @@ const reducer = (state = initialState, action = {}) => {
           coins: action.coins,
           currentPage: 1,
           isLoading: false,
+          isSearching: false,
+          searchValue: '',
           isFilterByPriceClicked: false,
           isCoinsFilteredDESC: false,
           isCoinsFilteredASC: false,
@@ -230,8 +242,9 @@ const reducer = (state = initialState, action = {}) => {
         ...state,
         coin: action.coin,
         chartValue: '1',
-        // searchValue: '',
         isLoading: false,
+        isSearching: false,
+
         documentTitle: action.coin.name + ' | Rapidcoin'
       }
     case 'GET_COIN_ID':
@@ -253,6 +266,8 @@ const reducer = (state = initialState, action = {}) => {
     return {
       ...state,
       searchValue: '',
+      isSearching: false,
+      suggestedCoins: [],
     }
     case 'GET_SUGGESTED_COINS_SUCCESS':
     return {
@@ -260,20 +275,21 @@ const reducer = (state = initialState, action = {}) => {
       suggestedCoins: action.suggestedCoins,
     }
     case 'GET_FILTERED_COINS_SUCCESS':
-      return {
-        ...state,
-        filteredCoins: action.filteredCoins,
-        successMsg: action.successMsg,
-        // searchValue: '',
-        suggestedCoins: [],
-        isLoading: false,
-      }
+    return {
+      ...state,
+      filteredCoins: action.filteredCoins,
+      successMsg: action.successMsg,
+      suggestedCoins: [],
+      isLoading: false,
+      isSearching: false,
+    }
     case 'GET_FILTERED_COINS_ERROR':
     return {
       ...state,
       errorMsg: action.errorMsg,
       searchValue: '',
       isLoading: false,
+      isSearching: false,
     }
     case 'RESET_FILTERED_COINS':
       return {
@@ -283,6 +299,8 @@ const reducer = (state = initialState, action = {}) => {
         successMsg: '',
         errorMsg: '',
         isMenuOpen: false,
+        isSearching: false,
+        suggestedCoins: [],
         documentTitle: 'Rapidcoin | Find your coin',
       }
     case 'SET_IS_OPEN_MENU':
@@ -346,6 +364,11 @@ const reducer = (state = initialState, action = {}) => {
       return {
         ...state,
         chartValue: action.value,
+      }
+    case 'SET_IS_SEARCHING':
+      return {
+        ...state,
+        isSearching: true,
       }
     default:
       return state;
