@@ -212,6 +212,9 @@ const GlobalStyles = createGlobalStyle`
     border: ${({ theme }) => theme.loaderBorder};
     border-color: ${({ theme }) => theme.loaderBorderColor};
   }
+  .fas.fa-th-list, .fas.fa-square {
+    color: ${({ theme }) => theme.newFeatureColor};
+  }
   `;
 
 export default GlobalStyles;

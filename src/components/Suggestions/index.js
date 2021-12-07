@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import './suggestions.scss';
 
 
-const Suggestions = ({ searchValue, trendingCoins, suggestedCoins, hideSuggestions, getCoinId }) => {
+const Suggestions = ({ searchValue, trendingCoins, suggestedCoins, hideSuggestions, getCoinId, getTrendingCoins }) => {
+  useEffect(() => {
+    getTrendingCoins();
+  }, []);
+
   return (
     <div className="search-suggestions">
       <button onClick={hideSuggestions} className="close-menu-btn suggestions-btn" aria-label="Close suggestions">

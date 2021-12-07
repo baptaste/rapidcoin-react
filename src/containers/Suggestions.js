@@ -6,7 +6,7 @@ const mapStateToProps = (state) => ({
   isSearchBarOpen: state.isSearchBarOpen,
   searchValue: state.searchValue,
   suggestedCoins: state.suggestedCoins,
-  trendingCoins: state.trendingCoins,
+  trendingCoins: state.trendingCoins
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   hideSuggestions: () => {
     dispatch({ type: 'EMPTY_INPUT_VALUE' })
+  },
+  getTrendingCoins: () => {
+    dispatch({ type: 'GET_TRENDING_COINS' });
   },
 });
 
